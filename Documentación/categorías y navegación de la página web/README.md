@@ -58,8 +58,8 @@ Vision
 Mision
 ## logo
 ## Contacto
-## Barra de busqueda:
-## Carrito de compras:
-## Inicio de sesion:
-## Registrarse:
+## Barra de busqueda
+## Solicitar credito
+## Inicio de sesion
+## Registrarse
 
