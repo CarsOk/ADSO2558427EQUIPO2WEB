@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, serif;
 }
 
 @media screen and (max-width: 480px) {
@@ -42,6 +42,12 @@
         justify-content: center;
         width: 950px;
     }
+    .menu a:hover{
+        background:#C1C3C240 ;
+        box-shadow: 10px 10px 0 #E2E7E570;
+        top: -5px;
+        left: -5;
+    }
     .menu{
         align-items: center;    
         background-color: Blue;
@@ -49,6 +55,8 @@
         justify-content: space-between;
         padding-bottom: 10px;
         padding-top: 10px;
+        position: sticky;
+        top: 0;
     }
     .dirigir{
         text-decoration: none;
