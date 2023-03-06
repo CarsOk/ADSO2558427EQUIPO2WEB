@@ -1,0 +1,73 @@
+* {
+    border: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+}
+
+.contenedorPrincipal{
+    height: 965px;
+    width: 1000px;
+    margin: auto;
+}
+
+.logo {
+    align-items: center;
+    border: 2px solid #423271;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+    width: 76px;
+}
+
+.logoParte1{
+    width: 62px;
+}
+
+.logoParte2{
+    width: 65px;
+}
+
+.contenedorSesion{
+    align-items: center;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+    justify-content: center;
+}
+
+.iniciarSesion{
+    align-items: center;
+    background-color: #F6F8FA;
+    border: 1px solid blue;
+    border-radius: 30px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 490.68px;
+}
+
+.titulo{
+    color: #52545C;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 50;
+}
+
+.contextoDelInput{
+    color: #52545C;
+    display: block;
+    font-size: 20px;
+    padding-right: 360px;
+    padding-bottom: 10px;
+}
+
+.contextoDelInputContraseña{
+    color: #52545C;
+    display: block;
+    font-size: 20px;
+    padding-right: 305px;
+    padding-bottom: 10px;
+}
