@@ -1,0 +1,2 @@
+class Apprentice < ApplicationRecord
+end
