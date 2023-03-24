@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-col">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Registro de Contacto</title>
+            <!--Icono en el navegador-->
+            <link rel="shortcut icon" href="logo/icono.png">
+            <link rel="stylesheet" href="Css/stiles.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> 
+        </head>
+    <body>
+
+       <header>
+            <!-- Just an image -->
+          <nav class="navbar navbar">
+             <a class="navbar2" href="#">
+                  <img src="/logo/icono.png" width ="98" alt="logo">
+                  <img src="/logo/logo_creditos.png" width ="98" alt="logo">
+             </a>
+          </nav>
+          <!-- Es responsive-->
+       </header> 
+        <main class="contenedor">
+            <form>
+                <div class="form-row">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Primer nombre">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Segundo apellido">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">Contraseña</label>
+                    <input type="password" class="form-control" id="inputPassword4">
+                    
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress">Direccion</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Carrera 45">
+                </div>
+                <div class="form-group">
+                  <label for="inputcelular">Celular</label>
+                  <input type="text" class="form-control" id="inputcelular" placeholder=" 34454600">
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCity">Ciudad</label>
+                    <input type="text" class="form-control" id="inputCity">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputState">Estado</label>
+                    <select id="inputState" class="form-control">
+                      <option selected>Atlantico</option>
+                      <option selected>Antioquia</option>
+                      <option selected>Cundinamarca</option>
+                     
+                    </select>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputZip">Codigo Postal</label>
+                    <input type="text" class="form-control" id="inputZip">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Check me out
+                    </label>
+                  </div>
+                </div>
+                <div class="form-link">
+                    <span>Already have an account <a href="#" class="link signup-link">Signup?</a></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+            <footer>
+                <p class="textoPiePagina">@2023 Créditos 3A</p>
+            </footer>
+        </main>
+   </body>
+</html>

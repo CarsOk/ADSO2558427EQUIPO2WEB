@@ -1,0 +1,37 @@
+*{
+    
+    padding: 8px;
+    margin: 0%;
+  
+  }
+  
+  
+  .contenedor {
+      justify-content: space-around;
+  }
+  .navbar{
+      
+      background: #a39dcd6b;
+      height: 200px;
+      align-items: flex-end;
+  }
+  
+  
+  
+  .form-link span,
+  .form-link a{
+      
+      font-size: 14px;
+      font-weight: 400;
+  }
+  footer{
+      align-items: center;
+      background-color: #5B5CA5;
+      display: flex;
+      height: 50px;
+      justify-content: center;
+  }
+  
+  .textoPiePagina{
+      color: rgb(255, 255, 255, 0.8);
+  }
