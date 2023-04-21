@@ -1,2 +1,0 @@
-class Apprentice < ApplicationRecord
-end

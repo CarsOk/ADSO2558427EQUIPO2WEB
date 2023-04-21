@@ -1,0 +1,59 @@
+<main class="contenedorPrincipal">
+<header>
+  <div class="logo">
+  <div class="contenedorLogoParte1">
+    <%= image_tag "logo_creditos.png", class: "logoParte1"%>
+  </div>
+  <div class="contenedorLogoParte2">
+    <%= image_tag "logo_simbolo.png", class: "logoParte2"%>
+  </div>
+  </div>
+</header>
+<main class="contenedorSesion">
+  <article class="iniciarSesion">
+    <h3 class="titulo">Iniciar sesión</h3>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email, class:"contextoDelInput"%><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "inputEstilo" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :contraseña, class:"contextoDelInput" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "inputEstilo" %>
+      </div>
+
+      <%# if devise_mapping.rememberable? %>
+      <!--
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      --> 
+      <%# end %>
+
+      <div class="actions">
+        <%= f.submit "Ingresar", class: "ingresar" %>
+      </div>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "No recuerdo mi contraseña", new_password_path(resource_name), class: "contraseñaOlvidada" %><br />
+    <% end %>
+  </article>
+  <%#= render "devise/shared/links" %>
+  <section class="textoNuevoUsuario">
+    <div class="linea"></div>
+      <p class="contenidoNuevoUsuario">¿Eres nuevo?</p>
+    <div class="linea"></div>
+    </section>
+    <div class= "crearUsuario">
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <%= link_to "Crea tu cuenta de crédito", new_registration_path(resource_name), class: "crearUsuarioTextoBoton"%><br />
+      <% end %>
+    </div>
+    
+  <% end %>
+</main>
+    <footer>
+        <p class="textoPiePagina">@2023 Créditos 3A</p>
+    </footer>
+
