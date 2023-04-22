@@ -48,4 +48,6 @@
   - Fecha de pago
   - Monto pagado
   - Saldo pendiente
+
+  
 ![Mer BD](/Documentaci%C3%B3n/base_datos/MerBD.png)
