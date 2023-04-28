@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_28_124430) do
+ActiveRecord::Schema.define(version: 2023_04_28_152025) do
 
   create_table "creditos", force: :cascade do |t|
     t.integer "cuotas"
@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 2023_04_28_124430) do
   create_table "productos", force: :cascade do |t|
     t.string "nombre"
     t.string "descripcion"
+    t.string "file"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "avatar"
   end
 
   create_table "users", force: :cascade do |t|
