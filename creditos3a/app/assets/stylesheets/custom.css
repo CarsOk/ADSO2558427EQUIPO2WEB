@@ -308,3 +308,16 @@ footer{
   }
 }
 
+
+.card {
+    display: flex;
+}
+
+.btn btn-primary{
+    background-color: #423271;
+}
+
+.lista-productos{
+    display: flex;
+    
+}
