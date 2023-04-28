@@ -1,0 +1,16 @@
+<h1>Lista de carros</h1>
+
+<table class= "table">
+  <thead class="table table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render 'producto' %>
+  </tbody>
+</table>
+
+<%= link_to "agregar producto", new_producto_path %> 
