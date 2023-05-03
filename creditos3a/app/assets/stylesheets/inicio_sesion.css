@@ -1,9 +1,14 @@
+:root{
+    --blanco: #fff; /* color: var(--blanco) */
+}
+
 * {
     border: 0;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     box-sizing: border-box;
 }
+
 
 @media (min-width:1024px) {
   .contenedorPrincipal{
@@ -308,16 +313,8 @@ footer{
   }
 }
 
-
-.card {
+.footer{
     display: flex;
-}
-
-.btn btn-primary{
-    background-color: #423271;
-}
-
-.lista-productos{
-    display: flex;
-    
+    flex-direction: column;
+    padding: 75px;
 }
