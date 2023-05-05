@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'paises/index'
+  root to: "home#landing_page"
   get 'home/dashboard'
   devise_for :users
-  root to: "home#dashboard"
+  get '/index', to: 'home#landing_page'
+  get '/contacto', to: 'home#contacto'
+  
+  resources :productos
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

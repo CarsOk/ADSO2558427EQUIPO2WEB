@@ -1,4 +1,10 @@
 class HomeController < ApplicationController
-  def dashboard
+
+  def landing_page
+    @productos_ultimos = Producto.last(4)
   end
+
+  def contacto
+  end
+
 end

@@ -6,10 +6,12 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module Creditos3a
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.autoload_paths += %W(#{config.root}/app/uploaders)
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -18,5 +20,12 @@ module Creditos3a
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.to_prepare do
+      Devise::SessionsController.layout "empty"
+      Devise::RegistrationsController.layout "empty"
+      Devise::ConfirmationsController.layout "empty"
+      Devise::UnlocksController.layout "empty"
+      Devise::PasswordsController.layout "empty"
+    end
   end
 end

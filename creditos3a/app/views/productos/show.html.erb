@@ -1,0 +1,17 @@
+<h1>Producto</h1>
+
+<dl>
+    <dt>Nombre</dt>
+    <dd><%= @producto.nombre %></dd>
+    <dt>Descripción</dt>
+    <dd><%= @producto.descripcion %></dd>
+
+</dl>
+
+<p>Imagen</p>
+<%= image_tag(@producto.avatar_url) if @producto.avatar? %>
+<br>
+<hr>
+
+<%= link_to "lista de productos", productos_path %> |
+<%= link_to "Editar", edit_producto_path(@producto) %> 
