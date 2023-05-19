@@ -60,3 +60,7 @@ gem 'devise', '~> 4.2'
 gem 'simple_form'
 
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
+
+gem 'actionmailer', '~> 6.1', '>= 6.1.7.3'
+
+gem 'sendgrid-ruby', '~> 5.0'

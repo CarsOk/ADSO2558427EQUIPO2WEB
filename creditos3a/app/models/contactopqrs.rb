@@ -1,0 +1,2 @@
+class Contactopqrs < ApplicationRecord
+end

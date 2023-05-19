@@ -1,0 +1,74 @@
+<%= simple_form_for @contactopqrs, url: contactospqrs_path, method: :post do |f| %>
+
+  <%= f.input :email %>
+  <%= f.input :asunto %>
+  <%= f.input :mensaje, as: :text %>
+  <%= f.button :submit, 'Enviar PQRS' %>
+<% end %>  
+
+<div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+<div class="wrapper wrapper--w780">
+      <div class="card card-3 contacto" id="contacto">
+          <div class="contenedor-imagen-icono col-md-5 col-sm-12">
+            <div>
+              <%= image_tag "hola.jpg", class:"imagen-contacto-pqrs col-md-12"%>
+            </div>
+            
+          </div>
+          <div class="card-body col-md-6 col-sm-12">
+              <h2 class="title">Registration Info</h2>
+              <%= simple_form_for @contactopqrs, url: contactospqrs_path, method: :post do |f| %>
+
+                <div class="input-group">
+                  <%= f.input :email, input_html: { class: 'input--style-3'}, placeholder:"Email", label:false, wrapper: false%>
+                </div>
+                <div class="input-group">
+                  <%= f.input :asunto, input_html: { class: 'input--style-3'}, placeholder:"Asunto", label:false, wrapper: false%>
+                </div>
+                <div class="input-group">
+                  <%= f.input :mensaje,  input_html: { class: 'input--style-3', id: 'mensaje'}, placeholder:"Mensaje", label:false, wrapper: false%>
+                </div>
+                <div class="input-group">
+                  <%= f.input :email, input_html: { class: 'input--style-3'}, placeholder:"Email", label:false, wrapper: false%>
+                </div>
+                <%= f.input :email %>
+                <%= f.input :asunto %>
+                <%= f.input :mensaje, as: :text %>
+                
+                <div class="p-t-10">
+                  <%= f.button :submit, 'Enviar', class: 'btn btn--pill btn--green'%>
+                </div>
+              <% end %>  
+              <form method="POST">
+                  <div class="input-group">
+                      <input class="input--style-3" type="text" placeholder="Name" name="name">
+                  </div>    
+                  <div class="input-group">
+                      <input class="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthday">
+                      <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                  </div>
+                  <div class="input-group">
+                      <div class="rs-select2 js-select-simple select--no-search">
+                          <select name="gender">
+                              <option disabled="disabled" selected="selected">Gender</option>
+                              <option>Male</option>
+                              <option>Female</option>
+                              <option>Other</option>
+                          </select>
+                          <div class="select-dropdown"></div>
+                      </div>
+                  </div>
+                  <div class="input-group">
+                      <input class="input--style-3" type="email" placeholder="Email" name="email">
+                  </div>
+                  <div class="input-group">
+                      <input class="input--style-3" type="text" placeholder="Phone" name="phone">
+                  </div>
+                  <div class="p-t-10">
+                      <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
