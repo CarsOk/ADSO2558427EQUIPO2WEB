@@ -1,10 +1,4 @@
 
-body {
-    background-image: url('poster5');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
 .titulo{
     color: #52545C;
     font-size: 25px;
@@ -61,8 +55,19 @@ body {
             width: 65px;
         }
         
-      }  
+  }  
+
     
+.espacio{
+    height: 20px;
+}
+    
+.contenedor-espacio-logo{
+  align-items: center;
+  display: flex;
+  height: 130px;
+  justify-content: center;
+}
   
 
 
