@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2023_05_15_183845) do
 
+  create_table "contactospqrs", force: :cascade do |t|
+    t.string "nombre"
+    t.string "email"
+    t.string "asunto"
+    t.text "mensaje"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+  
   create_table "productos", force: :cascade do |t|
     t.string "nombre"
     t.string "descripcion"
