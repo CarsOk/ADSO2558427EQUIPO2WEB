@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2023_05_15_183845) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-  
+
   create_table "productos", force: :cascade do |t|
     t.string "nombre"
     t.string "descripcion"
