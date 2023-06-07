@@ -1,0 +1,34 @@
+<div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+<div class="wrapper wrapper--w780">
+      <div class="card card-3 contacto" id="contacto">
+          <div class="contenedor-imagen-icono col-md-5 col-sm-12">
+            <div>
+              <%= image_tag "hola.jpg", class:"imagen-contacto-pqrs col-md-12"%>
+            </div>
+            
+          </div>
+          <div class="card-body col-md-6 col-sm-12">
+              <h2 class="title">¿En qué podemos ayudar?</h2>
+              <%= simple_form_for @contactopqrs, url: contactospqrs_path, method: :post do |f| %>
+
+                <div class="input-group">
+                  <%= f.input :nombre, input_html: { class: 'input--style-3'}, placeholder:"Nombre", label:false, wrapper: false%>
+                </div>
+                <div class="input-group">
+                  <%= f.input :email, input_html: { class: 'input--style-3'}, placeholder:"Email", label:false, wrapper: false%>
+                </div>
+                
+                <div class="input-group">
+                  <%= f.input :asunto, input_html: { class: 'input--style-3'}, placeholder:"Asunto", label:false, wrapper: false%>
+                </div>
+                <div class="input-group">
+                  <%= f.input :mensaje,  input_html: { class: 'input--style-3', id: 'mensaje'}, placeholder:"Mensaje", label:false, wrapper: false%>
+                </div>
+                <div class="p-t-10">
+                  <%= f.button :submit, 'Enviar', class: 'btn btn--pill btn--green'%>
+                </div>
+              <% end %>  
+          </div>
+      </div>
+  </div>
+</div>
