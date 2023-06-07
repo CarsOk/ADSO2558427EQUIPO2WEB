@@ -23,11 +23,11 @@
         <div class="card-body">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.text_field :first_name, autofocus: true, class: "form-control mb-1", placeholder: "Primer  nombre" %>
-            <%= f.text_field :second_name, autofocus: true, class: "form-control mb-1", placeholder: "Segundo nombre" %>
-            <%= f.text_field :last_name_1, class: "form-control mb-1", placeholder: "Primer apellido" %>
-            <%= f.text_field :last_name_2, class: "form-control mb-1", placeholder: "Segundo apellido" %>
-            <%= f.text_field :identification, class: "form-control mb-1", placeholder: "Tarjeta de identidad" %>
-            <%= f.text_field :address, class: "form-control mb-1", placeholder: "Direccion" %>
+            <%= f.text_field :segundo_nombre, autofocus: true, class: "form-control mb-1", placeholder: "Segundo nombre" %>
+            <%= f.text_field :primer_apellido, class: "form-control mb-1", placeholder: "Primer apellido" %>
+            <%= f.text_field :segundo_apellido, class: "form-control mb-1", placeholder: "Segundo apellido" %>
+            <%= f.text_field :identificacion, class: "form-control mb-1", placeholder: "Numero de identificacion" %>
+            <%= f.text_field :direccion, class: "form-control mb-1", placeholder: "Direccion" %>
             <%= f.email_field :email, autofocus: true, class: "form-control mb-1", placeholder: "Email" %>
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control mb-1", placeholder: "Contraseña" %>
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mb-1", placeholder: "Confirmar contraseña" %>
