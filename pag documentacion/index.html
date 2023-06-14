@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Documentación</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" style="width: 80px; border: 1px solid;justify-content: center;font-size: medium;" alt="">
+    <h1>Documentación movil</h1>
+
+    <div class="button-container">
+      <button onclick="mostrarImagen('maquetacion')">Maquetación</button>
+      <button onclick="mostrarImagen('diagrama')">Diagrama de Proceso</button>
+      <button onclick="mostrarImagen('herramienta')">Herramienta de Investigación</button>
+      <button onclick="mostrarImagen('logo')">Logo de Empresa</button>
+    </div>
+
+    <div class="image-container" id="maquetacionImageContainer">
+      <img src="Imagen1.png" alt="Maquetación">
+      <img src="Imagen2.png" alt="Maquetación">
+    </div>
+
+    <div class="image-container" id="diagramaImageContainer">
+      <img src="mapa de proceso.png" alt="Diagrama de Proceso">
+    </div>
+
+    <div class="image-container" id="herramientaImageContainer">
+      <img src="herramienta web.png" alt="Herramienta de Investigación">
+      <img src="herramientainvestigacion.png" alt="Herramienta de Investigación">
+      <img src="herramientadeinvestigacion2.png" alt="Herramienta de Investigación">
+
+    </div>
+
+    <div class="image-container" id="logoImageContainer">
+      <img src="logo.png" alt="Logo de Empresa">
+    </div>
+
+    <h1>Documentación Web</h1>
+
+    <div class="button-container">
+      <button onclick="mostrarImagen('casoDeUso')">Caso de Uso</button>
+      <button onclick="mostrarImagen('maquetado')">Maquetado</button>
+      <button onclick="mostrarImagen('baseDeDatos')">Base de Datos</button>
+      <button onclick="mostrarImagen('categoria')">Categoría</button>
+      <button onclick="mostrarImagen('diagramaEstado')">Diagrama de Estado</button>
+      <button onclick="mostrarImagen('logoEmpresa')">Logo de Empresa</button>
+    </div>
+
+    <div class="image-container" id="casoDeUsoImageContainer">
+      <img src="Caso_de_uso_pagina_web_jpg.jpg" alt="Caso de Uso">
+    </div>
+
+    <div class="image-container" id="maquetadoImageContainer">
+      <img src="maquetado.png" alt="Maquetado">
+      <h1>contactos</h1>
+      <img src="maquetado contacto.jpg" alt="Maquetado">
+      <h1>solicitud de credito</h1>
+      <img src="maquetado de solicitar credito.png" alt="Maquetado">
+      <h1>maquetacion index</h1>
+      <img src="maquetado del index.png" alt="Maquetado">
+      <h1>maquetado de inicio de sesion </h1>
+      <img src="maquetado Inicio sesión monitor.png" alt="Maquetado">
+    </div>
+
+    <div class="image-container" id="baseDeDatosImageContainer">
+      <img src="base de datos diagrama.png" alt="Base de Datos">
+    </div>
+
+    <div class="image-container" id="categoriaImageContainer">
+      <img src="e-comerce.webp" alt="Categoría">
+    </div>
+
+    <div class="image-container" id="diagramaEstadoImageContainer">
+      <img src="estados.png" alt="Diagrama de Estado">
+    </div>
+
+    <div class="image-container" id="logoEmpresaImageContainer">
+      <img src="logo.png" alt="Logo de Empresa">
+    </div>
+  </div>
+
+  <script>
+    function mostrarImagen(id) {
+      var imageContainer = document.getElementById(id + 'ImageContainer');
+      if (imageContainer.style.display === 'none') {
+        imageContainer.style.display = 'block';
+      } else {
+        imageContainer.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
