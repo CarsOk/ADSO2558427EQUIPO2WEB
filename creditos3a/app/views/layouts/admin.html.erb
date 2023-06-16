@@ -20,7 +20,7 @@
 
 
 </head>
-<body>
+<body class="fondo-dashboard">
 
     <!-- Wrapper-->
     <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
@@ -35,7 +35,6 @@
             <%= render 'layouts/topnavbar' %>
 
             <!-- Main view  -->
-            <%= link_to "Cerrar", destroy_user_session_path, method: :delete, class: "nav-link"%>
             <%= yield %>
 
             <!-- Footer -->
