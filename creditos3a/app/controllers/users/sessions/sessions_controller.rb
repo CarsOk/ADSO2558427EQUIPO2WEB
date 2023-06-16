@@ -1,18 +1,6 @@
 # frozen_string_literal: true
 
-class Users::SessionsController < Devise::SessionsController
-  def destroy
-      super
-  end
-  def after_sign_in_path_for(resource)
-    if resource.administrador?
-      # Redirige al root de administrador si el usuario es un administrador
-      dashboard_home_path
-    else
-      # Redirige al root de cliente si el usuario no es un administrador
-      home_dashboard_path
-    end
-  end
+class Users::Sessions::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -26,7 +14,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  
+  # def destroy
+  #   super
+  # end
 
   # protected
 
@@ -34,4 +24,14 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  def after_sign_in_path_for(resource)
+    if resource.administrador?
+      # Redirige al usuario administrador a la vista correspondiente
+      root_path
+    else
+      # Redirige al usuario cliente a la vista correspondiente
+      super
+    end
+  end
 end
