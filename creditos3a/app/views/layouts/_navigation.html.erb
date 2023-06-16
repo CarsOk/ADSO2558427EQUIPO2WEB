@@ -33,24 +33,9 @@
                     </a>
                 </div>
             </li>
-            <li class="<%= 'active' if current_page?('/people') %>">
-                <%= link_to "/people" do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">People</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/people/new') %>">
-                <%= link_to "/people/new" do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">New person</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/index') %>">
-                <%= link_to "/home/index" do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Option One</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/index') %>">
-                <%= link_to "/home/index" do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Option Two</span>
+            <li class="<%= 'active' if current_page?('/categorias') %>">
+                <%= link_to "/categorias" do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label">Categoria</span>
                 <% end %>
             </li>
         </ul>

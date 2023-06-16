@@ -1,7 +1,3 @@
-import $ from 'jquery';
-global.$ = jQuery = $;
-
-
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -15,12 +11,13 @@ global.$ = jQuery = $;
 // about supported directives.
 //
 
-//= require rails-ujs
-//= require activestorage
-//= require popper
 //= require bootstrap
-//= require pace/pace.min.js
-//= require slimscroll/jquery.slimscroll.min.js
-//= require metisMenu/jquery.metisMenu.js
-//= require inspinia.js
-
+//= require bootstrap.min.js
+//= requiere bootstrap.js.map
+//= require inspinia
+//= requiere jquery-3.1.1.min.js
+//= requiere popper.min.js  
+//= jquery.metisMenu.js
+//= pace.min.js
+//= jquery.slimscroll.js
+//= jquery.slimscroll.min.js
