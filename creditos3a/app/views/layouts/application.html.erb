@@ -35,7 +35,11 @@
             <li class="nav-item"><a class="nav-link" href="#!">Quienes somos</a></li>
             </li>
           </ul>
-          <a href="<%= new_user_session_path %>" class="btn btn-primary active ">Ingresar</a>
+          <% if user_signed_in? %>
+            <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to "Iniciar sesión", new_user_session_path, class: "btn btn-primary blue", id: "boton-sesion" %>
+          <% end %>
           
         </div>
       </div>

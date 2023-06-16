@@ -39,11 +39,11 @@ class CategoriasController < ApplicationController
     @categoria = Categoria.find(params[:id])
     @categoria.destroy
 
-    if @categoria.destroy
-        redirect_to categorias_path
-    else
-        render :index
-    end
+      if @categoria.destroy
+          redirect_to categorias_path
+      else
+          render :index
+      end
     end
 
     

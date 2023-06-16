@@ -2,5 +2,6 @@
     <%= f.input :nombre, input_html: { class: 'form-control is-valid string optional' } %>
     <%= f.input :descripcion, input_html: { class: 'form-control is-valid string optional' } %>
     <%= f.association :categoria, label_method: :nombre, input_html: { class: 'form-control is-valid string optional' } %>
+    <%= f.input :avatar %>
     <%= f.button :submit %>
   <% end %>

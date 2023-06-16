@@ -50,7 +50,7 @@ class Categorias::ProductosController < ApplicationController
   private
 
   def producto_params
-    params.require(:producto).permit(:id, :nombre, :descripcion, :categoria_id)
+    params.require(:producto).permit(:id, :nombre, :descripcion, :avatar, :categoria_id)
   end
 
   def set_categoria

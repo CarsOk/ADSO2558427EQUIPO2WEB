@@ -1,16 +1,21 @@
-<h1>Producto</h1>
-<p>Find me in app/views/categorias/productos/show.html.erb</p>
-<h3>Información del producto</h3>
-
-<table>
-  <tr>
-    <td>Id</td>
-    <td>nombre</td>
-    <td>cantidad</td>
-  </tr>
-  <tr>
-    <td><%= @producto.id %></td>
-    <td><%= @producto.nombre %></td>
-    <td><%= @producto.descripcion %></td>
-  </tr>
-</table>
+<h1>Dato de producto</h1>
+<div class="table-responsive">
+  <table class="w-100">
+    <thead class="table table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">nombre</th>
+        <th scope="col">cantidad</th>
+        <th scope="col">Imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><%= @producto.id %></th>
+        <td><%= @producto.nombre %></td>
+        <td><%= @producto.descripcion %></td>
+        <td><%= image_tag(@producto.avatar_url, class: 'imagen-producto-show') if @producto.avatar? %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
