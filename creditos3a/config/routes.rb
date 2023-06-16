@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/home'
   root to: "home#landing_page"
   get 'home/dashboard'
   devise_for :users
