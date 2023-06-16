@@ -1,0 +1,12 @@
+<% @categorias.each do |categoria|%>
+  <tr>
+  <th scope="row">
+    <%= link_to categoria.id, categoria_path(categoria.id) %>
+  </th>
+    <td><%= categoria.nombre %></td>
+    <td><%= link_to "Editar", edit_categoria_path(categoria.id) %></td>
+    <td><%= link_to 'Borrar', categoria, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+
+  </tr>
+<% end %>
+  

@@ -1,0 +1,45 @@
+<h3>Información categoria </h3>
+
+<table class="table">
+  <thead class="thead-dark  ">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= @categoria.id %></th>
+      <td><%= @categoria.nombre %></td>
+      <td><%= link_to "Editar", edit_categoria_path(@categoria.id) %></td>
+      <td><%= link_to 'Borrar', @categoria, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+    </tr>
+  </tbody>
+</table>
+
+ | 
+</br>
+</br>
+<h3>Productos</h3>
+
+<table class="table">
+  <thead class="thead-dark  ">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @productos.each do |producto|%> 
+      <tr>
+        <th scope="row"><%= producto.id %></th>
+        <td><%= producto.nombre %></td>
+        <td><%= producto.descripcion %></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
+
+
+<%= link_to "Editar productos", categoria_productos_path(@categoria.id) %>

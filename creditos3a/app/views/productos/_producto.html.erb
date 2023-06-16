@@ -1,9 +1,0 @@
-<% @productos.each do |producto|%>
-    <tr>
-        <th scope="row"><%= producto.id %></th>
-        <td>
-            <%= link_to producto.nombre, producto_path(producto.id) %>
-        </td>
-        <td><%= producto.descripcion %></td>
-    </tr>
-<% end %>
