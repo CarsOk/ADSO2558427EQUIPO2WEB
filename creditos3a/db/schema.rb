@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_11_011018) do
+ActiveRecord::Schema.define(version: 2023_06_16_133803) do
+
+  create_table "categorias", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "contactospqrs", force: :cascade do |t|
     t.string "nombre"
@@ -28,6 +34,8 @@ ActiveRecord::Schema.define(version: 2023_05_11_011018) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
+    t.integer "categoria_id", null: false
+    t.index ["categoria_id"], name: "index_productos_on_categoria_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,8 +46,16 @@ ActiveRecord::Schema.define(version: 2023_05_11_011018) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "second_name"
+    t.string "last_name_1"
+    t.string "last_name_2"
+    t.string "address"
+    t.integer "identification"
+    t.boolean "administrador"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "productos", "categorias"
 end

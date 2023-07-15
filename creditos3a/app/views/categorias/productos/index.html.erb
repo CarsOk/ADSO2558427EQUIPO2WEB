@@ -1,0 +1,17 @@
+<h1>Lista de productos</h1>
+
+<table class= "table">
+  <thead class="table table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render 'productos' %>
+  </tbody>
+  
+</table>
+
+<%= link_to "Crear producto", new_categoria_producto_path%>

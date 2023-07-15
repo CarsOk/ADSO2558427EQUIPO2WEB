@@ -1,0 +1,44 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element" >
+                    <div class="content_image">
+                        <a class="<%= 'active' if current_page?('/home/index') %>">
+                            <%= link_to "/dashboard/home" do %>
+                                <div class="logo">
+                                    <div class="contenedorLogoParte1">
+                                        <%= image_tag "logo-blanco-pt-1.png", class: "logoParte1"%>
+                                    </div>
+                                    <div class="contenedorLogoParte2">
+                                        <%= image_tag "logo-blanco-pt-2.png", class: "logoParte2"%>
+                                    </div>
+                                    </div>
+                            <% end %>
+                        </a>
+                    </div>
+                </div>
+                <div class="logo-element">
+                    <a class="<%= 'active' if current_page?('/home/index') %>">
+                        <%= link_to "/home/index" do %>
+                            <div class="logo">
+                            <div class="contenedorLogoParte1">
+                              <%= image_tag "logo-blanco-pt-1.png", class: "logoParte1"%>
+                            </div>
+                            <div class="contenedorLogoParte2">
+                              <%= image_tag "logo-blanco-pt-2.png", class: "logoParte2"%>
+                            </div>
+                          </div>
+                        <% end %>
+                    </a>
+                </div>
+            </li>
+            <li class="<%= 'active' if current_page?('/categorias') %>">
+                <%= link_to "/categorias" do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label">Categoria</span>
+                <% end %>
+            </li>
+        </ul>
+
+    </div>
+</nav>

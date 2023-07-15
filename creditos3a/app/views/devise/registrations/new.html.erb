@@ -1,29 +1,48 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="bg-gra-01"> 
+  <header>
+  <div class="contenedor-espacio-logo">
+    <div class="logo">
+      <div class="contenedorLogoParte1">
+        <%= image_tag "logo-blanco-pt-1.png", class: "logoParte1"%>
+      </div>
+      <div class="contenedorLogoParte2">
+        <%= image_tag "logo-blanco-pt-2.png", class: "logoParte2"%>
+      </div>
+    </div>
   </div>
+  
+  </header>
+  <main class="registro">
+  <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card mt-5">
+        <div class="card-header">
+          <h3 class="titulo">Registrarse</h3>
+        </div>
+        <div class="card-body">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.text_field :first_name, autofocus: true, class: "form-control mb-1", placeholder: "Primer nombre" %>
+            <%= f.text_field :second_name, class: "form-control mb-1", placeholder: "Segundo nombre" %>
+            <%= f.text_field :last_name_1, class: "form-control mb-1", placeholder: "Primer apellido" %>
+            <%= f.text_field :last_name_2, class: "form-control mb-1", placeholder: "Segundo apellido" %>
+            <%= f.text_field :identification, class: "form-control mb-1", placeholder: "Identificación" %>
+            <%= f.email_field :email, autofocus: true, class: "form-control mb-1", placeholder: "Email" %>
+            <%= f.text_field :address, class: "form-control mb-1", placeholder: "Direccion" %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control mb-1", placeholder: "Contraseña" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mb-1", placeholder: "Confirmar contraseña" %>
+            <%= f.submit "Registrarse", class: "registrar" %>
+          <% end %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= link_to "Iniciar sesión", new_user_session_path, class: "iniciar" %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  </main>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+<footer>
+<p class="textoPiePagina">@2023 Créditos 3A</p>
+</footer>
