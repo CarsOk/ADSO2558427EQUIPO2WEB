@@ -1,12 +1,20 @@
+# config/routes.rb
 Rails.application.routes.draw do
   get 'dashboard/home'
   get 'home/dashboard'
-  
+
   get '/index', to: 'home#landing_page'
   get '/contacto', to: 'home#contacto'
+  
+  constraints(lambda { |request| !request.env['warden'].user || !request.env['warden'].user.administrador? }) do
+    get 'categorias', to: 'categorias#denied_access'
+    get 'categorias/:id', to: 'categorias#denied_access'
+  end
+  
   resources :categorias do
     resources :productos, module: :categorias
   end 
+  
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
@@ -25,8 +33,6 @@ Rails.application.routes.draw do
 
   root to: redirect('/users/sign_in')
 
-
-   
   resources :contactospqrs, only: [:new, :create]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
