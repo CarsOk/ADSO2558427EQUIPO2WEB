@@ -1,5 +1,6 @@
 # config/routes.rb
 Rails.application.routes.draw do
+  
   get 'dashboard/home'
   get 'home/dashboard'
 
