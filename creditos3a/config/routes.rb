@@ -2,6 +2,9 @@
 Rails.application.routes.draw do
   get 'dashboard/home'
   get 'home/dashboard'
+  get '/quienes_somos', to: 'quienes_somos#index'
+
+  
 
   get '/index', to: 'home#landing_page'
   get '/contacto', to: 'home#contacto'
