@@ -19,15 +19,23 @@ class CategoriasController < ApplicationController
     @categoria = Categoria.find(params[:id])
     end
 
+    
     def create
-    @categoria = Categoria.new(categoria_params)
-    if @categoria.save 
-      redirect_to categorias_path
-    else
-      render :new
+      @categoria = Categoria.new(categoria_params)
+    
+      if @categoria.save
+        if params[:categoria][:asignar_a_catalogo] == "1"
+          @categoria.update(catalogo_id: 1) 
+        end
+        flash[:success] = 'Categoría creada exitosamente.'
+        redirect_to categorias_path
+      else
+        render 'new'
+      end
     end
-    end
-
+    
+    
+  
     def update
     @categoria = Categoria.find(params[:id])
     if @categoria.update(categoria_params)
@@ -52,7 +60,7 @@ class CategoriasController < ApplicationController
     private
 
     def categoria_params
-    params.require(:categoria).permit(:id, :nombre, :producto_id, :producto_nombre, :producto_descripcion, :producto_file, :producto_avatar)
+    params.require(:categoria).permit(:id, :nombre, :producto_id,  :catalogo_id, :producto_nombre, :producto_descripcion, :producto_file, :producto_avatar)
     end
     def require_admin
       unless current_user && current_user.administrador?
