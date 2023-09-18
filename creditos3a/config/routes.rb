@@ -1,6 +1,5 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  
   get 'dashboard/home'
   get 'home/dashboard'
   get '/quienes_somos', to: 'quienes_somos#index'
@@ -38,6 +37,11 @@ Rails.application.routes.draw do
   root to: redirect('/users/sign_in')
 
   resources :contactospqrs, only: [:new, :create]
+  resources :catalogos, only: [:index, :show] do
+    resources :categorias, module: :catalogos do
+      resources :productos, only: [:index, :show] # Cambiar :idex a :index
+    end
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,45 +1,60 @@
-<h3>Información categoria </h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h3 class="mb-4">Información de la Categoría</h3>
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Asociado al Catálogo</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @categoria.id %></td>
+            <td><%= @categoria.nombre %></td>
+            <td>
+              <% if @categoria.catalogo.present? %>
+                <%= "Sí (#{@categoria.catalogo.nombre})" %>
+              <% else %>
+                <%= "No" %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to "Editar", edit_categoria_path(@categoria.id), class: "btn btn-warning btn-sm mr-2" %>
+              <%= link_to 'Borrar', @categoria, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger btn-sm" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-<table class="table">
-  <thead class="thead-dark  ">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row"><%= @categoria.id %></th>
-      <td><%= @categoria.nombre %></td>
-      <td><%= link_to "Editar", edit_categoria_path(@categoria.id) %></td>
-      <td><%= link_to 'Borrar', @categoria, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
-    </tr>
-  </tbody>
-</table>
-
- | 
-</br>
-</br>
-<h3>Productos</h3>
-
-<table class="table">
-  <thead class="thead-dark  ">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Descripción </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @productos.each do |producto|%> 
-      <tr>
-        <th scope="row"><%= producto.id %></th>
-        <td><%= producto.nombre %></td>
-        <td><%= producto.descripcion %></td>
-      </tr>
-    <% end %>  
-  </tbody>
-</table>
-
-
-<%= link_to "Editar productos", categoria_productos_path(@categoria.id) %>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h3 class="mt-4 mb-3">Productos de la Categoría</h3>
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @productos.each do |producto| %>
+            <tr>
+              <td><%= producto.id %></td>
+              <td><%= producto.nombre %></td>
+              <td><%= producto.descripcion %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to "Crear productos", categoria_productos_path(@categoria.id), class: "btn btn-primary" %>
+      <%= link_to "Ver todas las Categorías", categorias_path, class: "btn btn-warning btn-sm mr-2" %>
+    </div>
+  </div>
+</div>
