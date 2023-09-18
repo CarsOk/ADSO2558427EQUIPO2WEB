@@ -24,15 +24,13 @@ class CategoriasController < ApplicationController
       @categoria = Categoria.new(categoria_params)
     
       if @categoria.save
-        if params[:categoria][:asignar_a_catalogo] == "1"
-          @categoria.update(catalogo_id: 1) 
-        end
         flash[:success] = 'Categoría creada exitosamente.'
         redirect_to categorias_path
       else
         render 'new'
       end
     end
+    
     
     
   

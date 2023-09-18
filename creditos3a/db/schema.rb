@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_16_201628) do
+ActiveRecord::Schema.define(version: 2023_09_17_224033) do
 
   create_table "catalogos", force: :cascade do |t|
     t.string "nombre"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2023_09_16_201628) do
     t.string "nombre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "catalogo_id", null: false
+    t.integer "catalogo_id"
     t.index ["catalogo_id"], name: "index_categorias_on_catalogo_id"
   end
 
