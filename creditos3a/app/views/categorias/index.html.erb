@@ -1,20 +1,20 @@
-<h1>Categorias</h1>
-
-<table class= "table">
-  <thead class="table table-dark">
+<div class="container">
+<h1 class="mb-4">Categorías</h1>
+<div>
+  <%= link_to "Agregar Categoría", new_categoria_path, class: "btn btn-success" %>
+</div>
+<table class="table table-bordered">
+  <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
+      <th scope="col">Asociado al Catálogo</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
-    <%= render 'categorias' %>
+    <%= render 'categorias', categorias: @categorias %>
   </tbody>
 </table>
 
-</br>
-</br>
-
-<button type="button" class="btn btn-success">
-  <%= link_to "Agregar categorias", new_categoria_path %>
-</button>
+</div>

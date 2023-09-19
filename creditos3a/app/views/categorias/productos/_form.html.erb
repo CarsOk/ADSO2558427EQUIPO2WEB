@@ -1,7 +1,19 @@
-<%= simple_form_for [@categoria, @producto] do |f| %>
-    <%= f.input :nombre, input_html: { class: 'form-control is-valid string optional' } %>
-    <%= f.input :descripcion, input_html: { class: 'form-control is-valid string optional' } %>
-    <%= f.association :categoria, label_method: :nombre, input_html: { class: 'form-control is-valid string optional' } %>
-    <%= f.input :avatar %>
-    <%= f.button :submit %>
-  <% end %>
+<%= simple_form_for [@categoria, @producto], html: { class: 'custom-form' } do |f| %>
+  <div class="form-group">
+    <%= f.input :nombre, input_html: { class: 'form-control custom-input', placeholder: 'Nombre del Producto', required: true } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :descripcion, input_html: { class: 'form-control custom-input', placeholder: 'Descripción del Producto', required: true } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.association :categoria, label_method: :nombre, input_html: { class: 'form-control custom-input', required: true } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :avatar, as: :file, input_html: { class: 'form-control custom-input', required: true } %>
+  </div>
+
+  <%= f.button :submit, 'Guardar', class: 'btn btn-primary' %>
+<% end %>
