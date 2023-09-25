@@ -1,0 +1,20 @@
+<%= simple_form_for [:admin, @categoria, @producto], html: { class: 'custom-form' } do |f| %>
+    <div class="form-group">
+      <%= f.input :nombre, input_html: { class: 'form-control custom-input', placeholder: 'Nombre del Producto', required: true } %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.input :descripcion, input_html: { class: 'form-control custom-input', placeholder: 'Descripción del Producto', required: true } %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.association :categoria, label_method: :nombre, input_html: { class: 'form-control custom-input', required: true } %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.input :avatar, as: :file, input_html: { class: 'form-control custom-input', required: true } %>
+    </div>
+  
+    <%= f.button :submit, 'Guardar', class: 'btn btn-primary' %>
+  <% end %>
+  

@@ -1,25 +1,21 @@
-<h1>Lista de productos </h1>
+<h1>Lista de Catálogos</h1>
 
 <div class="container">
   <div class="row">
     <% @catalogos.each do |catalogo| %>
-      <% catalogo.categorias.each do |categoria| %>
-        <% categoria.productos.each do |producto| %>
-          <div class="col-md-4 mb-4">
-            <div class="card border-rounded">
-              <%= image_tag producto.avatar.url, class: "card-img-top img-fluid" %>
-              <div class="card-body">
-                <h5 class="card-title"><%= producto.nombre %></h5>
-                <p class="card-text"><%= producto.descripcion %></p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                  </div>
-                </div>
+      <div class="col-md-4 mb-4">
+        <div class="card border-rounded">
+          <div class="card-body">
+            <h5 class="card-title"><%= catalogo.nombre %></h5>
+            <p class="card-text">Descripción</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              <%= link_to "Ver Categorías", catalogo_categorias_path(catalogo), class: "btn btn-primary" %>
               </div>
             </div>
           </div>
-        <% end %>
-      <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
