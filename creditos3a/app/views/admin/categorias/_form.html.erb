@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 mx-auto">
       <h1 class="mb-4">Crear Categoría</h1>
-      <%= simple_form_for @categoria do |f| %>
+      <%= simple_form_for [:admin, @categoria] do |f| %>
         <div class="form-group">
           <%= f.input :nombre, input_html: { class: 'form-control', required: true } %>
         </div>
@@ -19,5 +19,3 @@
     </div>
   </div>
 </div>
-
-
