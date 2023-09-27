@@ -5,7 +5,9 @@ class Categorias::ProductosController < ApplicationController
   end
 
   def show
-    @producto = @categoria.productos.find(params[:id])
+  @producto = Producto.find(params[:id])
+  @categoria = @producto.categoria
+  @productos_relacionados = @categoria.productos.where.not(id: @producto.id).limit(3)
   end
 
 

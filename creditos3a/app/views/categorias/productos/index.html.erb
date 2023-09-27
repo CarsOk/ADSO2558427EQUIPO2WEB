@@ -19,7 +19,8 @@
             <p class="card-text"><%= producto.descripcion %></p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-            
+              <%= link_to "Ver detalles", categoria_producto_path(@categoria, producto), class: "btn btn-warning" %>
+
               </div>
             </div>
           </div>
