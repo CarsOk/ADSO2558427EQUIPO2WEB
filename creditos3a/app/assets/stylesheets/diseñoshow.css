@@ -1,0 +1,205 @@
+.con-fondo {
+    background-image: url('assets/fondo2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Estilos personalizados para el botón */
+.custom-button {
+    color: black; /* Cambia el color del texto a negro */
+    border-color: transparent; /* Hace que el borde sea transparente */
+    background-color: transparent; /* Hace que el fondo sea transparente */
+    padding: 10px 20px; /* Ajusta el espaciado del botón según sea necesario */
+    font-size: 12px; /* Ajusta el tamaño de fuente según sea necesario */
+    border-radius: 5px; /* Agrega bordes redondeados al botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Agrega una transición suave */
+}
+
+.custom-button:hover {
+    background-color: transparent; /* Cambia el fondo al pasar sobre el botón */
+}
+
+
+/* Estilos para la primera sección con efecto de rasgado superior */
+.seccion-detalles-producto {
+    position: relative;
+    border-top: 20px solid transparent; /* Borde superior transparente */
+    border-left: 100vw solid transparent; /* Borde izquierdo transparente ancho */
+    border-right: 0 solid transparent; /* Borde derecho transparente ancho */
+    border-bottom: 0 solid transparent; /* Borde inferior transparente ancho */
+    margin-bottom: -20px; /* Ajusta el margen para que se superponga con la segunda sección */
+    
+}
+
+/* Estilo para hacer más pequeño el enlace de WhatsApp y alinear a la izquierda */
+.whatsapp-link {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(37, 211, 102, 0.7); /* Cambia el color de fondo a verde transparente */
+    font-weight: bold;
+    font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
+    display: inline-block;
+    padding: 8px 16px; /* Ajusta el espaciado del botón según sea necesario */
+    border-radius: 5px;
+    margin-top: 2px;
+    transition: background-color 0.3s;
+}
+
+.what {
+    margin-left: 14px;
+    margin-top: 5px;
+}
+
+.whatsapp-link:hover {
+    background-color: rgba(18, 140, 126, 0.7); /* Cambia el color de fondo al pasar sobre el botón */
+}
+
+.seccion-relacionados {
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 20px; 
+}
+
+/* Estilo para hacer más pequeño el icono de WhatsApp */
+.whatsapp-icon {
+    width: 12px; /* Ajusta el ancho del ícono según sea necesario */
+    height: 12px; /* Ajusta la altura del ícono según sea necesario */
+    vertical-align: middle; /* Alinea el ícono verticalmente con el texto */
+}
+
+/* Estilo para hacer más pequeño el texto "Chat" */
+.whatsapp-text {
+    font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
+}
+
+/* Estilos para la superposición semitransparente */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilo para el encabezado */
+h1 {
+    color: #333;
+    font-size: 36px;
+}
+
+/* Estilo para la sección de producto */
+.product-section {
+    background-color: #fff;
+    padding: 50px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    max-width: 100%;
+}
+
+.product-title {
+    font-size: 28px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.product-description {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.product-quantity {
+    max-width: 3rem;
+    text-align: center;
+}
+
+.add-to-cart-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para la sección de productos relacionados */
+.related-products-section {
+    background-color: #f5f5f5;
+    padding: 50px 0;
+}
+
+.related-product-card {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.related-product-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.related-product-image {
+    max-width: 100%;
+}
+
+.related-product-title {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.view-options-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-options-button:hover {
+    background-color: #0056b3;
+}
+
+/* Media queries para hacer la página responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .product-section {
+        padding: 20px;
+    }
+
+    .product-title {
+        font-size: 24px;
+    }
+
+    .product-description {
+        font-size: 16px;
+    }
+
+    /* Agregar más estilos para dispositivos móviles aquí */
+}
+.related-product-card .card-img-top {
+    width: 450px !important; /* Establece el ancho deseado para las imágenes */
+    height: 300px !important; /* Establece la altura deseada para las imágenes */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+}
