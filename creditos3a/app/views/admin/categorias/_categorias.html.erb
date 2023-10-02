@@ -1,0 +1,18 @@
+<% categorias.each do |categoria| %>
+  <tr>
+    <th scope="row"><%= categoria.id %></th>
+    <td><%= categoria.nombre %></td>
+    <td>
+      <% if categoria.catalogo.present? %>
+        <%= "Sí (#{categoria.catalogo.nombre})" %>
+      <% else %>
+        <%= "No" %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to "Información", admin_categoria_path(categoria), class: "btn btn-info btn-sm" %>
+      <%= link_to "Editar", edit_admin_categoria_path(categoria), class: "btn btn-primary btn-sm" %>
+      <%= link_to "Eliminar", admin_categoria_path(categoria), method: :delete, data: { confirm: "¿Estás seguro?" }, class: "btn btn-danger btn-sm" %>
+    </td>
+  </tr>
+<% end %>

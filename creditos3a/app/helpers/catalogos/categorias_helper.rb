@@ -1,0 +1,2 @@
+module Catalogos::CategoriasHelper
+end

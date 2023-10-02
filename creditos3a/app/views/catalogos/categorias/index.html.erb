@@ -1,0 +1,24 @@
+<h1>Lista de Categorías</h1>
+
+<div class="container">
+  <div class="row">
+    <% @categorias.each do |categoria| %>
+      <div class="col-md-4 mb-4">
+        <div class="card border-rounded">
+          <!-- Mover la imagen dentro del cuerpo de la tarjeta -->
+          <% if categoria.imagen.attached? %>
+            <%= image_tag categoria.imagen, class: "card-img-top img-thumbnail", alt: categoria.nombre %>
+          <% end %>
+
+          <div class="card-body">
+            <h5 class="card-title"><%= categoria.nombre %></h5>
+            <%= link_to "Ver Detalles", catalogo_categoria_path(@catalogo, categoria), class: "btn btn-primary" %>
+            <%= link_to "Ver Productos", categoria_productos_path(categoria) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Volver al Catálogo", catalogos_path, class: "btn btn-primary" %>

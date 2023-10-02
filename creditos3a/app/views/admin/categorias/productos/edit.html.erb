@@ -1,0 +1,8 @@
+<h1>Editar Producto</h1>
+
+<%= render 'form', producto: @producto %>
+
+<div class="text-center mt-3">
+  <%= link_to 'Ver Detalles', admin_categoria_producto_path(@categoria, @producto), class: "btn btn-info" %> |
+  <%= link_to 'Regresar a la Lista de Productos', admin_categoria_productos_path(@categoria), class: "btn btn-secondary" %>
+</div>

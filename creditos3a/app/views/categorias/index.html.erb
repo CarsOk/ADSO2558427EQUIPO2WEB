@@ -1,20 +1,19 @@
-<div class="container">
-<h1 class="mb-4">Categorías</h1>
-<div>
-  <%= link_to "Agregar Categoría", new_categoria_path, class: "btn btn-success" %>
-</div>
-<table class="table table-bordered">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Asociado al Catálogo</th>
-      <th scope="col">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render 'categorias', categorias: @categorias %>
-  </tbody>
-</table>
+<h1>Lista de Categorías</h1>
 
+<div class="container">
+  <div class="row">
+    <% @categorias.each do |categoria| %>
+      <div class="col-md-4 mb-4">
+        <div class="card border-rounded">
+          <div class="card-body">
+            <h5 class="card-title"><%= categoria.nombre %></h5>
+            <%= link_to "Ver Detalles", catalogo_categoria_path(@catalogo, categoria), class: "btn btn-primary" %>
+            <%= link_to "Ver Productos", categoria_productos_path(categoria) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+<%= link_to "Volver al Catálogo", catalogos_path, class: "btn btn-primary" %>

@@ -1,0 +1,11 @@
+<% @productos.each do |producto| %>
+    <tr>
+      <th scope="row"><%= link_to producto.id, admin_categoria_producto_path(@categoria, producto) %></th>
+      <td><%= producto.nombre %></td>
+      <td><%= producto.descripcion %></td>
+      <td>
+        <%= link_to "Editar", edit_admin_categoria_producto_path(@categoria, producto), class: "btn btn-warning btn-sm mr-2" %>
+        <%= link_to 'Borrar', admin_categoria_producto_path(@categoria, producto), method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger btn-sm" %>
+      </td>
+    </tr>
+  <% end %>

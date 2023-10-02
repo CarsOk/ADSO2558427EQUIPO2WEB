@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.main {
+    min-height: 100vh;
+    position: relative;
+}
+
+.abajo {
+    background: #1f1d1d;
+    width: 100%;
+    padding: 20px 0; /* Elimina este padding */
+    color: #fff;
+}
+
+.abajo-cover {
+    background: #1f1d1d;
+    width: 100%;
+    padding: 20px 0;
+    color: #fff;
+    max-height: 150px; /* Ajusta la altura máxima deseada */
+    margin: 0 auto;
+}
+
+.nosotros {
+    
+    text-align: justify;
+    line-height: 2em;
+    background: #1f1d1d;
+    color: #fff;
+    border-radius: 0px;
+    border-top: 0px;
+    background-size: cover;
+    border-left: 0px;
+    
+}
+
+.head {
+    align-items: center;
+    background: #1f1d1d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
+    z-index: 100%;
+}
+
+.logo {
+    margin-left: 30px;
+}
+
+.navbar {
+    display: flex;
+    margin-right: 10px;
+}
+
+.navbar a {
+    display: block;
+    padding: 23px 20px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.segunda {
+    margin-bottom: 0;
+    border-top: 0px;
+    text-align: center;
+    background: #1f1d1d;
+    color: #fff;
+    border-radius: 0px;
+    background-size: cover;
+    background: url(images/fabrica.jpeg) no-repeat center;
+}
+
+.carrusel {
+    
+    background-size: cover;
+}
+.carousel-inner img {
+    width: 1200px;
+    height: 500px;
+    object-fit: cover; /* Para recortar la imagen y mantener la relación de aspecto */
+}
+
+.texto-blanco {
+   color: black;
+   font-size: 24px;
+   
+}
+
+
+.box p {
+    margin: 0; /* Ajusta el espaciado del párrafo según sea necesario */
+    font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px; /* Ajusta el ancho máximo deseado */
+    margin: 0 auto;
+}
+
+.box-container .box {
+    height: 6rem; /* Ajusta la altura de .box según sea necesario */
+    width: 15rem; /* Ajusta el ancho de .box según sea necesario */
+    background: #101010;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 .3rem 2rem rgba(0, 0, 0, .5);
+    margin: 1rem;
+}
+
+.box-container .box i {
+    height: 2rem;
+    width: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    border-radius: 50px;
+    color: #fff;
+    background: #9c27b0;
+    font-size: 1rem;
+    margin: 1rem 0px;
+}
+
+.container {
+    left: 400px;
+}
+
+/* Agrega estos estilos a tu hoja de estilos CSS */
+.card-img-top {
+    height: 300px; /* Ajusta la altura deseada */
+    object-fit: cover;
+}
+
+/* Agrega estos estilos a tu hoja de estilos CSS */
+.card-text, .card-title {
+    color: #000; /* Cambia el color a negro (#000) o el color que desees */
+}
+
+
+
+
