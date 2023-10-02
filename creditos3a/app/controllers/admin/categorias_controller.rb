@@ -20,7 +20,7 @@ class Admin::CategoriasController < Admin::AdminController
     @categoria = Categoria.new(categoria_params)
     if @categoria.save
       flash[:success] = 'Categoría creada exitosamente.'
-      redirect_to admin_categoria_productos_path
+      redirect_to admin_categorias_path
     else
       render :new
     end
@@ -49,6 +49,6 @@ class Admin::CategoriasController < Admin::AdminController
   end
 
   def categoria_params
-    params.require(:categoria).permit(:id, :nombre, :producto_id, :catalogo_id, :producto_nombre, :producto_descripcion, :producto_file, :producto_avatar)
+    params.require(:categoria).permit(:id, :nombre, :imagen, :producto_id, :catalogo_id, :producto_nombre, :producto_descripcion, :producto_file, :producto_avatar)
   end
 end
