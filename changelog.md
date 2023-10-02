@@ -18,7 +18,27 @@ lo más sencillo posible.
  
 ### Cambios
 - Se implemento validación de formulario de contacto
-- Se ajusto menú de navegación
+- Se ajusto menú de navegación.
+
+
+
+## [1.1.0] - 2023-10-02
+ 
+Aquí escribimos notas de actualización para marcas. Es un esfuerzo de equipo hacerlos lo más
+lo más sencillo posible.
+ 
+### Agregado
+- Tienda de productos
+- Creacion de la vista show de los productos.
+- Apartado de quienes somos.
+
+ 
+### Cambios
+- se le cambio estilos al login de olvidaste tu contraseña.
+- se separaron las vistas y controladores de la tienda y administrador.
+
+
+
  
   
 
