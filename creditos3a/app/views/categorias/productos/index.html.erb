@@ -41,7 +41,7 @@
                                 <p class="card-text"><%= producto.descripcion %></p>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-primary btn-sm" href="#!">Más Información</a>
+                            <%= link_to "Ver detalles", categoria_producto_path(@categoria, producto), class: "btn btn-warning" %>
                             </div>
                         </div>
                     </div>
