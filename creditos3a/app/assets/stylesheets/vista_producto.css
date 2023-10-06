@@ -1,0 +1,402 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.heder {
+    background: #f4f4f5;
+    display: flex;
+    justify-content: space-between;
+    height: 8vh;
+    
+}
+
+.centrar-imagen {
+    text-align: center; /* Centra horizontalmente el contenido */
+    margin-left: 600px; /* Ajusta la distancia superior según tus necesidades */
+
+    
+}
+
+.imagen-icono {
+    width: 50px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: 50px; /* Ajusta la altura de la imagen según tus necesidades */
+}
+
+.buscar {
+    display: flex;
+    width: 200px;
+}
+.barra {
+    font-family:'Times New Roman', Times, serif;
+    width: 3%;
+    height: 5%;
+    position: fixed;
+    transition: .4s all;
+    z-index: 1;
+}
+
+.barra ul {
+    padding: 0px;
+    text-align: center;
+}
+.barra ul li {
+    display: inline-block; /* Mantiene los elementos de la lista en línea */
+    margin-right: 20px; /* Espaciado entre los elementos del menú */
+}
+.barra ul li:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento del menú */
+}
+.barra a{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+.barra li {
+    transition: .5s all;
+}
+
+.barra a {
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    transition: .3s all;
+    font-size: 0px;
+    padding: 0px;
+}
+
+.barra h2 {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color: rgb(247, 242, 247);
+    padding: 7px;
+    padding-bottom: 7px;
+    font-size: 0px;
+}
+
+.imagen-pequena {
+    width: 30px; /* Ajusta el ancho según tus necesidades */
+    height: auto; /* Esto mantiene la relación de aspecto original */
+}
+
+.barra:hover {
+    width: 30%;
+    height: 60%;
+    background-color: rgba(5, 33, 51, 0.98);
+}
+
+.barra:hover h2 {
+    padding: 15px;
+    font-size: 35px;
+}
+
+.barra:hover a {
+    font-size: 20px;
+    color: rgb(247, 242, 247);
+    display: block;
+    padding: 30px;
+}
+
+.barra:hover img {
+    height: 0px;
+    margin: 0px;
+}
+
+.barra:hover li {
+    border-top: 1px solid black;
+    width: 100%;
+}
+
+.barra:hover ul:last-of-type {
+    border-bottom: 1px solid black;
+}
+
+.barra:hover a:hover {
+    font-size: 25px;
+    padding: 30px 0px; /*30 0 30 0*/
+    background-color: rgba(22, 78, 112, 0.98);
+}
+
+
+ /* otros estilos */
+
+.contenedor-pequeno {
+    text-align: justify;
+    line-height: 2em;
+    background: #f4f4f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Evita que la imagen se desborde del contenedor */
+    max-height: 300px;
+    color: #fff;
+    border-radius: 0px;
+    border-top: 0px;
+    background-size: cover;
+    border-left: 0px;
+    height: 300px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.contenedor-pequeno img {
+    max-width: 100%; /* Ajusta el ancho máximo de la imagen al 100% del contenedor */
+    height: auto; /* Mantiene la relación de aspecto original de la imagen */
+    vertical-align: middle; /* Centra verticalmente la imagen */
+}
+.box1 {
+    color: black;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.categoria-box h2 {
+    color: black;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+h1 {
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.smaller-input {
+    width: 50px; /* Ajusta el ancho según tus necesidades */
+    display: flex;
+}
+
+.smaller-button {
+    width: 70px; /* Ajusta el ancho según tus necesidades */
+    font-size: 12px; /* Ajusta el tamaño de fuente según tus necesidades */
+    height: 40px;
+    display: flex;
+}
+
+.categoria-box {
+    border: 1px solid black;
+    color: #321d70;
+}
+.texto {
+    text-align: center;
+    
+}
+
+.img-fluid {
+    max-width: 100%; /* Evita que la imagen se desborde del contenedor */
+    height: auto; /* Mantiene la relación de aspecto original de la imagen */
+}
+
+
+/* otros estilos */
+
+.contenedorgrande {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    background-color: white;
+}
+
+.titulo-llamativo {
+    font-family:Georgia, 'Times New Roman', Times, serif; /* Utiliza la fuente Futura o una fuente similar */
+    font-size: 30px; /* Ajusta el tamaño de fuente según tus preferencias */
+    font-weight: bold; /* Si deseas que el título sea negrita */
+    color: #000; /* Color de texto en negro o el color que prefieras */
+    text-align: center;
+    padding-bottom: 0px;
+}
+
+
+/* Estilos CSS para las tarjetas de producto con rotación */
+.tarjeta {
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 50px;
+    
+    
+}
+
+.overlay {
+    width: 100%; /* Cambia a 100% para ocupar todo el ancho de la tarjeta */
+    height: 100%; /* Cambia a 100% para ocupar todo el alto de la tarjeta */
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Cambia a 100% para ocupar todo el ancho de la tarjeta */
+    height: 100%; /* Cambia a 100% para ocupar todo el alto de la tarjeta */
+    background-color: rgba(3, 35, 54, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    transform: rotateY(180deg);
+}
+
+
+.tarjeta:hover .overlay {
+    transform: rotateY(180deg);
+}
+
+.overlay img {
+    
+    width: 100%; /* Ancho fijo */
+    height: 100%; /* Alto fijo */
+    object-fit: contain;
+}
+
+
+
+.tarjeta:hover .text-overlay {
+    opacity: 1;
+}
+
+.text-overlay h3 {
+    font-size: 30px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.text-overlay p {
+    color: #f3f3f3;
+    letter-spacing: 1px;
+}
+
+.text-overlay a {
+    color: #f3f3f3;
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 1px solid #f3f3f3;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.text-overlay a:hover {
+    background-color: #f3f3f3;
+    color: #333;
+}
+
+
+
+
+
+/* pie de pagina */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0px;
+    background: #6A5F8E;
+    padding-top: 0px;
+    height: auto; /* Cambia el porcentaje a "auto" o un valor fijo en píxeles */
+}
+
+.cajita{
+    width: 1140px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.footer-contigo{
+    width: 33.3%;
+    padding-top: 10px;
+}
+h3{
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.footer-contigo p{
+    width:190px;
+    margin: auto;
+    padding: 7px;
+}
+.footer-contigo ul{
+    text-align: center;
+}
+.list{
+    padding: 0;
+  
+}
+.list li{
+    width: auto;
+    text-align: center;
+    list-style-type:none;
+    padding: 7px;
+    position: relative;
+    color: #1f1d1d;
+}
+.list li::before{
+    content: '';
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 2px;
+    background: #f18930;
+    transition-duration: .5s;
+}
+.list li:hover::before{
+    width: 70px;
+}
+
+.enlace-negro {
+    color:#1f1d1d /* Código de color negro */
+    /* Puedes ajustar otros estilos según sea necesario, como tamaño de fuente o decoración de texto */
+}
+
+.social-icons{
+    text-align: center;
+    padding: 0;
+}
+.social-icons li{
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+}
+.social-icons i{
+    color: white;
+    font-size: 25px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: #f18930;
+}
+.social-icons i:hover{
+    color: #f18930;
+}
+.bottom-bar{
+    background: #423271;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 0%;
+    width: 100%;
+}
+.bottom-bar p{
+    color: #fff;
+    margin: 0;
+    font-size: 16px;
+    padding: 7px;
+}
