@@ -16,6 +16,8 @@
           <div class="card-body">
             <h5 class="card-title"><%= producto.nombre %></h5>
             <p class="card-text"><%= producto.descripcion %></p>
+            <p class="card-text"><strong>Precio: <%= number_to_currency(producto.precio) %></strong></p>
+            
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <%= link_to "Ver detalles", admin_categoria_producto_path(@categoria, producto), class: "btn btn-warning" %>

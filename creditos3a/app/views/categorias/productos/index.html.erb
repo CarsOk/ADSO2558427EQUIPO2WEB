@@ -39,6 +39,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%= producto.nombre %></h5> <!-- Usamos h5 para reducir el tamaño del título -->
                                 <p class="card-text"><%= producto.descripcion %></p>
+                                <p class="card-text"><strong>Precio: <%= number_to_currency(producto.precio) %></strong></p>
                             </div>
                             <div class="card-footer">
                                 <a class="btn btn-primary btn-sm" href="#!">Más Información</a>
@@ -48,7 +49,6 @@
                 <% end %>
             </div>
         </div>
-    </div>
     
     <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

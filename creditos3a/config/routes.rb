@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :categorias do
       resources :productos, module: :categorias, only: [:index, :new, :create, :edit, :update, :destroy]
+      resources :catalogos, module: :categorias
     end
 
     namespace :categorias do

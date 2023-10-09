@@ -41,6 +41,10 @@
                 <div class="collapse" id="descripcionProducto">
                     <p class="lead"><%= @producto.descripcion %></p>
                 </div>
+                
+                <div class="collapse" id="descripcionProducto">
+                <p class="card-text"><strong>Precio: <%= number_to_currency(producto.precio) %></strong></p>
+                </div>
 
                 
                 <div class="col-md-6">
