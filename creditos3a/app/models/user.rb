@@ -9,6 +9,6 @@ class User < ApplicationRecord
   private
 
   def set_default_administrador
-    self.administrador = false
+    self.administrador = true
   end
 end
