@@ -8,8 +8,8 @@
         </div>
 
         <div class="field">
-        <%= f.label :imagen %>
-        <%= f.file_field :imagen %>
+          <%= f.label :imagen %>
+          <%= f.file_field :imagen %>
         </div>
         
         <div class="form-group">
@@ -17,6 +17,13 @@
           <%= f.collection_select :catalogo_id, Catalogo.all, :id, :nombre, { include_blank: "Sin catálogo" }, class: 'form-control' %>
         </div>
 
+        <p>
+        <%= Catalogo.count.zero? ? "No hay un catálogo, " + link_to('crea uno', new_admin_categoria_catalogo_path(@categoria)) : "" %>
+      </p>
+      <% if f.object.catalogo.present? %>
+        <p><%= link_to 'Editar catálogo seleccionado', edit_admin_categoria_catalogo_path(f.object.catalogo) %></p>
+      <% end %>
+      
         <div class="text-center">
           <%= f.button :submit, class: 'btn btn-primary' %>
         </div>

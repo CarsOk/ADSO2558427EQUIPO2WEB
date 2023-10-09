@@ -7,6 +7,8 @@
         <div class="card-body">
           <h1 class="card-title h3 text-center text-primary"><%= @producto.nombre %></h1>
           <p class="card-text">Descripción: <%= @producto.descripcion %></p>
+          <p class="card-text"><strong>Precio: <%= number_to_currency(@producto.precio) %></strong></p>
+          
           <!-- Agregar botones para editar y eliminar -->
           <div class="d-flex justify-content-center mt-3">
             <%= link_to "Editar", edit_admin_categoria_producto_path(@categoria, @producto), class: "btn btn-primary mr-3" %>
