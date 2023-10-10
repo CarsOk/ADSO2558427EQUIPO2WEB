@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class Pages::HomeController < ApplicationController
 
   def landing_page
     @productos_ultimos = Producto.last(4)

@@ -1,21 +1,24 @@
 Rails.application.routes.draw do
-  get 'dashboard/home'
+  get 'dashboard/home' => 'admin/dashboard#home'
   get 'home/dashboard'
-  get '/quienes_somos', to: 'quienes_somos#index'
+  get 'quienes_somos' => 'pages/quienes_somos#index'
+
 
   
 
-  get '/index', to: 'home#landing_page'
-  get '/contacto', to: 'home#contacto'
+  get 'landing_page' => 'pages/home#landing_page'
+  get 'contacto' => 'pages/home#contacto'
   
   constraints(lambda { |request| !request.env['warden'].user || !request.env['warden'].user.administrador? }) do
     get 'categorias', to: 'categorias#denied_access'
     get 'categorias/:id', to: 'categorias#denied_access'
   end
   
-  resources :categorias do
-    resources :productos, module: :categorias
-  end 
+   namespace :pages do
+    resources :categorias do
+      resources :productos, module: :categorias
+    end
+  end
   
   devise_for :users, controllers: {
     sessions: 'users/sessions'
@@ -35,16 +38,19 @@ Rails.application.routes.draw do
 
   root to: redirect('/users/sign_in')
 
-  resources :contactospqrs, only: [:new, :create]
+  namespace :pages do
+    resources :contactospqrs, only: [:new, :create]
+  end
 
   namespace :admin do
     resources :categorias do
       resources :productos, module: :categorias, only: [:index, :new, :create, :edit, :update, :destroy]
       resources :catalogos, module: :categorias
     end
-
-    namespace :categorias do
-      resources :productos, only: [:index]
+    namespace :pages do
+      namespace :categorias do
+        resources :productos
+      end
     end
 
     resources :catalogos, only: [:index, :show] do
