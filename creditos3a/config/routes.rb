@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  get 'dashboard/home' => 'admin/dashboard#home'
   get 'home/dashboard'
-  get 'quienes_somos' => 'pages/quienes_somos#index'
+  get 'home/dashboard'
+  namespace :pages do
+    get 'quienes_somos', to: 'quienes_somos#index', as: 'quienes_somos'
+  end
+
 
 
   
 
-  get 'landing_page' => 'pages/home#landing_page'
+  get 'landing_page' => 'home#landing_page'
   get 'contacto' => 'pages/home#contacto'
-  
+  get 'index' => 'home#index'
   constraints(lambda { |request| !request.env['warden'].user || !request.env['warden'].user.administrador? }) do
     get 'categorias', to: 'categorias#denied_access'
     get 'categorias/:id', to: 'categorias#denied_access'

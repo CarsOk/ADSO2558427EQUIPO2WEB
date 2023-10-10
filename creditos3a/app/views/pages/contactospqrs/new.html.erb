@@ -10,7 +10,7 @@
           
           <div class="card-body col-md-6 col-sm-12">
               <h2 class="title" style="color: black;">¿En qué podemos ayudar?</h2>
-              <%= simple_form_for @contactopqrs, url: contactospqrs_path, method: :post do |f| %>
+              <%= simple_form_for @contactopqrs, url: pages_contactospqrs_path, method: :post do |f| %>
 
                 <div class="input-group">
                   <%= f.input :nombre, input_html: { class: 'input--style-3'}, placeholder:"Nombre", label:false, wrapper: false%>
