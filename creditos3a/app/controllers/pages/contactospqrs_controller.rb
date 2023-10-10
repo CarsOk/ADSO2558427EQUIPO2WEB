@@ -1,4 +1,4 @@
-class ContactospqrsController < ApplicationController
+class Pages::ContactospqrsController < ApplicationController
   def new
     @contactopqrs = Contactopqrs.new
   end

@@ -18,7 +18,8 @@
         </div>
 
         <p>
-        <%= Catalogo.count.zero? ? "No hay un catálogo, " + link_to('crea uno', new_admin_categoria_catalogo_path(@categoria)) : "" %>
+        <%= link_to 'Crear un nuevo catálogo', new_admin_categoria_catalogo_path(categoria_id: @categoria&.id || 0) %>
+
       </p>
       <% if f.object.catalogo.present? %>
         <p><%= link_to 'Editar catálogo seleccionado', edit_admin_categoria_catalogo_path(f.object.catalogo) %></p>
