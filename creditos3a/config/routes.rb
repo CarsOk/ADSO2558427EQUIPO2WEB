@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
 root to: 'dashboard#home', as: 'dashboard_home'
 
   namespace :pages do
@@ -23,24 +22,30 @@ root to: 'dashboard#home', as: 'dashboard_home'
     end
   end
 
+  devise_for :admin_users, controllers: {
+    sessions: 'admin_users/sessions',
+    registrations: 'admin_users/registrations',
+      # Reemplaza con tu controlador personalizado
+  }
   # Rutas de autenticación
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
+  authenticated :admin_user do
+    root to: 'dashboard#home', as: :administrador_root
+  end
 
   devise_scope :user do
     delete '/users/sign_out' => 'users/sessions#destroy', :as => :delete_user_session
   end
 
-  authenticated :user, ->(user) { user.administrador? } do
-    root to: 'dashboard#home', as: :administrador_root
-  end
 
   authenticated :user, ->(user) { !user.administrador? } do
     root to: 'home#landing_page', as: :cliente_root
   end
 
   root to: redirect('/users/sign_in')
+
 
   # Rutas para contactospqrs
   namespace :pages do
