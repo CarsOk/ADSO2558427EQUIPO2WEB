@@ -3,11 +3,6 @@
     <th scope="row"><%= categoria.id %></th>
     <td><%= categoria.nombre %></td>
     <td>
-      <% if categoria.catalogo.present? %>
-        <%= "Sí (#{categoria.catalogo.nombre})" %>
-      <% else %>
-        <%= "No" %>
-      <% end %>
     </td>
     <td>
       <%= link_to "Información", admin_categoria_path(categoria), class: "btn btn-info btn-sm" %>

@@ -7,7 +7,6 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Asociado al Catálogo</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -15,13 +14,6 @@
           <tr>
             <td><%= @categoria.id %></td>
             <td><%= @categoria.nombre %></td>
-            <td>
-              <% if @categoria.catalogo.present? %>
-                <%= "Sí (#{@categoria.catalogo.nombre})" %>
-              <% else %>
-                <%= "No" %>
-              <% end %>
-            </td>
             <td>
               <%= link_to "Editar", edit_admin_categoria_path(@categoria), class: "btn btn-warning btn-sm mr-2" %>
               <%= link_to 'Borrar', admin_categoria_path(@categoria), method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger btn-sm" %>
