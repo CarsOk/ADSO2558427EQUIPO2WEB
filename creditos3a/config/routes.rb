@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 root to: 'dashboard#home', as: 'dashboard_home'
 
+get 'dashboard/admin_users', to: 'dashboard#admin_users'
+
+
   namespace :pages do
     get 'quienes_somos', to: 'quienes_somos#index', as: 'quienes_somos'
   end
@@ -29,7 +32,8 @@ root to: 'dashboard#home', as: 'dashboard_home'
   }
   # Rutas de autenticación
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
   authenticated :admin_user do
     root to: 'dashboard#home', as: :administrador_root

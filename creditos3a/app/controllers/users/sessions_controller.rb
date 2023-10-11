@@ -10,7 +10,7 @@ class Users::SessionsController < Devise::SessionsController
       dashboard_home_path
     else
       # Redirige al root de cliente si el usuario no es un administrador
-      index_path
+      landing_page_path
     end
   end
   # before_action :configure_sign_in_params, only: [:create]

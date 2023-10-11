@@ -1,5 +1,12 @@
 class AdminUser < ApplicationRecord
   before_create :set_default_administrador
+  
+  validates :first_name, presence: true
+  validates :second_name, presence: true
+  validates :last_name_1, presence: true
+  validates :last_name_2, presence: true
+  validates :identification, presence: true
+  validates :address, presence: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
