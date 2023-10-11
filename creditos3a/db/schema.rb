@@ -40,19 +40,11 @@ ActiveRecord::Schema.define(version: 2023_10_09_025320) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "catalogos", force: :cascade do |t|
-    t.string "nombre"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "categorias", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "catalogo_id"
     t.string "imagen"
-    t.index ["catalogo_id"], name: "index_categorias_on_catalogo_id"
   end
 
   create_table "contactospqrs", force: :cascade do |t|
@@ -97,6 +89,5 @@ ActiveRecord::Schema.define(version: 2023_10_09_025320) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "categorias", "catalogos"
   add_foreign_key "productos", "categorias"
 end

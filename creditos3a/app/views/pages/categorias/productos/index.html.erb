@@ -14,7 +14,7 @@
     <h2>menu<img src="<%= asset_path('a.png') %>" alt="nada" class="imagen-pequena"></h2>
     <ul>
         <li><a href="#">inicio</a></li>
-        <li><a href="<%= new_contactopqrs_path %>">contacto</a></li>
+        <li><a href="<%= new_pages_contactopqrs_path %>">contacto</a></li>
         <li><a href="#">categorias</a></li>
     </ul>
 </div>
@@ -56,7 +56,7 @@
                         <img src="<%= producto.avatar.url %>" alt="<%= producto.nombre %>" class="card-img-top img-fluid">
                         <div class="text-overlay">
                             <h3><%= producto.nombre %></h3>
-                            <%= link_to "Ver detalles", categoria_producto_path(@categoria, producto), class: "btn btn-warning" %>
+                            <%= link_to "Ver detalles", pages_categoria_producto_path(@categoria, producto), class: "btn btn-warning" %>
                         </div>
                     </div>
                 </div>

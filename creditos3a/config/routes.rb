@@ -1,28 +1,29 @@
 Rails.application.routes.draw do
-  get 'home/dashboard'
-  get 'home/dashboard'
+  
+root to: 'dashboard#home', as: 'dashboard_home'
+
   namespace :pages do
     get 'quienes_somos', to: 'quienes_somos#index', as: 'quienes_somos'
   end
 
-
-
-  
-
   get 'landing_page' => 'home#landing_page'
   get 'contacto' => 'pages/home#contacto'
   get 'index' => 'home#index'
+
+  # Restricciones
   constraints(lambda { |request| !request.env['warden'].user || !request.env['warden'].user.administrador? }) do
     get 'categorias', to: 'categorias#denied_access'
     get 'categorias/:id', to: 'categorias#denied_access'
   end
-  
-   namespace :pages do
+
+  # Rutas para categorías y productos
+  namespace :pages do
     resources :categorias do
       resources :productos, module: :categorias
     end
   end
-  
+
+  # Rutas de autenticación
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
@@ -41,33 +42,22 @@ Rails.application.routes.draw do
 
   root to: redirect('/users/sign_in')
 
+  # Rutas para contactospqrs
   namespace :pages do
     resources :contactospqrs, only: [:new, :create]
   end
 
+  # Rutas para administrador
   namespace :admin do
     resources :categorias do
       resources :productos, module: :categorias, only: [:index, :new, :create, :edit, :update, :destroy]
-      resources :catalogos, module: :categorias
     end
     namespace :pages do
       namespace :categorias do
         resources :productos
       end
     end
-
-    resources :catalogos, only: [:index, :show] do
-      resources :categorias, module: :catalogos 
-    end
   end
 
-  # ... Otras rutas ...
-
-  # Rutas para los catálogos fuera del contexto de administrador
-  resources :catalogos, only: [:index, :show] do
-    resources :categorias, module: :catalogos 
-  end
-
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # Resto de las rutas...
 end
