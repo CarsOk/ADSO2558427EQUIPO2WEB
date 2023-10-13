@@ -4,12 +4,12 @@
   <% @admin_users.each do |admin_user| %>
     <div class="admin-card">
       <h3><%= admin_user.email %></h3>
-      <p>First Name: <%= admin_user.first_name %></p>
-      <p>Second Name: <%= admin_user.second_name %></p>
-      <p>Last Name 1: <%= admin_user.last_name_1 %></p>
-      <p>Last Name 2: <%= admin_user.last_name_2 %></p>
-      <p>Identification: <%= admin_user.identification %></p>
-      <p>Address: <%= admin_user.address %></p>
+      <p><strong>Primer Nombre:</strong> <%= admin_user.first_name %></p>
+      <p><strong>Segundo Nombre:</strong> <%= admin_user.second_name %></p>
+      <p><strong>Primer Apellido:</strong> <%= admin_user.last_name_1 %></p>
+      <p><strong>Segundo Apellido:</strong> <%= admin_user.last_name_2 %></p>
+      <p><strong>Identification:</strong> <%= admin_user.identification %></p>
+      <p><strong>Address:</strong> <%= admin_user.address %></p>
       <!-- Agrega aquí los campos adicionales que desees mostrar -->
     </div>
   <% end %>
