@@ -9,8 +9,8 @@ class Ability
       can :manage, :all  
     else
       # Capacidad para User (usuario normal)
-      cannot :access, :admin  # No pueden acceder al controlador/admin
-      cannot :manage, :all    # No pueden gestionar ninguna acción
+      can :create, Pedido # Los usuarios normales pueden crear pedidos
+      can :read, Pedido, user_id: user.id   # Los usuarios normales pueden ver sus propios pedidos
     end
   end
-  end
+end

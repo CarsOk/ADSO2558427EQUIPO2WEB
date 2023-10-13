@@ -68,5 +68,14 @@ get 'dashboard/admin_users', to: 'dashboard#admin_users'
     end
   end
 
+  resources :productos do
+    resources :pedidos, only: [:new, :create, :pedidos_realizados]
+  end
+  resources :pedidos do
+    collection do
+      get 'pedidos_realizados'
+    end
+  end
+
   # Resto de las rutas...
 end

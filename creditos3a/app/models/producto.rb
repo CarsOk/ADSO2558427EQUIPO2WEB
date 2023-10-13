@@ -1,4 +1,5 @@
 class Producto < ApplicationRecord
+    has_many :pedidos
     belongs_to :categoria
     mount_uploader :avatar, AvatarUploader
     validates :nombre, presence: true
