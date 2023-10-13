@@ -38,14 +38,10 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label">Categoría</span>
                 <%= link_to "revisar tienda", '/landing_page', class: "btn btn-primary" %>
                 <%= link_to "Ver Administradores", dashboard_admin_users_path %>
-                <%#= link_to "Panel de Administración", dashboard_pedidos_path(user_id: @user.id) %>
-
-
-
+                <%= link_to "Ver Usuarios con Pedidos", show_user_dashboard_path %>
 
              <% end %>
            </li>
         </ul>
-
     </div>
 </nav>

@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="display-4">Lista de Usuarios con Productos Pedidos</h1>
+    </div>
+  </div>
+
+  <% @users_with_pedidos.each do |user| %>
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <div class="card border-rounded">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card-avatar">
+                <!-- Agrega aquí el código para mostrar el avatar del usuario -->
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <%= user.first_name %> <%= user.last_name_1 %> <%= user.last_name_2 %></h5>
+                <p class="card-text">Email: <%= user.email %></p>
+                <h2>Productos Pedidos</h2>
+                <ul class="list-group">
+                  <% user.pedidos.each do |pedido| %>
+                    <li class="list-group-item">
+                      <div class="producto-info">
+                        <div class="producto-avatar">
+                          <%= image_tag pedido.producto.avatar.url, class: "img-fluid" %>
+                        </div>
+                        <div class="producto-details">
+                          <p>Producto: <%= pedido.producto.nombre %></p>
+                          <p>Descripción: <%= pedido.producto.descripcion %></p>
+                          <p>Precio: <%= number_to_currency(pedido.producto.precio) %></p>
+                        </div>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+                <% if user.pedidos.empty? %>
+                  <p>El usuario no ha realizado ningún pedido aún.</p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+

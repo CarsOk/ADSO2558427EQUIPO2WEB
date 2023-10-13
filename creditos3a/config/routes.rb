@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 root to: 'dashboard#home', as: 'dashboard_home'
 
 get 'dashboard/admin_users', to: 'dashboard#admin_users'
+get 'dashboard/show_user', to: 'dashboard#show_user', as: 'show_user_dashboard'
+
+
 
 
   namespace :pages do
