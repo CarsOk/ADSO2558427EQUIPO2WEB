@@ -6,4 +6,9 @@ class DashboardController < ApplicationController
   def admin_users
     @admin_users = AdminUser.all
   end
+
+  def pedidos
+    @user = User.find(params[:user_id])
+    @pedidos = @user.pedidos
+  end
 end

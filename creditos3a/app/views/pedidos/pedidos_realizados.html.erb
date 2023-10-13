@@ -1,0 +1,23 @@
+<!-- En app/views/pedidos/pedidos_realizados.html.erb -->
+<h1>Pedidos Realizados</h1>
+
+<% if @pedidos.any? %>
+  <div class="row">
+    <% @pedidos.each do |pedido| %>
+      <div class="col-md-4 mb-4">
+        <div class="card border-rounded">
+          <%= image_tag pedido.producto.avatar.url, class: "card-img-top img-fluid" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= pedido.producto.nombre %></h5>
+            <p class="card-text"><%= pedido.producto.descripcion %></p>
+            <p class="card-text"><strong>Precio: <%= number_to_currency(pedido.producto.precio) %></strong></p>
+            
+            <!-- Agrega otros detalles del pedido si es necesario -->
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No has realizado ningún pedido aún.</p>
+<% end %>
