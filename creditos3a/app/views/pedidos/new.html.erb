@@ -1,18 +1,27 @@
 <h1>Solicitar un Producto</h1>
 
-<div class="producto-details">
-  <%= image_tag @producto.avatar.url %>
-  <h2><%= @producto.nombre %></h2>
-  <p><%= @producto.descripcion %></p>
-  <p>Precio: <%= number_to_currency(@producto.precio) %></p>
+<div class="container">
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <%= image_tag @producto.avatar.url, class: "card-img-top img-fluid rounded" %>
+        <div class="card-body">
+          <h1 class="card-title h3 text-center text-primary"><%= @producto.nombre %></h1>
+          <p class="card-text">Descripción: <%= @producto.descripcion %></p>
+          <p class="card-text"><strong>Precio: <%= number_to_currency(@producto.precio) %></strong></p>
+          
+          <!-- Agregar formulario para solicitar el producto -->
+          <%= form_for [@producto, @pedido] do |f| %>
+            <div class="text-center mt-3">
+              <div class="field">
+                <%= f.hidden_field :producto_id, value: @producto.id %>
+              </div>
+              <%= f.submit "Solicitar Producto", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<%= form_for [@producto, @pedido] do |f| %>
-  <div class="field">
-    <%= f.hidden_field :producto_id, value: @producto.id %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit "Solicitar Producto" %>
-  </div>
-<% end %>
