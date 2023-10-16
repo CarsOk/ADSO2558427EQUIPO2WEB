@@ -2,17 +2,17 @@
 
 <% if @pedidos.any? %>
   <div class="row">
-    <% @pedidos.each do |pedido| %>
+    <% @pedidos.group_by { |pedido| pedido.producto }.each do |producto, pedidos| %>
       <div class="col-md-6 mb-4">
         <div class="card border">
-          <%= image_tag pedido.producto.avatar.url, class: "card-img-top img-fluid" %>
+          <%= image_tag producto.avatar.url, class: "card-img-top img-fluid" %>
           <div class="card-body">
-            <h5 class="card-title"><%= pedido.producto.nombre %></h5>
-            <p class="card-text"><%= pedido.producto.descripcion %></p>
-            <p class="card-text"><strong>Precio: <%= number_to_currency(pedido.producto.precio) %></strong></p>
-            <p class="card-text"><b>Fecha en la que se realizo el pedido:</b> <%= pedido.created_at.strftime("%d/%m/%Y") %></p>
-            
-            <!-- Puedes agregar otros detalles del pedido si es necesario -->
+            <h5 class="card-title"><%= producto.nombre %></h5>
+            <p class="card-text"><%= producto.descripcion %></p>
+            <p class="card-text"><b>Precio Unitario: <%= number_to_currency(producto.precio) %></b></p>
+            <p class="card-text"><b>Cantidad Pedida:</b> <%= pedidos.size %></p>
+            <p class="card-text"><b>Precio Total: <%= number_to_currency(producto.precio * pedidos.size) %></b></p>
+            <p><b>Fecha de pedido:</b> <%= pedidos.first.created_at.strftime("%d/%m/%Y") %></p>
           </div>
         </div>
       </div>

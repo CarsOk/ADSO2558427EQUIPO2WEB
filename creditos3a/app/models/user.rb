@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :pedidos
-
+  #has_many :user_products
+  #has_many :productos, through: :user_products
 
   before_create :set_default_administrador
   validates :first_name, presence: true

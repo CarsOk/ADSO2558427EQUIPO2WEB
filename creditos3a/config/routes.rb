@@ -72,10 +72,12 @@ get 'dashboard/show_user', to: 'dashboard#show_user', as: 'show_user_dashboard'
   end
 
   resources :productos do
-    resources :pedidos, only: [:new, :create, :pedidos_realizados]
+    resources :pedidos, only: [:new, :new_with_user_data, :create, :pedidos_realizados]
   end
+
   resources :pedidos do
     collection do
+      get 'pedidos_realizados'
       get 'pedidos_realizados'
     end
   end
