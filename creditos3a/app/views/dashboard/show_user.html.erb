@@ -28,24 +28,10 @@
               </ul>
             </td>
             <td>
-              <ul class="product-list">
-                <% user.pedidos.each do |pedido| %>
-                  <li class="product-item">
-                    <div class="producto-info">
-                      <div class="producto-avatar">
-                        <%= image_tag pedido.producto.avatar.url, class: "img-thumbnail", style: "max-width: 150px; max-height: 150px;" %>
-                      </div>
-                      <div class="producto-details">
-                        <p><b>Producto:</b> <%= pedido.producto.nombre %></p>
-                        <p><b>Descripción:</b> <%= pedido.producto.descripcion %></p>
-                        <p><b>Precio:</b> <%= number_to_currency(pedido.producto.precio) %></p>
-                        <p><b>Comentarios:</b> <%= pedido.comentarios %></p>
-                        <p><b>Método de Pago:</b> <%= pedido.metodo_pago %></p>
-                      </div>
-                    </div>
-                  </li>
-                <% end %>
-              </ul>
+              <div class="producto-details">
+                <!-- Agrega el botón "Ver Productos" aquí -->
+                <button class="btn btn-primary" data-toggle="modal" data-target="#productosModal<%= user.id %>">Ver Productos</button>
+              </div>
             </td>
           </tr>
         <% end %>
@@ -53,3 +39,51 @@
     </tbody>
   </table>
 </div>
+<% @users_with_pedidos.each do |user| %>
+  <div class="modal fade" id="productosModal<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="productosModalLabel<%= user.id %>" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productosModalLabel<%= user.id %>"><%= user.first_name %> <%= user.last_name_1 %> <%= user.last_name_2 %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Descripción</th>
+                  <th>Imagen</th>
+                  <th>Cantidad</th>
+                  <th>Precio Unitario</th>
+                  <th>Precio Total</th>
+                  <th>Fecha del Pedido</th>
+                  <th>Comentarios</th>
+                  <th>Método de Pago</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% user.pedidos.group_by(&:producto).each do |producto, pedidos| %>
+                  <tr>
+                    <td><%= producto.nombre %></td>
+                    <td><%= producto.descripcion %></td>
+                    <td><%= image_tag producto.avatar.url, class: "img-thumbnail", style: "max-width: 150px; max-height: 150px;" %></td>
+                    <td><%= pedidos.count %></td>
+                    <td><%= number_to_currency(producto.precio) %></td>
+                    <td><%= number_to_currency(pedidos.count * producto.precio) %></td>
+                    <td><%= pedidos.first.created_at.strftime("%d/%m/%Y") %></td>
+                    <td><%= pedidos.first.comentarios %></td>
+                    <td><%= pedidos.first.metodo_pago %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
