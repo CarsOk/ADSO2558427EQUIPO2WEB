@@ -1,4 +1,5 @@
-<h1>Solicitar un Producto</h1>
+
+  <h1>Solicitar un Producto</h1>
 
 <div class="container">
   <div class="row justify-content-center mt-4">
@@ -10,17 +11,72 @@
           <p class="card-text">Descripción: <%= @producto.descripcion %></p>
           <p class="card-text"><strong>Precio: <%= number_to_currency(@producto.precio) %></strong></p>
           
-          <!-- Agregar formulario para solicitar el producto -->
-          <%= form_for [@producto, @pedido] do |f| %>
-            <div class="text-center mt-3">
-              <div class="field">
-                <%= f.hidden_field :producto_id, value: @producto.id %>
-              </div>
-              <%= f.submit "Solicitar Producto", class: "btn btn-primary" %>
-            </div>
-          <% end %>
-
+          <!-- Botón para abrir el modal de confirmación -->
+          <button class="btn btn-primary" data-toggle="modal" data-target="#confirmModal">Solicitar Producto</button>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmModalLabel">Confirmar Solicitud</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <!-- Formulario de confirmación de datos del usuario -->
+      <h4>Datos del Usuario:</h4>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" value="<%= current_user.first_name %>" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="segundoNombre" class="form-label">Segundo Nombre:</label>
+        <input type="text" class="form-control" id="segundoNombre" value="<%= current_user.second_name %>" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="apellidoPaterno" class="form-label">Primer Apellido:</label>
+        <input type="text" class="form-control" id="apellidoPaterno" value="<%= current_user.last_name_1 %>" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="apellidoMaterno" class="form-label">Segundo APe</label>
+        <input type="text" class="form-control" id="apellidoMaterno" value="<%= current_user.last_name_2 %>" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="identificacion" class="form-label">Identificación:</label>
+        <input type="text" class="form-control" id="identificacion" value="<%= current_user.identification %>" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo Electrónico:</label>
+        <input type="email" class="form-control" id="email" value="<%= current_user.email %>" readonly>
+      </div>
+      
+      <!-- Formulario de confirmación de solicitud -->
+      <%= form_for [@producto, @pedido] do |f| %>
+        <!-- Otros campos del formulario -->
+        <div class="field">
+          <%= f.label :comentarios, "Comentarios" %>
+          <%= f.text_area :comentarios, class: "form-control" %>
+        </div>
+      
+        <div class="field">
+          <%= f.label :metodo_pago, "Método de Pago" %>
+          <%= f.select :metodo_pago, ["Tarjeta crédito", "Solicitando un crédito", "Bancolombia", "Daviplata", "Nequi", "Contra-Entrega"], class: "form-control" %>
+        </div>
+      
+        <%= f.hidden_field :producto_id, value: @producto.id %>
+        
+       </div>
+       <div class="modal-footer">
+       <button type="submit" class="btn btn-primary">Confirmar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      <% end %>
       </div>
     </div>
   </div>

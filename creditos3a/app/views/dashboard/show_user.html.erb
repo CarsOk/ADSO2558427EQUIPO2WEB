@@ -15,38 +15,41 @@
     </thead>
     <tbody>
       <% @users_with_pedidos.each_with_index do |user, index| %>
-        <tr class="<%= index.even? ? 'even-row' : 'odd-row' %>">
-          <td class="user-name">
-            <%= user.first_name %> <%= user.last_name_1 %> <%= user.last_name_2 %>
-          </td>
-          <td>
-            <ul class="buyer-info">
-              <li><b>Email:</b> <%= user.email %></li>
-              <li><b>Identificación:</b> <%= user.identification %></li>
-              <li><b>Dirección:</b> <%= user.address %></li>
-            </ul>
-          </td>
-          <td>
-            <ul class="product-list">
-              <% user.pedidos.each do |pedido| %>
-                <li class="product-item">
-                  <div class="producto-info">
-                    <div class="producto-avatar">
-                      <%= image_tag pedido.producto.avatar.url, class: "img-thumbnail", style: "max-width: 150px; max-height: 150px;" %>
+        <% if user.pedidos.present? %>
+          <tr class="<%= index.even? ? 'even-row' : 'odd-row' %>">
+            <td class="user-name">
+              <%= user.first_name %> <%= user.last_name_1 %> <%= user.last_name_2 %>
+            </td>
+            <td>
+              <ul class="buyer-info">
+                <li><b>Email:</b> <%= user.email %></li>
+                <li><b>Identificación:</b> <%= user.identification %></li>
+                <li><b>Dirección:</b> <%= user.address %></li>
+              </ul>
+            </td>
+            <td>
+              <ul class="product-list">
+                <% user.pedidos.each do |pedido| %>
+                  <li class="product-item">
+                    <div class="producto-info">
+                      <div class="producto-avatar">
+                        <%= image_tag pedido.producto.avatar.url, class: "img-thumbnail", style: "max-width: 150px; max-height: 150px;" %>
+                      </div>
+                      <div class="producto-details">
+                        <p><b>Producto:</b> <%= pedido.producto.nombre %></p>
+                        <p><b>Descripción:</b> <%= pedido.producto.descripcion %></p>
+                        <p><b>Precio:</b> <%= number_to_currency(pedido.producto.precio) %></p>
+                        <p><b>Comentarios:</b> <%= pedido.comentarios %></p>
+                        <p><b>Método de Pago:</b> <%= pedido.metodo_pago %></p>
+                      </div>
                     </div>
-                    <div class="producto-details">
-                      <p><b>Producto:</b> <%= pedido.producto.nombre %></p>
-                      <p><b>Descripción:</b> <%= pedido.producto.descripcion %></p>
-                      <p><b>Precio:</b> <%= number_to_currency(pedido.producto.precio) %></p>
-                    </div>
-                  </div>
-                </li>
-              <% end %>
-            </ul>
-          </td>
-        </tr>
+                  </li>
+                <% end %>
+              </ul>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
 </div>
-
