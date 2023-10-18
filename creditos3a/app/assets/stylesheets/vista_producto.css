@@ -1,133 +1,320 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+	--primary-color: #c7a17a;
+	--background-color: #f9f5f0;
+	--dark-color: #151515;
+}
+html.producto {
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
 }
 
 body {
     margin: 0;
     padding: 0;
     height: 100%;
-}
-
-.heder {
-    background: #f4f4f5;
-    display: flex;
-    justify-content: space-between;
-    height: 8vh;
-    
-}
-
-.centrar-imagen {
-    text-align: center; /* Centra horizontalmente el contenido */
-    margin-left: 600px; /* Ajusta la distancia superior según tus necesidades */
-
-    
-}
-
-.imagen-icono {
-    width: 50px; /* Ajusta el ancho de la imagen según tus necesidades */
-    height: 50px; /* Ajusta la altura de la imagen según tus necesidades */
-}
-
-.buscar {
-    display: flex;
-    width: 200px;
-}
-.barra {
-    font-family:'Times New Roman', Times, serif;
-    width: 3%;
-    height: 5%;
-    position: fixed;
-    transition: .4s all;
-    z-index: 1;
-}
-
-.barra ul {
-    padding: 0px;
-    text-align: center;
-}
-.barra ul li {
-    display: inline-block; /* Mantiene los elementos de la lista en línea */
-    margin-right: 20px; /* Espaciado entre los elementos del menú */
-}
-.barra ul li:last-child {
-    margin-right: 0; /* Elimina el margen derecho del último elemento del menú */
-}
-.barra a{
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-}
-.barra li {
-    transition: .5s all;
-}
-
-.barra a {
-    text-align: center;
-    text-decoration: none;
-    list-style: none;
-    transition: .3s all;
-    font-size: 0px;
-    padding: 0px;
-}
-
-.barra h2 {
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    color: rgb(247, 242, 247);
-    padding: 7px;
-    padding-bottom: 7px;
-    font-size: 0px;
-}
-
-.imagen-pequena {
-    width: 30px; /* Ajusta el ancho según tus necesidades */
-    height: auto; /* Esto mantiene la relación de aspecto original */
-}
-
-.barra:hover {
-    width: 30%;
-    height: 60%;
-    background-color: rgba(5, 33, 51, 0.98);
-}
-
-.barra:hover h2 {
-    padding: 15px;
-    font-size: 35px;
-}
-
-.barra:hover a {
-    font-size: 20px;
-    color: rgb(247, 242, 247);
-    display: block;
-    padding: 30px;
-}
-
-.barra:hover img {
-    height: 0px;
-    margin: 0px;
-}
-
-.barra:hover li {
-    border-top: 1px solid black;
     width: 100%;
 }
 
-.barra:hover ul:last-of-type {
-    border-bottom: 1px solid black;
+
+.container-hero {
+	background-color: var(--background-color);
 }
 
-.barra:hover a:hover {
-    font-size: 25px;
-    padding: 30px 0px; /*30 0 30 0*/
-    background-color: rgba(22, 78, 112, 0.98);
+.hero {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 0;
 }
+
+.customer-support {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.customer-support i {
+	font-size: 3.3rem;
+}
+
+.content-customer-support {
+	display: flex;
+	flex-direction: column;
+}
+
+.container1-logon1 {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.container1-logon1 i {
+	font-size: 3rem;
+}
+
+.container1-logon1 h1 a {
+	text-decoration: none;
+	color: #000;
+	font-size: 3rem;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+}
+
+.container-user {
+	display: flex;
+	gap: 2rem;
+	cursor: pointer;
+    height: 3.5rem;
+
+}
+.container-user a{
+	text-decoration: none;
+	color: #fff;
+	background-color: #807CB9;
+	display: inline-block;
+	padding: 1rem 1rem;
+	text-transform: uppercase;
+	border-radius: 1rem;
+    align-items: center;
+}
+.container-user .fa-basket-shopping {
+	font-size: 3rem;
+	color: var(--primary-color);
+	padding-left: 1rem;
+}
+.imagen-icono1 {
+    display: flex;
+	gap: 1rem;
+	cursor: pointer;
+    height: 4rem;
+
+    
+}
+
+.content-shopping-cart {
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+
+
+
+
+
+/* ************* NAVBAR ************* */
+.nav1 {
+	background-color: #807CB9;
+    
+}
+
+.nava2 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 0;
+}
+
+.nava2 .fa-bars {
+	display: none;
+    
+}
+
+.menu1 {
+	display: flex;
+	gap: 8rem;
+    flex-direction:row;
+    background-color: #807CB9;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 25rem;
+}
+
+.menu1 li {
+	list-style: none;
+    
+}
+
+.menu1.active {
+    display: flex;
+    background-color: #807CB9;
+    align-items: center;
+}
+
+
+.menu1 a {
+	text-decoration: none;
+	font-size: 1.5rem;
+	color: var(--dark-color);
+	font-weight: 600;
+	text-transform: uppercase;
+	position: relative;
+    text-align: center;
+    
+}
+
+.menu1 a::after {
+	content: '';
+	width: 1.5rem;
+	background-color: #fff;
+	position: absolute;
+	bottom: -3px;
+	left: 50%;
+	transform: translate(-50%, 50%);
+	opacity: 0;
+	transition: all 0.3s ease;
+}
+
+.menu1 a:hover::after {
+	opacity: 1;
+}
+
+.menu1 a:hover {
+	color: #fff;
+}
+
+
+ 
+
+
+
+
+/* ********************************** */
+/*               BANNER               */
+/* ********************************** */
+.banner1 {
+	background-image: linear-gradient(100deg, #000000, #00000020);
+	height: 50rem;
+	background-size: cover;
+	background-position: center;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    text-shadow: 15px 15px 10px rgba(0, 0, 0, 0.8); /* Añade una sombra al texto */
+    font-size: 10px; /* Tamaño de fuente más grande */
+    font-weight: bold; 
+}
+.banner1 img{
+  width: 100%;
+  height: auto;
+}
+
+.content-banner1 {
+    position: absolute;
+	max-width: 90rem;
+	margin: 0 auto;
+	padding: 25rem 0;
+}
+
+.content-banner1 p {
+	font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	font-weight: 500;
+    margin-left: 10rem;
+    color: rgb(10, 6, 0);
+}
+
+.content-banner1 h2 {
+	color: #fff;
+	font-size: 3.5rem;
+	font-weight: 500;
+	line-height: 1.2;
+    margin-left: 10rem;
+}
+
+.content-banner1 a {
+	margin-top: 2rem;
+	text-decoration: none;
+	color: #fff;
+	background-color: #807CB9;
+	display: inline-block;
+	padding: 1rem 3rem;
+	text-transform: uppercase;
+	border-radius: 3rem;
+    margin-left: 10rem;
+}
+
+@media (max-width: 768px) {
+    html.producto {
+        font-size: 55%;
+    }
+
+    .hero {
+        padding: 2rem;
+    }
+
+    .customer-support {
+        display: none;
+    }
+
+    .content-shopping-cart {
+        display: none;
+    }
+
+    .nav1 {
+        padding: 1rem 2rem;
+    }
+
+    .nava2 .fa-bars {
+            display: block;
+            color: #fff;
+            font-size: 3rem;
+        
+    }
+        .menu1 {
+            display:none;
+            flex-direction: column; /* Cambia la dirección a columna para apilar los elementos */
+            background-color: #807CB9; /* Agrega un fondo al menú de hamburguesa */
+            left: 0;
+            width: 100%;
+            z-index: 2;
+        }
+    
+        .menu1.active {
+            display: flex;
+            background-color: #807CB9;
+            margin: 0%;
+            padding: 0%;
+        }
+        
+        .menu1 li {
+            margin: 1rem 0; /* Ajusta el espaciado entre elementos del menú */
+           
+        }
+    
+        .menu1 a {
+            color: #fff; /* Cambia el color de texto del menú de hamburguesa */
+        
+        }
+    
+
+    .content-banner1 {
+        max-width: 50rem;
+		margin: 0 auto;
+		padding: 25rem 0;
+    }
+   
+}
+
+
+
+
+
 
 
  /* otros estilos */
 
-.contenedor-pequeno {
+ .contenedor-pequeno {
     text-align: justify;
     line-height: 2em;
     background: #f4f4f5;
@@ -193,6 +380,10 @@ h1 {
 }
 
 
+
+
+
+
 /* otros estilos */
 
 .contenedorgrande {
@@ -205,13 +396,34 @@ h1 {
 }
 
 .titulo-llamativo {
-    font-family:Georgia, 'Times New Roman', Times, serif; /* Utiliza la fuente Futura o una fuente similar */
-    font-size: 30px; /* Ajusta el tamaño de fuente según tus preferencias */
-    font-weight: bold; /* Si deseas que el título sea negrita */
-    color: #000; /* Color de texto en negro o el color que prefieras */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #807CB9;
     text-align: center;
-    padding-bottom: 0px;
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+    position: relative; /* Añade una posición relativa al elemento */
+
+    /* Ancho y centrado del título */
+    width: 80%;
+    margin: 0 auto;
 }
+
+.titulo-llamativo::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Centra la línea horizontal */
+    transform: translateX(-50%);
+    width: 90%; /* Ajusta el ancho de la línea */
+    border-bottom: 2px solid #807CB9; /* Establece el estilo del borde */
+}
+
+
+
+
+
 
 
 /* Estilos CSS para las tarjetas de producto con rotación */
@@ -299,56 +511,61 @@ h1 {
 /* pie de pagina */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
-
 footer {
     display: flex;
     flex-direction: column;
-    padding-bottom: 0px;
     background: #6A5F8E;
-    padding-top: 0px;
     height: auto; /* Cambia el porcentaje a "auto" o un valor fijo en píxeles */
+    
 }
 
-.cajita{
-    width: 1140px;
-    margin: auto;
+.cajita {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap; /* Asegura que los elementos se envuelvan en pantallas más pequeñas */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 1140px; /* Limita el ancho a 1140px */
+    margin: 0 auto; /* Centra el contenido */
 }
-.footer-contigo{
-    width: 33.3%;
-    padding-top: 10px;
+
+.footer-contigo {
+    flex: 1; /* Ocupa el espacio disponible en dispositivos móviles */
+    padding: 10px;
+    text-align: center; /* Centra el contenido */
 }
-h3{
-    font-size: 28px;
+
+h3 {
+    font-size: 24px; /* Ajusta el tamaño del título */
     margin-bottom: 15px;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Open Sans', sans-serif; /* Cambia la fuente */
 }
-.footer-contigo p{
-    width:190px;
-    margin: auto;
+
+.footer-contigo p {
     padding: 7px;
+    font-size: 16px; /* Ajusta el tamaño del texto */
+    color: white;
 }
-.footer-contigo ul{
-    text-align: center;
-}
-.list{
+
+.list {
     padding: 0;
-  
 }
-.list li{
-    width: auto;
-    text-align: center;
-    list-style-type:none;
+
+.list li {
+    list-style-type: none;
     padding: 7px;
-    position: relative;
     color: #1f1d1d;
+    position: relative;
+    text-align: center;
 }
-.list li::before{
+.list li a{
+    font-size: 16px;
+    color: white;
+}
+
+.list li::before {
     content: '';
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     left: 50%;
     top: 100%;
     width: 0;
@@ -356,47 +573,55 @@ h3{
     background: #f18930;
     transition-duration: .5s;
 }
-.list li:hover::before{
+
+.list li:hover::before {
     width: 70px;
 }
 
 .enlace-negro {
-    color:#1f1d1d /* Código de color negro */
-    /* Puedes ajustar otros estilos según sea necesario, como tamaño de fuente o decoración de texto */
+    color: #1f1d1d; /* Código de color negro */
+    text-decoration: none;
 }
 
-.social-icons{
+.social-icons {
     text-align: center;
     padding: 0;
 }
-.social-icons li{
+
+.social-icons li {
     display: inline-block;
     text-align: center;
     padding: 5px;
 }
-.social-icons i{
+
+.social-icons i {
     color: white;
     font-size: 25px;
 }
-a{
+
+a {
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     color: #f18930;
 }
-.social-icons i:hover{
+
+.social-icons i:hover {
     color: #f18930;
 }
-.bottom-bar{
+
+.bottom-bar {
     background: #423271;
     text-align: center;
-    padding: 10px 0;
-    margin-top: 0%;
-    width: 100%;
+    width: auto;
+    margin-bottom: 0%;
+    padding: 12px;
 }
-.bottom-bar p{
+
+.bottom-bar p {
     color: #fff;
     margin: 0;
-    font-size: 16px;
-    padding: 7px;
+    font-size: 14px; /* Ajusta el tamaño del texto */
+
 }

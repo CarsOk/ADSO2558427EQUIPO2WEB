@@ -1,0 +1,23 @@
+<h1>Pedidos Realizados</h1>
+
+<% if @pedidos.any? %>
+  <div class="row">
+    <% @pedidos.group_by { |pedido| pedido.producto }.each do |producto, pedidos| %>
+      <div class="col-md-6 mb-4">
+        <div class="card border">
+          <%= image_tag producto.avatar.url, class: "card-img-top img-fluid" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= producto.nombre %></h5>
+            <p class="card-text"><%= producto.descripcion %></p>
+            <p class="card-text"><b>Precio Unitario: <%= number_to_currency(producto.precio) %></b></p>
+            <p class="card-text"><b>Cantidad Pedida:</b> <%= pedidos.size %></p>
+            <p class="card-text"><b>Precio Total: <%= number_to_currency(producto.precio * pedidos.size) %></b></p>
+            <p><b>Fecha de pedido:</b> <%= pedidos.first.created_at.strftime("%d/%m/%Y") %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No has realizado ningún pedido aún.</p>
+<% end %>
