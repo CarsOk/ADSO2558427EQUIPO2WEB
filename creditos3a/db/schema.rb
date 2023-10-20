@@ -59,19 +59,11 @@ ActiveRecord::Schema.define(version: 2023_10_16_020722) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "catalogos", force: :cascade do |t|
-    t.string "nombre"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "categorias", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "catalogo_id"
     t.string "imagen"
-    t.index ["catalogo_id"], name: "index_categorias_on_catalogo_id"
   end
 
   create_table "contactospqrs", force: :cascade do |t|
@@ -136,7 +128,6 @@ ActiveRecord::Schema.define(version: 2023_10_16_020722) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "categorias", "catalogos"
   add_foreign_key "pedidos", "productos"
   add_foreign_key "pedidos", "users"
   add_foreign_key "productos", "categorias"
