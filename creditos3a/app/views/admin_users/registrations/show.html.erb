@@ -1,0 +1,51 @@
+
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+        <h2 class="card-title">Perfil de <%= @admin_user.first_name %></h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 text-center">
+            </div>
+            <div class="col-md-8">
+              <h3 style="font-size: 18px;">INFORMACIÓN</h3>
+              <hr class="mt-0 mb-4">
+              <div class="mb-3">
+                <strong>Nombre 1:</strong>
+                <span class="text-muted"><%= @admin_user.first_name %></span>
+              </div>
+              <div class="mb-3">
+                <strong>Nombre 2:</strong>
+                <span class="text-muted"><%= @admin_user.second_name %></span>
+              </div>
+              <div class="mb-3">
+                <strong>Apellido 1:</strong>
+                <span class="text-muted"><%= @admin_user.last_name_1 %></span>
+              </div>
+              <div class="mb-3">
+                <strong>Apellido 2:</strong>
+                <span class="text-muted"><%= @admin_user.last_name_2 %></span>
+              </div>
+              <div class="mb-3">
+                <strong>Email:</strong>
+                <span class="text-muted"><%= @admin_user.email %></span>
+              </div>
+              <!-- Puedes agregar más campos aquí según tus necesidades -->
+            </div>
+          </div>
+          <div class="mt-4">
+            <%= link_to 'Editar perfil', edit_admin_user_profile_path, class: 'btn btn-secondary' %>
+            <%= link_to "Cerrar sesión", destroy_admin_user_session_path, method: :delete, class: "btn btn-danger" %>
+            <%= link_to "Volver al inicio", root_path, class: "btn btn-primary" %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :last_name_2, presence: true
   validates :identification, presence: true
   validates :address, presence: true
+  has_one_attached :imagen
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
