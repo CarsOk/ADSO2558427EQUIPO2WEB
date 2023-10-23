@@ -9,10 +9,16 @@
             </form>
         </div>
         <ul class="nav navbar-top-links navbar-right">
-            <li>
-                <i class="fa fa-sign-out"></i><%= link_to "Cerrar sesión", destroy_admin_user_session_path, method: :delete %>
-            </li>
-        </ul>
-
+        <% if admin_user_signed_in? %>
+          <li class="d-flex align-items-center">
+            <i class="fa fa-user mr-2"></i>
+            <%= link_to "#{current_admin_user.first_name} #{current_admin_user.last_name_1}", admin_user_profile_path %>
+          </li>
+          <li class="d-flex align-items-center">
+            <i class="fa fa-sign-out mr-2"></i> <!-- Utiliza "mr-2" para agregar un poco de espacio entre el ícono y el texto -->
+            <%= link_to "Cerrar Sesión", destroy_admin_user_session_path, method: :delete %>
+          </li>
+        <% end %>
+      </ul>
     </nav>
 </div>

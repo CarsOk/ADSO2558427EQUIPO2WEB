@@ -33,15 +33,24 @@
                     </a>
                 </div>
             </li>
-             <li class="<%= 'active' if current_page?(admin_categorias_path) %>">
-             <%= link_to admin_categorias_path do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">Categoría</span>
-                <%= link_to "revisar tienda", '/landing_page', class: "btn btn-primary" %>
-                <%= link_to "Ver Administradores", dashboard_admin_users_path %>
-                <%= link_to "Ver Usuarios con Pedidos", show_user_dashboard_path %>
+            <li class="<%= 'active' if current_page?(admin_categorias_path) %>">
+  <%= link_to admin_categorias_path do %>
+    <i class="fa fa-laptop"></i> <span class="nav-label" style="font-size: 18px;">Crear Productos</span>
+  <% end %>
+  <%= link_to '/landing_page' do %>
+    <i class="fa fa-eye"></i><span class="nav-label" style="font-size: 18px;"> Revisar Tienda
+  <% end %>
+  <%= link_to dashboard_admin_users_path do %>
+    <i class="fa fa-star"></i> <span class="nav-label" style="font-size: 18px;"> Ver Administradores
+  <% end %>
+  <%= link_to show_user_dashboard_path do %>
+    <i class="fa fa-users"></i><span class="nav-label" style="font-size: 18px;"> Ver Usuarios con Pedidos
+  <% end %>
+  <%= link_to dashboard_mejores_calificados_path do %>
+    <i class="fa fa-star"></i> <span class="nav-label" style="font-size: 18px;"> Mejores Calificados
+  <% end %>
+</li>
 
-             <% end %>
-           </li>
         </ul>
     </div>
 </nav>

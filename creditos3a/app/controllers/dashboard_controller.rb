@@ -17,4 +17,9 @@ class DashboardController < ApplicationController
     @users_with_pedidos = User.includes(:pedidos)
   end
   
+  def mejores_calificados
+    @productos = Producto.all.order(rating_average: :desc).limit(10)
+  end
+  
+  
 end

@@ -1,5 +1,6 @@
 class Producto < ApplicationRecord
     has_many :pedidos
+    has_many :calificaciones
     #has_many :user_products
     #has_many :users, through: :user_products
 
@@ -10,4 +11,13 @@ class Producto < ApplicationRecord
     validates :precio, presence: true
     validates :categoria, presence: true
     validates :avatar, presence: true
+
+    def rating_average
+        if calificaciones.any?
+          total_ratings = calificaciones.sum(:rating)
+          total_ratings / calificaciones.count.to_f
+        else
+          0
+        end
+      end
 end

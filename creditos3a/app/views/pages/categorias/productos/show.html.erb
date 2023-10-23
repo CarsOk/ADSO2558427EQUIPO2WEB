@@ -51,7 +51,7 @@
                 <%= link_to "Solicitar este producto", new_producto_pedido_path(producto_id: @producto.id) %>
 
                 </div>
-
+                        
                 <!-- Icono de WhatsApp -->
                 <div class="what">
                     <a href="https://wa.me/3046183844" target="_blank" class="whatsapp-link">
@@ -90,10 +90,72 @@
                               
                              </div>
                             </div>
+                            
                         </div>
                     </div>
                 <% end %>
             </div>
+            <h2 class="form-title">Danos tu opinión del Producto</h2>
+            <%= form_for([@producto, @calificacion], html: { class: 'calificacion-form' }) do |f| %>
+              <div class="form-group">
+                <%= f.label :rating, 'Calificación (1-5)', class: 'control-label' %>
+                <div class="rating-input">
+                  <% (1..5).each do |rating| %>
+                    <label class="star-label">
+                      <%= f.radio_button :rating, rating, class: 'star-input' %>
+                      <span class="star"></span>
+                    </label>
+                  <% end %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :review, 'Comentario', class: 'control-label' %>
+                <%= f.text_area :review, class: 'form-control review-input large-text' %>
+              </div>
+              <div class="form-group">
+                <%= f.submit 'Calificar y Comentar', class: 'btn btn-primary' %>
+              </div>
+            <% end %>
+            
+              
+
+            
+            <h2>Calificaciones y Reseñas</h2>
+            <% if @producto.calificaciones.any? %>
+              <div class="calificaciones-container">
+                <% @producto.calificaciones.each do |calificacion| %>
+                  <div class="calificacion">
+                    <div class="calificacion-header">
+                      <p><strong>Calificación:</strong>
+                        <% if calificacion.rating.present? %>
+                          <span class="rating">
+                            <% (1..calificacion.rating).each do %>
+                              <span class="star">★</span>
+                            <% end %>
+                          </span>
+                        <% else %>
+                          <p>Sin calificación</p>
+                        <% end %>
+                      </p>
+                      <span class="user-info large-username">Usuario:
+                      <% if calificacion.user.present? %>
+                        <%= calificacion.user.first_name %> <%= calificacion.user.last_name_1 %>
+                      <% else %>
+                        Anónimo
+                      <% end %>
+                    </span>
+                    
+                    </div>
+                    <div class="calificacion-body">
+                      <p><strong>Comentario:</strong> <%= calificacion.review %></p>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% else %>
+              <p>No hay calificaciones ni reseñas disponibles.</p>
+            <% end %>
+            
         </div>
     </section>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">

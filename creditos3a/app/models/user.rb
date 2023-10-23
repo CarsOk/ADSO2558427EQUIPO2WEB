@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :pedidos
+  has_many :calificaciones
   #has_many :user_products
   #has_many :productos, through: :user_products
 
@@ -10,6 +11,7 @@ class User < ApplicationRecord
   validates :last_name_2, presence: true
   validates :identification, presence: true
   validates :address, presence: true
+  has_one_attached :imagen
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
