@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :pedidos
+  has_many :calificaciones
   #has_many :user_products
   #has_many :productos, through: :user_products
 

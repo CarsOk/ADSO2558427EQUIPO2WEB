@@ -13,6 +13,43 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+.calificaciones-container {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-top: 10px;
+}
+.large-username {
+    font-size: 20px; 
+
+  }
+  .star {
+    font-size: 24px; /* Ajusta el tamaño según tu preferencia */
+  }
+  
+
+.calificacion {
+  border: 1px solid #eee;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.calificacion-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating {
+  color: #ffac00; /* Color de las estrellas */
+}
+
+.user-info {
+  font-weight: bold;
+}
+
+.calificacion-body {
+  margin-top: 10px;
+}
 .animated {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
