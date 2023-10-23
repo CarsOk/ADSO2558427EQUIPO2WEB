@@ -9,6 +9,8 @@ class Pages::Categorias::ProductosController < ApplicationController
   @producto = Producto.find(params[:id])
   @categoria = @producto.categoria
   @productos_relacionados = @categoria.productos.where.not(id: @producto.id).limit(3)
+  @calificaciones = @producto.calificaciones
+  @calificacion = @producto.calificaciones.new
   end
 
 

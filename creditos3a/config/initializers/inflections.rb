@@ -14,6 +14,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
     inflect.irregular 'peticion', 'peticiones'
     inflect.irregular 'fotografia', 'fotografias'
     inflect.irregular 'contactopqrs', 'contactospqrs'
+    inflect.irregular 'calificacion', 'calificaciones'
 #   inflect.uncountable %w( fish sheep )
 end
 

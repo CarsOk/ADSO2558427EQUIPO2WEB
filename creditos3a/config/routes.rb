@@ -3,6 +3,8 @@ root to: 'dashboard#home', as: 'dashboard_home'
 
 get 'dashboard/admin_users', to: 'dashboard#admin_users'
 get 'dashboard/show_user', to: 'dashboard#show_user', as: 'show_user_dashboard'
+get '/dashboard/mejores_calificados', to: 'dashboard#mejores_calificados', as: 'dashboard_mejores_calificados'
+
 
 
 
@@ -24,7 +26,9 @@ get 'dashboard/show_user', to: 'dashboard#show_user', as: 'show_user_dashboard'
   # Rutas para categorías y productos
   namespace :pages do
     resources :categorias do
-      resources :productos, module: :categorias
+      resources :productos, module: :categorias do
+        resources :calificaciones, only: [:new, :create]
+      end
     end
   end
 
@@ -75,15 +79,22 @@ get 'dashboard/show_user', to: 'dashboard#show_user', as: 'show_user_dashboard'
     resources :categorias do
       resources :productos, module: :categorias, only: [:index, :new, :create, :edit, :update, :destroy]
     end
+  end
     namespace :pages do
       namespace :categorias do
-        resources :productos
+        resources :productos do
+          resources :calificaciones, only: [:new, :create]
+        end
       end
     end
-  end
+    
 
   resources :productos do
     resources :pedidos, only: [:new, :new_with_user_data, :create, :pedidos_realizados]
+  end
+  
+  resources :productos do
+    resources :calificaciones, only: [:new, :create, :index]
   end
 
   resources :pedidos do
@@ -92,6 +103,8 @@ get 'dashboard/show_user', to: 'dashboard#show_user', as: 'show_user_dashboard'
       get 'pedidos_realizados'
     end
   end
+
+  
 
   # Resto de las rutas...
 end

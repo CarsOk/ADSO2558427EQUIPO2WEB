@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Mejores Productos Calificados</h2>
+  <div class="row">
+    <% @productos.each do |producto| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <%= image_tag producto.avatar.url, class: "card-img-top" if producto.avatar.present? %>
+          <div class="card-body">
+            <h5 class="card-title"><%= producto.nombre %></h5>
+            <p class="card-text"><strong>Calificación Promedio:</strong> <%= producto.rating_average %></p>
+            <p class="card-text"><strong>Descripción:</strong> <%= producto.descripcion %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
