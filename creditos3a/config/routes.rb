@@ -104,7 +104,11 @@ get '/dashboard/mejores_calificados', to: 'dashboard#mejores_calificados', as: '
     end
   end
 
-  
+  # ruta de metado de pago
+resources :payments do
+  post 'create_preference', on: :collection
+end
+
 
   # Resto de las rutas...
 end

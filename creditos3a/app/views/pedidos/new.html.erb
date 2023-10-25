@@ -72,7 +72,12 @@
           <%= f.label :metodo_pago, "Método de Pago" %>
           <%= f.select :metodo_pago, ["Tarjeta crédito", "Solicitando un crédito", "Bancolombia", "Daviplata", "Nequi", "Contra-Entrega"], class: "form-control" %>
         </div>
-      
+        
+         <%= link_to "Paga con MercadoPago", "https://www.mercadopago.com/mla/checkout/start?pref_id=202809963-920c288b-4ebb-40be-966f-700250fa5370", class: "btn btn-primary" %>
+
+         
+         
+
         <%= f.hidden_field :producto_id, value: @producto.id %>
         
        </div>
