@@ -12,15 +12,19 @@
   - Dirección
   - Ciudad
   - Numero de teléfono
+  - imagen
 
 
-## Tabla facturas
+## Tabla admin_user
 
-  - ID_Factura (clave primaria)
-  - ID_Pago (clave foranea)
-  - ID_Prestamo(clave foranea)
-  - ID_Usuario(clave foranea)
-  - Fecha de pagos
+  - ID_admin_user (clave primaria)
+  - first_name       
+  - second_name      
+  - last_name_1      
+  - last_name_2      
+  - identification   
+  - address
+  - email
 
 
 ## Tabla Productos
@@ -32,19 +36,18 @@
   - Cantidad disponible
   - Imagen
 
-## Tabla Préstamos
-  - ID_Préstamo (clave primaria)
-  - ID_Usuario (clave foránea)
-  - ID_Producto (clave foránea)
-  - Fecha de inicio
-  - Fecha de finalización
-  - Monto del préstamo
-  - Estado (en espera, aprobado, denegado)
+## Tabla Pedidos
+  - pedidos     
 
-## Tabla Pagos
+  - id (PK)         
+  - user_id (FK)     
+  -  producto_id (FK)     
+  -  comentarios      
+  -  metodo_pago 
 
-  - ID_Pago (clave primaria)
-  - ID_Préstamo (clave foránea)
-  - Fecha de pago
-  - Monto pagado
-  - Saldo pendiente
+## Tabla Categorias
+
+  - id (PK)         
+  - nombre           
+  - imagen           
+  
