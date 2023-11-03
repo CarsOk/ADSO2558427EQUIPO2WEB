@@ -1,9 +1,98 @@
-.con-fondo {
-    background-image: url('assets/fondo2.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+
+.container-title {
+	padding: 0px;
+	background-color: #eee;
+	margin-bottom: 0px;
+	color: #222;
+    text-align: center;
+    font-size: 40px;
 }
+
+.container-info-product {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.container-price {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e4e4e4;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.container-price span {
+	font-size: 24px;
+	font-weight: 300;
+}
+
+.container-social {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 0;
+	align-items: center;
+	border-bottom: 1px solid #e4e4e4;
+}
+
+.container-social span {
+	font-weight: 300;
+	color: #252525;
+}
+
+.container-buttons-social {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.container-buttons-social a:link,
+.container-buttons-social a:visited {
+	color: black;
+	font-size: 20px;
+}
+
+.container-buttons-social a:hover {
+	color: #1bbeb4;
+}
+.container-description,
+.container-additional-information,
+.container-reviews {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid #e4e4e4;
+	padding: 10px 0;
+}
+
+.title-description,
+.title-additional-information,
+.title-reviews {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.title-description h4,
+.title-additional-information h4,
+.title-reviews h4 {
+	font-weight: 300;
+	color: #666;
+	font-size: 14px;
+}
+
+.text-description,
+.text-additional-information,
+.text-reviews {
+	font-size: 13px;
+	color: #252525;
+	line-height: 22px;
+	margin-top: 25px;
+}
+.hidden {
+	display: none;
+}
+
 
 /* Estilos personalizados para el botón */
 .custom-button {
@@ -33,61 +122,7 @@
     
 }
 
-/* Estilo para hacer más pequeño el enlace de WhatsApp y alinear a la izquierda */
-.whatsapp-link {
-    text-decoration: none;
-    color: #fff;
-    background-color: rgba(37, 211, 102, 0.7); /* Cambia el color de fondo a verde transparente */
-    font-weight: bold;
-    font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
-    display: inline-block;
-    padding: 8px 16px; /* Ajusta el espaciado del botón según sea necesario */
-    border-radius: 5px;
-    margin-top: 2px;
-    transition: background-color 0.3s;
-}
 
-.what {
-    margin-left: 14px;
-    margin-top: 5px;
-}
-
-.whatsapp-link:hover {
-    background-color: rgba(18, 140, 126, 0.7); /* Cambia el color de fondo al pasar sobre el botón */
-}
-
-.seccion-relacionados {
-    
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding-top: 20px; 
-}
-
-/* Estilo para hacer más pequeño el icono de WhatsApp */
-.whatsapp-icon {
-    width: 12px; /* Ajusta el ancho del ícono según sea necesario */
-    height: 12px; /* Ajusta la altura del ícono según sea necesario */
-    vertical-align: middle; /* Alinea el ícono verticalmente con el texto */
-}
-
-/* Estilo para hacer más pequeño el texto "Chat" */
-.whatsapp-text {
-    font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
-}
-
-/* Estilos para la superposición semitransparente */
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Estilo para el encabezado */
-h1 {
-    color: #333;
-    font-size: 36px;
-}
 
 /* Estilo para la sección de producto */
 .product-section {
@@ -108,11 +143,46 @@ h1 {
     margin-top: 20px;
 }
 
-.product-description {
-    font-size: 18px;
-    color: #666;
-    margin-top: 10px;
+.container-description,
+.container-additional-information,
+.container-reviews {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 10px 0;
 }
+
+.title-description,
+.title-additional-information,
+.title-reviews {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.title-description h4,
+.title-additional-information h4,
+.title-reviews h4 {
+    font-weight: 300;
+    color: #666;
+    font-size: 14px;
+}
+
+.text-description,
+.text-additional-information,
+.text-reviews {
+    font-size: 13px;
+    color: #252525;
+    line-height: 22px;
+    margin-top: 25px;
+}
+
+/* Agrega la clase "hidden" para ocultar contenido */
+.hidden {
+    display: none;
+}
+
 
 .product-quantity {
     max-width: 3rem;
@@ -136,10 +206,34 @@ h1 {
 
 /* Estilo para la sección de productos relacionados */
 .related-products-section {
-    background-color: #f5f5f5;
-    padding: 50px 0;
+    
+    padding: 1px;
+}
+.tirela {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding-bottom: 2rem;
+    position: relative;
+    
+}
+.card{
+    margin-top: 20px;
+    
 }
 
+
+.tirela::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Centra la línea horizontal */
+    transform: translateX(-50%);
+    width: 60%; /* Ajusta el ancho de la línea */
+    border-bottom: 2px solid black; /* Establece el estilo del borde */
+}
 .related-product-card {
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -199,7 +293,7 @@ h1 {
     /* Agregar más estilos para dispositivos móviles aquí */
 }
 .related-product-card .card-img-top {
-    width: 450px !important; /* Establece el ancho deseado para las imágenes */
+    width: 500px !important; /* Establece el ancho deseado para las imágenes */
     height: 300px !important; /* Establece la altura deseada para las imágenes */
     object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
 }
