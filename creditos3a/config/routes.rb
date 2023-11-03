@@ -32,38 +32,25 @@ get '/dashboard/mejores_calificados', to: 'dashboard#mejores_calificados', as: '
     end
   end
 
-  devise_for :admin_users, controllers: {
-    sessions: 'admin_users/sessions',
-    registrations: 'admin_users/registrations',
-      # Reemplaza con tu controlador personalizado
-  }
-  # Rutas de autenticación
+ 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  authenticated :admin_user do
+
+  authenticated :user, ->(user) { user.administrador? } do
     root to: 'dashboard#home', as: :administrador_root
   end
 
+  authenticated :user, ->(user) { !user.administrador? } do
+    root to: 'home#landing_page', as: :cliente_root
+  end
+  
   devise_scope :user do
     delete '/users/sign_out' => 'users/sessions#destroy', :as => :delete_user_session
     get '/user_profile', to: 'users/registrations#show', as: :user_profile
     get '/user_profile/edit', to: 'users/registrations#edit', as: :edit_user_profile
     put '/user_profile', to: 'users/registrations#update', as: :update_user_profile
-  end
-
-  devise_scope :admin_user do
-    delete '/admin_users/sign_out' => 'admin_users/sessions#destroy', :as => :delete_admin_user_session
-    get '/admin_user_profile', to: 'admin_users/registrations#show', as: :admin_user_profile
-    get '/admin_user_profile/edit', to: 'admin_users/registrations#edit', as: :edit_admin_user_profile
-    put '/admin_user_profile', to: 'admin_users/registrations#update', as: :update_admin_user_profile
-  end
-  
-
-
-  authenticated :user, ->(user) { !user.administrador? } do
-    root to: 'home#landing_page', as: :cliente_root
   end
 
   root to: redirect('/users/sign_in')

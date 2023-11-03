@@ -5,6 +5,7 @@ class User < ApplicationRecord
   #has_many :productos, through: :user_products
 
   before_create :set_default_administrador
+  
   validates :first_name, presence: true
   validates :second_name, presence: true
   validates :last_name_1, presence: true
@@ -12,6 +13,7 @@ class User < ApplicationRecord
   validates :identification, presence: true
   validates :address, presence: true
   has_one_attached :imagen
+  attribute :administrador, :boolean, default: false
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -20,7 +22,9 @@ class User < ApplicationRecord
 
   private
 
+
   def set_default_administrador
-    self.administrador = false
+    self.administrador = (self.email.split("@").last == "admin.com")
   end
+  
 end
