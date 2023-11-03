@@ -1,5 +1,6 @@
 class Admin::Categorias::ProductosController < Admin::AdminController
     before_action :set_categoria
+    before_action :check_admin
   def index
     @productos = @categoria.productos
   end
@@ -51,6 +52,11 @@ class Admin::Categorias::ProductosController < Admin::AdminController
 
   def set_categoria
     @categoria = Categoria.find(params[:categoria_id])
+  end
+  def check_admin
+    unless current_user.administrador?
+      redirect_to root_path, alert: 'No tienes permisos para acceder a esta página.'
+    end
   end
 end
 

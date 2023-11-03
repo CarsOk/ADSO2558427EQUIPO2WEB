@@ -1,11 +1,14 @@
 class DashboardController < ApplicationController
-  before_action :authenticate_admin_user!
+  before_action :authenticate_user!
   layout 'admin'
+
+  before_action :check_admin
+
   def home
     @users = User.all
   end
   def admin_users
-    @admin_users = AdminUser.all
+    @users = User.all
   end
 
   def pedidos
@@ -20,6 +23,12 @@ class DashboardController < ApplicationController
   def mejores_calificados
     @productos = Producto.all.order(rating_average: :desc).limit(10)
   end
-  
+  private
+
+  def check_admin
+    unless current_user.administrador?
+      redirect_to root_path, alert: 'No tienes permisos para acceder a esta página.'
+    end
+  end
   
 end
