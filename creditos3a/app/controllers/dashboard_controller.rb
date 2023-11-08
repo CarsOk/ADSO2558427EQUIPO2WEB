@@ -1,11 +1,14 @@
+
 class DashboardController < ApplicationController
-  before_action :authenticate_admin_user!
+  before_action :authenticate_user!
+  before_action :authorize, only: [:home, :admin_users, :pedidos, :show_user, :mejores_calificados]
   layout 'admin'
+
   def home
     @users = User.all
   end
   def admin_users
-    @admin_users = AdminUser.all
+    @users = User.all
   end
 
   def pedidos
@@ -20,6 +23,14 @@ class DashboardController < ApplicationController
   def mejores_calificados
     @productos = Producto.all.order(rating_average: :desc).limit(10)
   end
-  
-  
+  private
+
+  def authorize
+    if current_user.administrador?
+      # El usuario es administrador, por lo que se le permite acceder a la página
+    else
+      # El usuario no es administrador, por lo que se le redirige a la página del cliente
+      redirect_to cliente_root_path, alert: 'Solo los administradores pueden acceder a esta página.'
+    end
+  end
 end

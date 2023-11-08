@@ -1,22 +1,20 @@
 <div class="row border-bottom">
     <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" action="#">
                 <div class="form-group">
-                    <input type="text" placeholder="Buscar" class="form-control" name="top-search" id="top-search">
+                <h3> Version: V.1.4 </h3>
                 </div>
             </form>
         </div>
         <ul class="nav navbar-top-links navbar-right">
-        <% if admin_user_signed_in? %>
+        <% if user_signed_in? %>
           <li class="d-flex align-items-center">
             <i class="fa fa-user mr-2"></i>
-            <%= link_to "#{current_admin_user.first_name} #{current_admin_user.last_name_1}", admin_user_profile_path %>
+            <%= link_to "#{current_user.first_name} #{current_user.last_name_1}", user_profile_path %>
           </li>
           <li class="d-flex align-items-center">
             <i class="fa fa-sign-out mr-2"></i> <!-- Utiliza "mr-2" para agregar un poco de espacio entre el ícono y el texto -->
-            <%= link_to "Cerrar Sesión", destroy_admin_user_session_path, method: :delete %>
+            <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
           </li>
         <% end %>
       </ul>

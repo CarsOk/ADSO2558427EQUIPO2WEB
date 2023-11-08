@@ -11,7 +11,10 @@ class Producto < ApplicationRecord
     validates :precio, presence: true
     validates :categoria, presence: true
     validates :avatar, presence: true
-
+    def calificaciones
+      Calificacion.where(producto_id: id)
+    end
+    
     def rating_average
         if calificaciones.any?
           total_ratings = calificaciones.sum(:rating)

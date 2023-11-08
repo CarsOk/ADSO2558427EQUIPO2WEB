@@ -1,16 +1,15 @@
 <h1>Lista de Administradores</h1>
 
 <div class="admin-cards">
-  <% @admin_users.each do |admin_user| %>
+  <% @users.where(administrador: true).each do |user| %>
     <div class="admin-card">
-      <h3><%= admin_user.email %></h3>
-      <p><strong>Primer Nombre:</strong> <%= admin_user.first_name %></p>
-      <p><strong>Segundo Nombre:</strong> <%= admin_user.second_name %></p>
-      <p><strong>Primer Apellido:</strong> <%= admin_user.last_name_1 %></p>
-      <p><strong>Segundo Apellido:</strong> <%= admin_user.last_name_2 %></p>
-      <p><strong>Identification:</strong> <%= admin_user.identification %></p>
-      <p><strong>Address:</strong> <%= admin_user.address %></p>
-      <!-- Agrega aquí los campos adicionales que desees mostrar -->
-    </div>
+      <h3><%= user.email %></h3>
+      <p><strong>Primer Nombre:</strong> <%= user.first_name %></p>
+      <p><strong>Segundo Nombre:</strong> <%= user.second_name %></p>
+      <p><strong>Primer Apellido:</strong> <%= user.last_name_1 %></p>
+      <p><strong>Segundo Apellido:</strong> <%= user.last_name_2 %></p>
+      <p><strong>Identification:</strong> <%= user.identification %></p>
+      <p><strong>Address:</strong> <%= user.address %></p>
+      </div>
   <% end %>
 </div>

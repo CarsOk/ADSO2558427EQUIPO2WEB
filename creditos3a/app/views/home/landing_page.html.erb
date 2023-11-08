@@ -1,8 +1,8 @@
-<header class="bg-dark py-5">
+<header class="bg-light py-5">
   <div class="container px-4 px-lg-5 my-5">
-    <div class="text-center text-white">
+    <div class="text-center text-grey">
       <h1 class="display-4 fw-bolder">Créditos 3A</h1>
-      <p class="lead fw-normal text-white-50 mb-0">Su mejor opción para alcanzar sus metas financieras</p>
+      <p class="lead fw-normal text-grey-50 mb-0">Su mejor opción para alcanzar sus metas financieras</p>
     </div>
   </div>
 </header>
@@ -28,6 +28,7 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
 <!--<section class="py-5 productos">
   <div class="seccion-producto">
     <%= render 'cuatro-ultimos'%>
@@ -35,33 +36,28 @@
 </section--->
  
 <section class="py-5">
+ <center><h2>Nuestros Últimos Productos</h2>
   <div class="container px-4 px-lg-5 mt-5">
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
       <% @productos_ultimos.each do |producto| %>
         <div class="col mb-5">
           <div class="card h-100">
-            <!-- Producto imagen -->
             <% if producto.avatar? %>
               <%= image_tag(producto.avatar_url, class: "card-img-top img-fluid") %>
             <% else %>
-              <!-- Si no hay imagen, puedes mostrar una imagen de marcador de posición o un mensaje -->
               <%= image_tag("imagen2.jpg", class: "card-img-top img-fluid", alt: "Imagen de producto faltante") %>
             <% end %>
             
-            <!-- Product details -->
             <div class="card-body p-4">
               <div class="text-center">
-                <!-- Product name -->
                 <h5 class="fw-bolder"><%= producto.nombre %></h5>
-                <!-- Producto Precio -->
                 <%= number_to_currency(producto.precio, precision: 0) %>
               </div>
             </div>
             
-            <!-- Product actions -->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Credito</a></div>
+              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<%= pages_categoria_producto_path(producto.categoria, producto) %>">comprar</a></div>
             </div>
           </div>
         </div>
@@ -76,26 +72,4 @@
                    
 
 
-<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-    <%= image_tag "recarr4", class: 'd-block w-100'%>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag "recarr3", class: 'd-block w-100'%>
-    </div>
-    <div class="carousel-item">
-      
-      <%= image_tag "recarr1", class: 'd-block w-100'%>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
  

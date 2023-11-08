@@ -1,16 +1,13 @@
 class Admin::AdminController < ApplicationController
-    layout 'admin'
-    before_action :authenticate_admin_user!
-    before_action :require_admin
-  
-    private
-  
-   
-    def require_admin
-      unless current_admin_user && current_admin_user.administrador?
-        flash.now[:alert] = "Acceso Denegado. No tienes permiso para acceder a esta página."
-        render 'denied_access', status: :forbidden
-    
+  layout 'admin'
+  before_action :authenticate_user!
+
+  private
+
+  def require_admin
+    unless current_user
+      flash.now[:alert] = "Acceso Denegado. Debes estar conectado para acceder a esta página."
+      render 'denied_access', status: :forbidden
     end
   end
 end
