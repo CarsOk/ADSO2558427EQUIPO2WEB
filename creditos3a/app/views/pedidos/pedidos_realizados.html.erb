@@ -1,23 +1,37 @@
-<h1>Pedidos Realizados</h1>
+<center>
+<h1  class="text-dark">Mis Pedidos Realizados</h1>
 
 <% if @pedidos.any? %>
-  <div class="row">
-    <% @pedidos.group_by { |pedido| pedido.producto }.each do |producto, pedidos| %>
-      <div class="col-md-6 mb-4">
-        <div class="card border">
-          <%= image_tag producto.avatar.url, class: "card-img-top img-fluid" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= producto.nombre %></h5>
-            <p class="card-text"><%= producto.descripcion %></p>
-            <p class="card-text"><b>Precio Unitario: <%= number_to_currency(producto.precio) %></b></p>
-            <p class="card-text"><b>Cantidad Pedida:</b> <%= pedidos.size %></p>
-            <p class="card-text"><b>Precio Total: <%= number_to_currency(producto.precio * pedidos.size) %></b></p>
-            <p><b>Fecha de pedido:</b> <%= pedidos.first.created_at.strftime("%d/%m/%Y") %></p>
+  <div class="container bg-dark">
+    <div class="row">
+      <% @pedidos.group_by { |pedido| pedido.producto }.each do |producto, pedidos| %>
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-header">
+              <h5 class="card-title text-red"><%= producto.nombre %></h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-img-top">
+                    <%= image_tag producto.avatar.url, class: "img-fluid", width: 400, height: 400 %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="card-title text-dark"><%= producto.nombre %></h5>
+                  <p class="card-text text-dark"><%= producto.descripcion %></p>
+                  <p class="card-text text-dark"><b>Precio Unitario:</b> <%= number_to_currency(producto.precio) %></p>
+                  <p class="card-text text-dark"><b>Cantidad Pedida:</b> <%= pedidos.size %></p>
+                  <p class="card-text text-dark"><b>Precio Total:</b> <%= number_to_currency(producto.precio * pedidos.size) %></p>
+                  <p class="card-text text-dark"><b>Fecha de pedido:</b> <%= pedidos.first.created_at.strftime("%d/%m/%Y") %></p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 <% else %>
-  <p>No has realizado ningún pedido aún.</p>
+  <p class="text-dark">No has realizado ningún pedido aún.</p>
 <% end %>

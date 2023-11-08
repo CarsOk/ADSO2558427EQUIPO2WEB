@@ -1,8 +1,8 @@
+
 class DashboardController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize, only: [:home, :admin_users, :pedidos, :show_user, :mejores_calificados]
   layout 'admin'
-
-  before_action :check_admin
 
   def home
     @users = User.all
@@ -25,10 +25,12 @@ class DashboardController < ApplicationController
   end
   private
 
-  def check_admin
-    unless current_user.administrador?
-      redirect_to root_path, alert: 'No tienes permisos para acceder a esta página.'
+  def authorize
+    if current_user.administrador?
+      # El usuario es administrador, por lo que se le permite acceder a la página
+    else
+      # El usuario no es administrador, por lo que se le redirige a la página del cliente
+      redirect_to cliente_root_path, alert: 'Solo los administradores pueden acceder a esta página.'
     end
   end
-  
 end

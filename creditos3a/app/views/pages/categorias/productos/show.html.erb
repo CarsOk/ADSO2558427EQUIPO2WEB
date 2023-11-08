@@ -80,7 +80,9 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder"><%= producto_relacionado.nombre %></h5>
+                                    <h3 class="fw-bolder"><strong>Nombre:</strong><br><%= producto_relacionado.nombre %></h3>
+                                    <h3 class="fw-bolder"><strong>descripcion:</strong><br><%= producto_relacionado.descripcion %></h3>
+                                    <h3 class="fw-bolder"><strong>precio:</strong>$<%= producto_relacionado.precio %></h3>
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -95,6 +97,7 @@
                     </div>
                 <% end %>
             </div>
+
             <h2 class="form-title">Danos tu opinión del Producto</h2>
             <%= form_for([@producto, @calificacion], html: { class: 'calificacion-form' }) do |f| %>
               <div class="form-group">
@@ -116,45 +119,39 @@
                 <%= f.submit 'Calificar y Comentar', class: 'btn btn-primary' %>
               </div>
             <% end %>
+
+            <% if @producto.calificaciones.any? %>
+  <div class="calificaciones-container">
+    <% @producto.calificaciones.each do |calificacion| %>
+      <% if calificacion.user.present? %>
+        <div class="calificacion">
+          <div class="calificacion-header">
+            <p><strong>Calificación:</strong>
+              <% if calificacion.rating.present? %>
+                <span class="rating">
+                  <% (1..calificacion.rating).each do %>
+                    <span class="star">★</span>
+                  <% end %>
+                </span>
+              <% else %>
+                <p>Sin calificación</p>
+              <% end %>
+            </p>
+            <span class="user-info large-username">Usuario: <%= calificacion.user.first_name %> <%= calificacion.user.last_name_1 %></span>
+          </div>
+          <div class="calificacion-body">
+            <p><strong>Comentario:</strong> <%= calificacion.review %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <p>No hay calificaciones ni reseñas disponibles.</p>
+<% end %>
             
               
 
-            
-            <h2>Calificaciones y Reseñas</h2>
-            <% if @producto.calificaciones.any? %>
-              <div class="calificaciones-container">
-                <% @producto.calificaciones.each do |calificacion| %>
-                  <div class="calificacion">
-                    <div class="calificacion-header">
-                      <p><strong>Calificación:</strong>
-                        <% if calificacion.rating.present? %>
-                          <span class="rating">
-                            <% (1..calificacion.rating).each do %>
-                              <span class="star">★</span>
-                            <% end %>
-                          </span>
-                        <% else %>
-                          <p>Sin calificación</p>
-                        <% end %>
-                      </p>
-                      <span class="user-info large-username">Usuario:
-                      <% if calificacion.user.present? %>
-                        <%= calificacion.user.first_name %> <%= calificacion.user.last_name_1 %>
-                      <% else %>
-                        Anónimo
-                      <% end %>
-                    </span>
-                    
-                    </div>
-                    <div class="calificacion-body">
-                      <p><strong>Comentario:</strong> <%= calificacion.review %></p>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            <% else %>
-              <p>No hay calificaciones ni reseñas disponibles.</p>
-            <% end %>
             
         </div>
     </section>

@@ -28,6 +28,7 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
 <!--<section class="py-5 productos">
   <div class="seccion-producto">
     <%= render 'cuatro-ultimos'%>
@@ -35,70 +36,36 @@
 </section--->
  
 <section class="py-5">
+ <center><h2>Últimos Productos</h2>
   <div class="container px-4 px-lg-5 mt-5">
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-      <section class="py-5">
-        <h2>Mejores  Calificados</h2>
-        <% @productos.each do |producto| %>
-          <% if producto.calificaciones.any? %>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <% if producto.avatar? %>
-                  <%= image_tag(producto.avatar_url, class: "card-img-top img-fluid") %>
-                <% else %>
-                  <%= image_tag("imagen2.jpg", class: "card-img-top img-fluid", alt: "Imagen de producto faltante") %>
-                <% end %>
-                
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder"><%= producto.nombre %></h5>
-                    <span class="rating">
-                      <% (1..producto.rating_average).each do %>
-                        <span class="star">★</span>
-                      <% end %>
-                    </span>
-                    <%= number_to_currency(producto.precio, precision: 0) %>
-                  </div>
-                </div>
-                
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Credito</a></div>
-                </div>
+      <% @productos_ultimos.each do |producto| %>
+        <div class="col mb-5">
+          <div class="card h-100">
+            <% if producto.avatar? %>
+              <%= image_tag(producto.avatar_url, class: "card-img-top img-fluid") %>
+            <% else %>
+              <%= image_tag("imagen2.jpg", class: "card-img-top img-fluid", alt: "Imagen de producto faltante") %>
+            <% end %>
+            
+            <div class="card-body p-4">
+              <div class="text-center">
+                <h5 class="fw-bolder"><%= producto.nombre %></h5>
+                <%= number_to_currency(producto.precio, precision: 0) %>
               </div>
             </div>
-          <% end %>
-        <% end %>
-      </section>
-
-      <section class="py-5 mt-5">
-        <h2>Últimos Productos</h2>
-        <% @productos_ultimos.each do |producto| %>
-          <div class="col mb-5">
-            <div class="card h-100">
-              <% if producto.avatar? %>
-                <%= image_tag(producto.avatar_url, class: "card-img-top img-fluid") %>
-              <% else %>
-                <%= image_tag("imagen2.jpg", class: "card-img-top img-fluid", alt: "Imagen de producto faltante") %>
-              <% end %>
-              
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <h5 class="fw-bolder"><%= producto.nombre %></h5>
-                  <%= number_to_currency(producto.precio, precision: 0) %>
-                </div>
-              </div>
-              
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Credito</a></div>
-              </div>
+            
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<%= pages_categoria_producto_path(producto.categoria, producto) %>">comprar</a></div>
             </div>
           </div>
-        <% end %>
-      </section>
+        </div>
+      <% end %>
 
     </div>
   </div>
+ 
 </section>
 
 <div class="andes-card banner-card andes-card--animated andes-card--flat andes-card--padding-16" id="react-aria-31"><img decoding="async" src="https://http2.mlstatic.com/D_NQ_NP_817689-MLA71439103061_082023-OO.webp" alt="ELECTROLUX"></div>
