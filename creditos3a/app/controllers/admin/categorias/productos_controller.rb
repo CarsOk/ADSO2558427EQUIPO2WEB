@@ -1,6 +1,6 @@
 class Admin::Categorias::ProductosController < Admin::AdminController
     before_action :set_categoria
-    before_action :check_admin
+    before_action :authorize, only: [:index, :show, :edit, :create, :update, :destroy]
   def index
     @productos = @categoria.productos
   end
@@ -53,10 +53,15 @@ class Admin::Categorias::ProductosController < Admin::AdminController
   def set_categoria
     @categoria = Categoria.find(params[:categoria_id])
   end
-  def check_admin
-    unless current_user.administrador?
-      redirect_to root_path, alert: 'No tienes permisos para acceder a esta página.'
+  def authorize
+    if current_user.administrador?
+      # El usuario es administrador, por lo que se le permite acceder a la página
+      
+    else
+      # El usuario no es administrador, por lo que se le redirige a la página del cliente
+      redirect_to cliente_root_path, alert: 'Solo los administradores pueden acceder a esta página.'
     end
   end
+
 end
 
