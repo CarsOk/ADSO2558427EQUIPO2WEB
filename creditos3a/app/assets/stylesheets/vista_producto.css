@@ -350,7 +350,7 @@ body {
 h1 {
     text-align: center;
     margin: 0 auto;
-    color: #fff;
+    color: rgb(0, 0, 0);
 }
 
 .smaller-input {
