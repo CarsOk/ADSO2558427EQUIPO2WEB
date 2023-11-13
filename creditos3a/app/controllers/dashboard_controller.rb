@@ -1,7 +1,7 @@
 
 class DashboardController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize, only: [:home, :admin_users, :pedidos, :show_user, :mejores_calificados]
+  before_action :authorize, only: [:home, :admin_users, :pedidos, :show_user, :mejores_calificados :mensajes]
   layout 'admin'
 
   def home
@@ -22,6 +22,12 @@ class DashboardController < ApplicationController
   
   def mejores_calificados
     @productos = Producto.all.order(rating_average: :desc).limit(10)
+  end
+
+  def mensajes
+  @contactospqrs = Contactopqrs.all
+  # Mensaje de éxito
+  flash[:success] = 'Mensajes cargados correctamente.'
   end
   
   private

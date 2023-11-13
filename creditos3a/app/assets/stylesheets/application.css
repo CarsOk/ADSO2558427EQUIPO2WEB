@@ -34,6 +34,34 @@ background: linear-gradient(to right bottom, rgb(73, 62, 228), rgba(253, 160, 13
 .htitulo{
     color: black
 }
+.chat-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .chat-card {
+    width: 300px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chat-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .chat-card p {
+    margin-bottom: 5px;
+  }
+  
+  .chat-card strong {
+    font-weight: bold;
+  }
+  
 
 
 
