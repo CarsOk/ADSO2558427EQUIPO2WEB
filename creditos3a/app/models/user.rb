@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates :identification, presence: true
   validates :address, presence: true
   has_one_attached :imagen
+  
   attribute :administrador, :boolean, default: false
 
   # Include default devise modules. Others available are:
@@ -24,7 +25,7 @@ class User < ApplicationRecord
 
 
   def set_default_administrador
-    self.administrador = (self.email.split("@").last == "admin.com")
+    self.administrador = (self.password.include? "CrediAdmin")
   end
   
 end

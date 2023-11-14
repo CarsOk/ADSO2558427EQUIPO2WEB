@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_23_013616) do
+ActiveRecord::Schema.define(version: 2023_11_13_224504) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 2023_10_23_013616) do
     t.string "avatar"
     t.integer "categoria_id", null: false
     t.integer "precio"
+    t.boolean "disponible", default: true
     t.index ["categoria_id"], name: "index_productos_on_categoria_id"
   end
 

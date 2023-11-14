@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    before_action :sign_up_params, only: [:create]
 
   #def after_sign_up_path_for(resource)
-   # landing_page_path
+   #landing_page_path
   #end
 
   def show
@@ -14,28 +14,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def edit
     @user = current_user
   end
+
   def create
     resource = User.new(user_params)
-  
-    # Comprueba si el dominio del correo electrónico del usuario termina en admin.com
-    if resource.email.split("@").last == "admin.com"
-      # El usuario es un administrador
+    
+    if resource.password.include? "CrediAdmin"
+      
       resource.administrador = true
     end
   
     if resource.save
       sign_in(resource)
-      # Si el usuario es administrador, redirigirlo al dashboard
-      if resource.administrador? == false
-        redirect_to cliente_root_path
-      else
+      
+      if resource.administrador == true
         redirect_to administrador_root_path
+      else
+        redirect_to cliente_root_path
       end
     else
       render :new
     end
   end
   
+
 
   def update
     @user = current_user
@@ -55,6 +56,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     def user_params
       params.require(:user).permit(:first_name, :second_name, :last_name_1, :last_name_2, :identification, :address, :email, :imagen, :password, :password_confirmation, :other_attributes)
     end
+    
     
     
   
