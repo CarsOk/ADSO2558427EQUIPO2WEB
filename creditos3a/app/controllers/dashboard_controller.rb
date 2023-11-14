@@ -1,7 +1,7 @@
 
 class DashboardController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize, only: [:home, :admin_users, :pedidos, :show_user, :mejores_calificados :mensajes]
+  before_action :authorize, only: [:home, :admin_users, :pedidos, :show_user, :mejores_calificados, :mensajes]
   layout 'admin'
 
   def home
