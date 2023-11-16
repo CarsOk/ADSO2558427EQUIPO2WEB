@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_23_013616) do
+ActiveRecord::Schema.define(version: 2023_11_13_224504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(version: 2023_10_23_013616) do
     t.string "avatar"
     t.bigint "categoria_id", null: false
     t.integer "precio"
+    t.boolean "disponible", default: true
     t.index ["categoria_id"], name: "index_productos_on_categoria_id"
   end
 
