@@ -1,5 +1,5 @@
 class Pages::Categorias::ProductosController < ApplicationController
-  layout 'modelo', only: [:index]
+  layout 'modelo', only: [:index, :show]
   def index
     @categoria = Categoria.find(params[:categoria_id]) # Asumiendo que el parámetro se llama "categoria_id"
     @productos = @categoria.productos
