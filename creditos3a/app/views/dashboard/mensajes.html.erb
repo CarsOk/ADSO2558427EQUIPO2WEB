@@ -1,0 +1,13 @@
+<h1>Mensajes de usuarios</h1>
+
+<div class="chat-cards">
+  <% @contactospqrs.each do |contactopqrs| %>
+    <div class="chat-card">
+      <h3>Usurio: <%= contactopqrs.nombre %></h3>
+      <p><strong>Email:</strong> <%= contactopqrs.email %></p>
+      <p><strong>Asunto:</strong> <%= contactopqrs.asunto %></p>
+      <p><strong>Mensaje:</strong> <%= contactopqrs.mensaje %></p>
+      <p><strong>Fecha de creación:</strong> <%= contactopqrs.created_at %></p>
+    </div>
+  <% end %>
+</div>
