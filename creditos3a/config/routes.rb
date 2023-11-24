@@ -63,9 +63,11 @@ get '/mensajes', to: 'dashboard#mensajes'
   # Rutas para administrador
   namespace :admin do
     resources :categorias do
-      resources :productos, module: :categorias, only: [:index, :new, :create, :edit, :update, :destroy]
+      resources :productos, module: :categorias, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     end
   end
+
+  # rutas para usuario no administrador  
     namespace :pages do
       namespace :categorias do
         resources :productos do

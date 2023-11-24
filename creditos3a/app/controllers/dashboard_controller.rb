@@ -26,7 +26,6 @@ class DashboardController < ApplicationController
 
   def mensajes
   @contactospqrs = Contactopqrs.all
-  # Mensaje de éxito
   flash[:success] = 'Mensajes cargados correctamente.'
   end
   
