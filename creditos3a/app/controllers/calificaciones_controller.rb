@@ -7,7 +7,7 @@ class CalificacionesController < ApplicationController
     @calificacion = Calificacion.new
   end
 
-  # Acción para guardar una nueva calificación
+ 
   def create
     @producto = Producto.find(params[:producto_id])
     @calificacion = @producto.calificaciones.build(calificacion_params)
