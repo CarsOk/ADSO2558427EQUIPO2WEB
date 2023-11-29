@@ -1,9 +1,8 @@
 class Producto < ApplicationRecord
     has_many :pedidos
     has_many :calificaciones
-    #has_many :user_products
-    #has_many :users, through: :user_products
-
+    has_many :contactopqrs
+   
     belongs_to :categoria
     mount_uploader :avatar, AvatarUploader
     validates :nombre, presence: true

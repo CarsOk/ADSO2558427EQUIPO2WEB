@@ -1,6 +1,6 @@
 <h1>Mensajes de usuarios</h1>
 
-<div class="chat-cards">
+<div class="chat-cards" style="display: flex; flex-direction: column;" >
   <% @contactospqrs.each do |contactopqrs| %>
     <div class="chat-card">
       <h3>Usurio: <%= contactopqrs.nombre %></h3>
@@ -8,6 +8,38 @@
       <p><strong>Asunto:</strong> <%= contactopqrs.asunto %></p>
       <p><strong>Mensaje:</strong> <%= contactopqrs.mensaje %></p>
       <p><strong>Fecha de creación:</strong> <%= contactopqrs.created_at %></p>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-producto-<%= contactopqrs.producto.id %>">Ver producto</button>
+    </div>
+
+    <div class="modal fade" id="modal-producto-<%= contactopqrs.producto.id %>" tabindex="-1" aria-labelledby="modal-producto-<%= contactopqrs.producto.id %>-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-producto-<%= contactopqrs.producto.id %>-label">Producto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="card border-rounded">
+                  <%= image_tag contactopqrs.producto.avatar.url, class: "card-img-top img-fluid" %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= contactopqrs.producto.nombre %></h5>
+                    <p class="card-text"><%= contactopqrs.producto.descripcion %></p>
+                    <p class="card-text"><strong>Precio: <%= number_to_currency(contactopqrs.producto.precio) %></strong></p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
