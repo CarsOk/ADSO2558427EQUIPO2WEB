@@ -25,8 +25,13 @@ class DashboardController < ApplicationController
   end
 
   def mensajes
-  @contactospqrs = Contactopqrs.all
-  flash[:success] = 'Mensajes cargados correctamente.'
+    @contactospqrs = Contactopqrs.all
+    flash[:success] = 'Mensajes cargados correctamente.'
+
+    # Asigna el producto asociado a cada contactopqrs
+    @contactospqrs.each do |contactopqrs|
+        contactopqrs.producto = Producto.find(contactopqrs.producto_id)
+    end
   end
   
   private

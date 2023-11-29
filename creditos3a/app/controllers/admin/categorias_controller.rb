@@ -39,10 +39,11 @@ class Admin::CategoriasController < Admin::AdminController
   end
 
   def destroy
-    if @categoria.destroy
-      redirect_to admin_categorias_path
+    if current_user.administrador?
+
+    @categoria = categoria.find(params[:id])
+    @categoria.destroy
     else
-      render :index
     end
   end
 
