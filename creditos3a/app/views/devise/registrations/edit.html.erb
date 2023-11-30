@@ -7,7 +7,7 @@
     <!-- Otros campos -->
     <div class="field">
     <%= f.label :imagen %>
-    <%= f.file_field :imagen %>
+    <%= f.file_field :imagen, class: 'btn-file' %>
   </div>
       <div class="form-group">
         <%= f.label :first_name, 'Nombre' %>
@@ -29,6 +29,12 @@
         <%= f.label :identification, 'Identificación' %>
         <%= f.text_field :identification, class: 'form-control' %>
       </div>
+
+      <div class="form-group">
+          <%= f.label :telefono, 'Teléfono' %>
+          <%= f.text_field :telefono, class: 'form-control' %>
+        </div>
+
       <div class="form-group">
         <%= f.label :address, 'Dirección' %>
         <%= f.text_field :address, class: 'form-control' %>

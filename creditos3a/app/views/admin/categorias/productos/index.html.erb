@@ -17,6 +17,11 @@
             <h5 class="card-title"><%= producto.nombre %></h5>
             <p class="card-text"><%= producto.descripcion %></p>
             <p class="card-text"><strong>Precio: <%= number_to_currency(producto.precio) %></strong></p>
+            <% if producto.disponible %>
+            <p class="text-success">Producto Disponible</p>
+            <% else %>
+            <p class="text-danger">Producto No Disponible</p>
+            <% end %>
             
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
