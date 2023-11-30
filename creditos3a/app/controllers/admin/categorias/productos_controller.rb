@@ -47,7 +47,7 @@ class Admin::Categorias::ProductosController < Admin::AdminController
   private
 
   def producto_params
-    params.require(:producto).permit(:id, :nombre, :descripcion, :precio, :avatar, :categoria_id)
+    params.require(:producto).permit(:id, :nombre, :descripcion, :precio, :avatar, :categoria_id, :disponible)
   end
 
   def set_categoria

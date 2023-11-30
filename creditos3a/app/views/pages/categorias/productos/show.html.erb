@@ -66,8 +66,14 @@
             <div class="col-md-6">
             <div class="container-info-product">
             <div class="container-price">
-              <span>$<%= @producto.precio %></span>
-              <%= link_to "Solicitar este producto", new_producto_pedido_path(producto_id: @producto.id) %>  
+             <span class="label">Precio:</span<span>$<%= @producto.precio %></span>
+              <% if @producto.disponible %>
+              <%= link_to "Solicitar este producto", new_producto_pedido_path(producto_id: @producto.id), class: "btn btn-primary" %>
+            <% else %>
+              <div class="alert alert-danger">
+                Este producto no está disponible.
+              </div>
+            <% end %>
               <i class="fa-solid fa-angle-right"></i>
             </div>
 
