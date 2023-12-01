@@ -1,9 +1,10 @@
 class Pages::Categorias::ProductosController < ApplicationController
   layout 'modelo', only: [:index, :show]
   include ActionView::Helpers::UrlHelper
+  before_action :set_categoria
   def index
-    @categoria = Categoria.find(params[:categoria_id]) # Asumiendo que el parámetro se llama "categoria_id"
     @productos = @categoria.productos
+    
   end
 
   def show

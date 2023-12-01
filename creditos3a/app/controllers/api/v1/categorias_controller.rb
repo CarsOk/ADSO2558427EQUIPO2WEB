@@ -9,7 +9,7 @@ class Api::V1::CategoriasController < ApplicationController
   end
 
   def show
-    render json: @categorias
+    render json: @categoria
   end
 
   def create
@@ -43,5 +43,4 @@ class Api::V1::CategoriasController < ApplicationController
   def categoria_params
     params.require(:categoria).permit(:nombre, :imagen) # Ajusta los atributos según tus necesidades.
   end
-end
 end
