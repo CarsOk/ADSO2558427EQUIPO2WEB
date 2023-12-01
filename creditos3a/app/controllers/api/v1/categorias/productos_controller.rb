@@ -48,6 +48,6 @@ class Api::V1::Categorias::ProductosController < ApplicationController
   end
 
   def producto_params
-    params.require(:producto).permit(:nombre, :descripcion, :precio, :avatar)
+    params.require(:producto).permit(:nombre, :descripcion, :precio, :avatar, :disponible, :categoria_id)
   end
 end

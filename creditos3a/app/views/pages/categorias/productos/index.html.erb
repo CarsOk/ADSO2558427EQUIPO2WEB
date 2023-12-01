@@ -48,15 +48,18 @@
         </ul>
     </nav>
 </div>
+<% if @categoria %>
+<header class="banner1">
+  <%= image_tag @categoria.imagen.url, class: "card-img-top img-thumbnail", alt: @categoria.nombre %>
+  <div class="content-banner1">
+    <p>Nuestros productos de la más alta calidad</p>
+    <h2><%= @categoria.nombre %></h2>
+    <a href="#">Comprar ahora</a>
+  </div>
+</header>
+<% end %>
 
-		</header>
-        <section class="banner1">
-        <%= image_tag @categoria.imagen %>
-            <div class="content-banner1">
-                <p>Nuestros productos de la mas alta calidad</p>
-                <h2><%= @categoria.nombre %></h2>
-                <a href="#">Comprar ahora</a>
-            </div>
+		   
         </section>
 
       

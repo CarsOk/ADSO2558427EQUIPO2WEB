@@ -67,8 +67,10 @@ gem 'actionmailer', '~> 6.1', '>= 6.1.7.3'
 
 gem 'sendgrid-ruby', '~> 5.0'
 
+gem 'active_model_serializers'
+
 #gem 'pg'
 
-gem 'active_model_serializers'
+
 
 
