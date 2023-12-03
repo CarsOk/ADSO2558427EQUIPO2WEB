@@ -69,7 +69,14 @@ gem 'sendgrid-ruby', '~> 5.0'
 
 gem 'active_model_serializers'
 
+gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary'
+
+gem 'prawn'
+
 #gem 'pg'
+
 
 
 

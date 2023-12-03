@@ -15,7 +15,7 @@ get '/mensajes', to: 'dashboard#mensajes'
   get 'landing_page' => 'home#landing_page'
   get 'contacto' => 'pages/home#contacto'
   get 'index' => 'home#index'
-
+  get 'pedidos_pdf', to: 'dashboard#export_pedidos_pdf', format: :pdf
   # Restricciones
   constraints(lambda { |request| !request.env['warden'].user || !request.env['warden'].user.administrador? }) do
     get 'categorias', to: 'categorias#denied_access'
