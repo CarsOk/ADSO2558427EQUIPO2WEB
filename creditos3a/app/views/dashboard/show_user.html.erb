@@ -63,7 +63,6 @@
                   <th>Precio Total</th>
                   <th>Fecha del Pedido</th>
                   <th>Comentarios</th>
-                  <th>Método de Pago</th>
                 </tr>
               </thead>
               <tbody>
@@ -78,7 +77,6 @@
                     <td><%= number_to_currency(pedidos.count * producto.precio) %></td>
                     <td><%= pedidos.first.created_at.strftime("%d/%m/%Y") %></td>
                     <td><%= pedidos.first.comentarios %></td>
-                    <td><%= pedidos.first.metodo_pago %></td>
                   </tr>
                 <% end %>
               </tbody>
