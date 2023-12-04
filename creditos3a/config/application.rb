@@ -15,7 +15,7 @@ module Creditos3a
     config.action_view.automatically_disable_submit_tag = false 
 
     # Configuration for the application, engines, and railties goes here.
-    #
+    #S
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

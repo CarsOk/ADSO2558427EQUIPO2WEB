@@ -6,9 +6,8 @@
       <div class="col-md-4 mb-4">
         <div class="card border-rounded">
           <div class="card-body">
-          <% if categoria.imagen.attached? %>
-            <%= image_tag categoria.imagen, class: "card-img-top img-thumbnail", alt: categoria.nombre %>
-          <% end %>
+          <%= image_tag categoria.imagen.url, class: "card-img-top img-thumbnail", alt: categoria.nombre %>
+          
 
             <h5 class="card-title"><%= categoria.nombre %></h5>
             <%= link_to "Ver Productos", pages_categoria_productos_path(categoria), class: "btn btn-secondary" %>

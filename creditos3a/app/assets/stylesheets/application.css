@@ -63,5 +63,15 @@ background: linear-gradient(to right bottom, rgb(73, 62, 228), rgba(253, 160, 13
   }
   
 
-
+  .field {
+    margin-bottom: 1rem;
+  }
+  
+  .btn-file {
+    background-color: #00a65a;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    class: 'btn primary';
+  }
 

@@ -25,6 +25,7 @@
                 <li><b>Email:</b> <%= user.email %></li>
                 <li><b>Identificación:</b> <%= user.identification %></li>
                 <li><b>Dirección:</b> <%= user.address %></li>
+                <li><b>Telefono:</b> <%= user.telefono %></li>
               </ul>
             </td>
             <td>
@@ -68,6 +69,7 @@
               <tbody>
                 <% user.pedidos.group_by(&:producto).each do |producto, pedidos| %>
                   <tr>
+                  
                     <td><%= producto.nombre %></td>
                     <td><%= producto.descripcion %></td>
                     <td><%= image_tag producto.avatar.url, class: "img-thumbnail", style: "max-width: 150px; max-height: 150px;" %></td>
@@ -82,8 +84,10 @@
               </tbody>
             </table>
           </div>
+       
         </div>
       </div>
     </div>
   </div>
 <% end %>
+<%= link_to "Generar PDF", { action: "show_user", format: "pdf" }, class: "btn btn-primary" %> 

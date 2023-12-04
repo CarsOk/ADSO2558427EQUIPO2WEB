@@ -15,7 +15,7 @@ get '/mensajes', to: 'dashboard#mensajes'
   get 'landing_page' => 'home#landing_page'
   get 'contacto' => 'pages/home#contacto'
   get 'index' => 'home#index'
-
+  get 'pedidos_pdf', to: 'dashboard#export_pedidos_pdf', format: :pdf
   # Restricciones
   constraints(lambda { |request| !request.env['warden'].user || !request.env['warden'].user.administrador? }) do
     get 'categorias', to: 'categorias#denied_access'
@@ -30,6 +30,14 @@ get '/mensajes', to: 'dashboard#mensajes'
       end
     end
   end
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :categorias
+      resources :productos
+    end
+  end
+
 
  
   devise_for :users, controllers: {
@@ -63,9 +71,11 @@ get '/mensajes', to: 'dashboard#mensajes'
   # Rutas para administrador
   namespace :admin do
     resources :categorias do
-      resources :productos, module: :categorias, only: [:index, :new, :create, :edit, :update, :destroy]
+      resources :productos, module: :categorias, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     end
   end
+
+  # rutas para usuario no administrador  
     namespace :pages do
       namespace :categorias do
         resources :productos do

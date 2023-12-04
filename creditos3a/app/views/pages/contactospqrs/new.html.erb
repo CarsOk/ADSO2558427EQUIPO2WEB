@@ -13,10 +13,12 @@
               <%= simple_form_for @contactopqrs, url: pages_contactospqrs_path, method: :post do |f| %>
 
                 <div class="input-group">
-                  <%= f.input :nombre, input_html: { class: 'input--style-3'}, placeholder:"Nombre", label:false, wrapper: false%>
+                <%= f.label :nombre %>
+                <%= f.text_field :nombre, value: current_user.first_name + " " + current_user.last_name_1 %>
                 </div>  
                 <div class="input-group">
-                  <%= f.input :email, input_html: { class: 'input--style-3'}, placeholder:"Email", label:false, wrapper: false%>
+                <%= f.label :email %>
+                <%= f.text_field :email, value: current_user.email %>
                 </div>
                 
                 <div class="input-group">
@@ -25,6 +27,52 @@
                 <div class="input-group">
                   <%= f.input :mensaje,  input_html: { class: 'input--style-3', id: 'mensaje'}, placeholder:"Mensaje", label:false, wrapper: false%>
                 </div>
+                
+                <div class="input-group">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-producto">
+                  <i class="fas fa-list"></i> Seleccionar producto
+                </button>
+              
+                <input type="hidden" name="producto_id" id="producto" value="">
+              </div>
+              
+              <div class="modal fade" id="modal-producto" tabindex="-1" aria-labelledby="modal-producto-label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal-producto-label">Seleccionar producto</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <ul class="list-group">
+                        <% @productos.each do |producto| %>
+                          <li class="list-group-item">
+                            <div class="card border-rounded">
+                              <%= image_tag producto.avatar.url, class: "card-img-top img-fluid" %>
+                              <div class="card-body">
+                                <h5 class="card-title"><%= producto.nombre %></h5>
+                                <p class="card-text"><%= producto.descripcion %></p>
+                                <p class="card-text"><strong>Precio: <%= number_to_currency(producto.precio) %></strong></p>
+              
+                                <label class="custom-control custom-radio">
+                                  <input type="radio" name="contactopqrs[producto_id]" value="<%= producto.id %>" id="producto_id_<%= producto.id %>" class="custom-control-input" required>
+                                  <span class="custom-control-label"></span>
+                                </label>
+                              </div>
+                            </div>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
                 <div class="p-t-10">
                   <%= f.button :submit, 'Enviar', class: 'btn btn--pill btn-success'%>
                 </div>

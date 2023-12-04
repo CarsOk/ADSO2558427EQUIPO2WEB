@@ -19,6 +19,11 @@
     <%= f.input :avatar, as: :file, input_html: { class: 'form-control custom-input', required: true } %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :disponible, class: 'form-check-label' %>
+    <%= f.input :disponible, as: :boolean, input_html: { class: 'form-check-input' } %>
+  </div>
+
 
   <%= f.button :submit, 'Guardar', class: 'btn btn-primary' %>
 <% end %>

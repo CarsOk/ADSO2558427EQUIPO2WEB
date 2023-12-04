@@ -11,23 +11,38 @@ class DashboardController < ApplicationController
     @users = User.all
   end
 
-  def pedidos
-    @user = User.find(params[:user_id])
-    @pedidos = @user.pedidos
-  end
 
   def show_user
     @users_with_pedidos = User.includes(:pedidos)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => 'lista_pedidos', :layout => true,
+              :header => {
+                :left => 'Creditos 3A',
+                :right => Time.now.strftime('%d/%m/%Y')
+              },
+              :footer => {
+                :right => 'Copyright © 2023'
+              }
+      end
+    end
   end
+  
   
   def mejores_calificados
     @productos = Producto.all.order(rating_average: :desc).limit(10)
   end
 
   def mensajes
-  @contactospqrs = Contactopqrs.all
-  # Mensaje de éxito
-  flash[:success] = 'Mensajes cargados correctamente.'
+    @contactospqrs = Contactopqrs.all
+    flash[:success] = 'Mensajes cargados correctamente.'
+
+    # Asigna el producto asociado a cada contactopqrs
+    @contactospqrs.each do |contactopqrs|
+        contactopqrs.producto = Producto.find(contactopqrs.producto_id)
+    end
   end
   
   private
@@ -40,4 +55,7 @@ class DashboardController < ApplicationController
       redirect_to landing_page_path, alert: 'Solo los administradores pueden acceder a esta página.'
     end
   end
+  
+
+ 
 end

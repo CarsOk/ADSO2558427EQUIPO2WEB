@@ -5,7 +5,7 @@
                 <div class="dropdown profile-element" >
                     <div class="content_image">
                         <a class="<%= 'active' if current_page?('/home/index') %>">
-                            <%= link_to "/dashboard/home" do %>
+                            <%= link_to "/" do %>
                                 <div class="logo">
                                     <div class="contenedorLogoParte1">
                                         <%= image_tag "logo-blanco-pt-1.png", class: "logoParte1"%>
@@ -35,7 +35,7 @@
             </li>
             <li class="<%= 'active' if current_page?(admin_categorias_path) %>">
   <%= link_to admin_categorias_path do %>
-    <i class="fa fa-laptop"></i> <span class="nav-label" style="font-size: 18px;">Crear Productos</span>
+    <i class="fa fa-laptop"></i> <span class="nav-label" style="font-size: 18px;">Productos</span>
   <% end %>
   <%= link_to '/landing_page' do %>
     <i class="fa fa-eye"></i><span class="nav-label" style="font-size: 18px;"> Revisar Tienda

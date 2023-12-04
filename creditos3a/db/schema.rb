@@ -10,52 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_13_224504) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "adminpack"
-  enable_extension "autoinc"
-  enable_extension "btree_gin"
-  enable_extension "btree_gist"
-  enable_extension "citext"
-  enable_extension "cube"
-  enable_extension "dblink"
-  enable_extension "dict_int"
-  enable_extension "dict_xsyn"
-  enable_extension "earthdistance"
-  enable_extension "file_fdw"
-  enable_extension "fuzzystrmatch"
-  enable_extension "hstore"
-  enable_extension "insert_username"
-  enable_extension "intagg"
-  enable_extension "intarray"
-  enable_extension "isn"
-  enable_extension "lo"
-  enable_extension "ltree"
-  enable_extension "moddatetime"
-  enable_extension "pageinspect"
-  enable_extension "pg_buffercache"
-  enable_extension "pg_freespacemap"
-  enable_extension "pg_stat_statements"
-  enable_extension "pg_trgm"
-  enable_extension "pgcrypto"
-  enable_extension "pgrowlocks"
-  enable_extension "pgstattuple"
-  enable_extension "plls"
-  enable_extension "plpgsql"
-  enable_extension "plv8"
-  enable_extension "postgis"
-  enable_extension "postgis_raster"
-  enable_extension "postgis_tiger_geocoder"
-  enable_extension "postgis_topology"
-  enable_extension "refint"
-  enable_extension "seg"
-  enable_extension "sslinfo"
-  enable_extension "tablefunc"
-  enable_extension "tcn"
-  enable_extension "unaccent"
-  enable_extension "uuid-ossp"
-  enable_extension "xml2"
+ActiveRecord::Schema.define(version: 2023_11_30_165109) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -107,8 +62,8 @@ ActiveRecord::Schema.define(version: 2023_11_13_224504) do
   create_table "calificaciones", force: :cascade do |t|
     t.integer "rating"
     t.text "review"
-    t.bigint "producto_id", null: false
-    t.bigint "user_id", null: false
+    t.integer "producto_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["producto_id"], name: "index_calificaciones_on_producto_id"
@@ -129,11 +84,15 @@ ActiveRecord::Schema.define(version: 2023_11_13_224504) do
     t.text "mensaje"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "producto_id"
+    t.index ["producto_id"], name: "index_contactospqrs_on_producto_id"
+    t.index ["user_id"], name: "index_contactospqrs_on_user_id"
   end
 
   create_table "pedidos", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "producto_id", null: false
+    t.integer "user_id", null: false
+    t.integer "producto_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "comentarios"
@@ -149,23 +108,15 @@ ActiveRecord::Schema.define(version: 2023_11_13_224504) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
-    t.bigint "categoria_id", null: false
+    t.integer "categoria_id", null: false
     t.integer "precio"
     t.boolean "disponible", default: true
     t.index ["categoria_id"], name: "index_productos_on_categoria_id"
   end
 
-  create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|
-    t.string "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string "srtext", limit: 2048
-    t.string "proj4text", limit: 2048
-    t.check_constraint "(srid > 0) AND (srid <= 998999)", name: "spatial_ref_sys_srid_check"
-  end
-
   create_table "user_productos", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "producto_id", null: false
+    t.integer "user_id", null: false
+    t.integer "producto_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["producto_id"], name: "index_user_productos_on_producto_id"
@@ -188,6 +139,7 @@ ActiveRecord::Schema.define(version: 2023_11_13_224504) do
     t.integer "identification"
     t.boolean "administrador"
     t.string "imagen"
+    t.string "telefono"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -196,6 +148,8 @@ ActiveRecord::Schema.define(version: 2023_11_13_224504) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "calificaciones", "productos"
   add_foreign_key "calificaciones", "users"
+  add_foreign_key "contactospqrs", "productos"
+  add_foreign_key "contactospqrs", "users"
   add_foreign_key "pedidos", "productos"
   add_foreign_key "pedidos", "users"
   add_foreign_key "productos", "categorias"
