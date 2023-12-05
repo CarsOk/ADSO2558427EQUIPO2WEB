@@ -46,6 +46,6 @@ class PedidosController < ApplicationController
   private
 
   def pedido_params
-    params.require(:pedido).permit(:comentarios, :metodo_pago)
+    params.require(:pedido).permit(:comentarios)
   end
 end
