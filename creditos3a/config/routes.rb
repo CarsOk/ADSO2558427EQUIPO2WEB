@@ -6,6 +6,7 @@ get 'dashboard/show_user', to: 'dashboard#show_user', as: 'show_user_dashboard'
 get '/dashboard/mejores_calificados', to: 'dashboard#mejores_calificados', as: 'dashboard_mejores_calificados'
 get '/mensajes', to: 'dashboard#mensajes'
 get '/graficos', to: 'dashboard#graficos'
+get 'dashboard/descargar_manual', to: 'dashboard#descargar_manual'
 patch '/admin/users/:id/edit_admin', to: 'dashboard#edit_admin_user'
 
 

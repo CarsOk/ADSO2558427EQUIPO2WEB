@@ -11,6 +11,14 @@ class DashboardController < ApplicationController
     @users = User.all
   end
 
+  def descargar_manual
+    send_file(
+      "#{Rails.root}/app/views/dashboard/manual.pdf",
+      filename: "manual.pdf",
+      type: "application/pdf"
+    )
+  end
+
   def show_user
     @users_with_pedidos = User.includes(:pedidos)
 

@@ -44,9 +44,9 @@
         <div class="col mb-5">
           <div class="card h-100">
             <% if producto.avatar? %>
-              <%= image_tag(producto.avatar_url, class: "card-img-top img-fluid") %>
+              <%= image_tag(producto.avatar_url, class: "card-img-top") %>
             <% else %>
-              <%= image_tag("imagen2.jpg", class: "card-img-top img-fluid", alt: "Imagen de producto faltante") %>
+              <%= image_tag("imagen2.jpg", class: "card-img-top", alt: "Imagen de producto faltante") %>
             <% end %>
             
             <div class="card-body p-4">
