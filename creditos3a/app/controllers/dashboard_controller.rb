@@ -33,6 +33,8 @@ class DashboardController < ApplicationController
   def mejores_calificados
     @productos = Producto.all.order(rating_average: :desc).limit(10)
   end
+  def graficos 
+  end
 
   def mensajes
     @contactospqrs = Contactopqrs.all

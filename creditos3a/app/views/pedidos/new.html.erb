@@ -59,9 +59,9 @@
       <!-- Formulario de confirmación de solicitud -->
       <%= form_for [@producto, @pedido] do |f| %>
         <div class="mb-3">
-        <label for="cantidad" class="form-label">Cantidad:</label>
-        <%= f.number_field :cantidad, class: "form-control", min: 1, value: 1 %>
-      </div>
+          <label for="cantidad" class="form-label">Cantidad:</label>
+          <%= f.number_field :cantidad, class: "form-control", min: 1, max: @producto.cantidad, value: 1 %>
+        </div>
       
          <div class="field">
           <%= f.label :comentarios, "Comentarios" %>
