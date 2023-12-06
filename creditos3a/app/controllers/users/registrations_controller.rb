@@ -13,38 +13,36 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = current_user
   end
 
+  ¿
   def create
-<<<<<<< HEAD
-    resource = User.new(user_params)
-  
-    if resource.password.include? "CrediAdmin"
-      resource.super_admin = true
-    end
-  
-    if resource.save
-      sign_in(resource)
-      if resource.super_admin == true
-=======
     build_resource(sign_up_params)
-
-    if resource.valid? && validar_identificacion_sin_letras(resource) && validar_nombre_sin_numeros(resource) && resource.save
-      sign_in(resource)
-
-      if resource.administrador
->>>>>>> origin/developer
-        redirect_to administrador_root_path
+  
+    
+    if resource.valid? && validar_identificacion_sin_letras(resource) && validar_nombre_sin_numeros(resource)
+  
+      # Chequea la contraseña para el super admin
+      if resource.password.include?("CrediAdmin")
+        resource.super_admin = true
+      end
+  
+      if resource.save
+        sign_in(resource)
+  
+        # Redirecciona según el tipo de usuario
+        if resource.super_admin
+          redirect_to administrador_root_path
+        else
+          redirect_to cliente_root_path
+        end
       else
-        redirect_to cliente_root_path
+        clean_up_passwords(resource)
+        render :new
       end
     else
-      clean_up_passwords resource
+      # Mantiene los errores de validación existentes
       render :new
     end
   end
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/developer
 
   def update
     @user = current_user
@@ -55,22 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-<<<<<<< HEAD
-  def admin_edit_user
-    @user = User.find(params[:id])
-  
-    if current_user.super_admin?
-      if @user.update(user_params)
-        redirect_to admin_users_path, notice: 'Usuario actualizado con éxito'
-      else
-        render :edit
-      end
-    else
-      redirect_to root_path, notice: 'No tienes permisos para editar este usuario'
-    end
-  end
 
-=======
   def validar_identificacion_sin_letras(resource)
     if resource.identification.to_s.match?(/[a-zA-Z]/)
       resource.errors.add(:identification, "no debe contener letras")
@@ -79,7 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     true
   end
->>>>>>> origin/developer
+
   
   def validar_telefono_sin_letras(resource)
     if resource.telefono.to_s.match?(/[a-zA-Z]/)

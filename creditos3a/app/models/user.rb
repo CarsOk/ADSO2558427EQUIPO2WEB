@@ -23,13 +23,12 @@ class User < ApplicationRecord
   
   attribute :administrador, :boolean, default: false
 
-<<<<<<< HEAD
   attribute :super_admin, :boolean, default: false
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-=======
->>>>>>> origin/developer
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
