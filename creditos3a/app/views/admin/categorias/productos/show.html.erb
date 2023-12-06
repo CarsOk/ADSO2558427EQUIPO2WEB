@@ -12,7 +12,6 @@
           <!-- Agregar botones para editar y eliminar -->
           <div class="d-flex justify-content-center mt-3">
             <%= link_to "Editar", edit_admin_categoria_producto_path(@categoria, @producto), class: "btn btn-primary mr-3" %>
-            <%= link_to "Eliminar", admin_categoria_producto_path(@categoria, @producto), method: :delete, data: { confirm: '¿Estás seguro de que deseas eliminar este producto?' }, class: "btn btn-danger" %>
           </div>
           <div class="text-center mt-3">
             <%= link_to "Volver a la lista de productos", admin_categoria_productos_path(@categoria), class: "btn btn-secondary" %>

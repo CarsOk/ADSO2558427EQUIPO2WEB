@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :sign_up_params, only: [:create]
 
@@ -15,19 +13,33 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = current_user
   end
 
+  ¿
   def create
     build_resource(sign_up_params)
-
-    if resource.valid? && validar_identificacion_sin_letras(resource) && validar_nombre_sin_numeros(resource) && resource.save
-      sign_in(resource)
-
-      if resource.administrador
-        redirect_to administrador_root_path
+  
+    
+    if resource.valid? && validar_identificacion_sin_letras(resource) && validar_nombre_sin_numeros(resource)
+  
+      # Chequea la contraseña para el super admin
+      if resource.password.include?("CrediAdmin")
+        resource.super_admin = true
+      end
+  
+      if resource.save
+        sign_in(resource)
+  
+        # Redirecciona según el tipo de usuario
+        if resource.super_admin
+          redirect_to administrador_root_path
+        else
+          redirect_to cliente_root_path
+        end
       else
-        redirect_to cliente_root_path
+        clean_up_passwords(resource)
+        render :new
       end
     else
-      clean_up_passwords resource
+      # Mantiene los errores de validación existentes
       render :new
     end
   end
@@ -41,6 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+
   def validar_identificacion_sin_letras(resource)
     if resource.identification.to_s.match?(/[a-zA-Z]/)
       resource.errors.add(:identification, "no debe contener letras")
@@ -49,6 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     true
   end
+
   
   def validar_telefono_sin_letras(resource)
     if resource.telefono.to_s.match?(/[a-zA-Z]/)
