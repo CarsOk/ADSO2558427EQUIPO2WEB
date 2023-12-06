@@ -68,11 +68,6 @@
           <%= f.text_area :comentarios, class: "form-control" %>
         </div>
       
-        <div class="field">
-          <%= f.label :metodo_pago, "Método de Pago" %>
-          <%= f.select :metodo_pago, ["Tarjeta crédito", "Solicitando un crédito", "Bancolombia", "Daviplata", "Nequi", "Contra-Entrega"], class: "form-control" %>
-        </div>
-      
         <%= f.hidden_field :producto_id, value: @producto.id %>
         
        </div>

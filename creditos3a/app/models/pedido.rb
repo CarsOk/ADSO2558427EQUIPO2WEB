@@ -5,5 +5,5 @@ class Pedido < ApplicationRecord
   validates :user, presence: true
   validates :producto, presence: true
   validates :comentarios, presence: true
-  validates :metodo_pago, presence: true
+  validates :metodo_pago, presence: false
 end

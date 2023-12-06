@@ -23,18 +23,54 @@
         <div class="card-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.text_field :first_name, autofocus: true, class: "form-control mb-1", placeholder: "Primer nombre" %>
+          <% if f.object.errors[:first_name].any? %>
+          
+          <span class="error">
+              no digitar numeros en este campo / Do not digit numbers in this field
+          </span>
+        <% end %>
+      
           <%= f.text_field :second_name, class: "form-control mb-1", placeholder: "Segundo nombre" %>
+                <% if f.object.errors[:second_name].any? %>
+                
+                <span class="error">
+                    no digitar numeros en este campo / Do not digit numbers in this field
+                </span>
+              <% end %>
           <%= f.text_field :last_name_1, class: "form-control mb-1", placeholder: "Primer apellido" %>
+          <% if f.object.errors[:last_name_1].any? %>
+          
+          <span class="error">
+              no digitar numeros en este campo / Do not digit numbers in this field
+          </span>
+        <% end %>
           <%= f.text_field :last_name_2, class: "form-control mb-1", placeholder: "Segundo apellido" %>
+          <% if f.object.errors[:last_name_2].any? %>
+          
+          <span class="error">
+              no digitar numeros en este campo / Do not digit numbers in this field
+          </span>
+        <% end %>
           <%= f.text_field :identification, class: "form-control mb-1", placeholder: "Identificación" %>
+          <% if resource&.errors&.[](:identification).any? %>
+                 <span class="error">
+                      no digitar letras en este campo / Do not digitize letters in this field
+                 </span>
+                <% end %>
           <%= f.text_field :telefono, class: "form-control mb-1", placeholder: "Teléfono" %>
+          <% if resource&.errors&.[](:telefono).any? %>
+                 <span class="error">
+                      no digitar letras en este campo / Do not digitize letters in this field
+                 </span>
+                <% end %>
           <%= f.email_field :email, autofocus: true, class: "form-control mb-1", placeholder: "Email" %>
           <%= f.text_field :address, class: "form-control mb-1", placeholder: "Direccion" %>
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control mb-1", placeholder: "Contraseña" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mb-1", placeholder: "Confirmar contraseña" %>
           <%= f.submit "Registrarse", class: "registrar" %>
         <% end %>
-          <%= link_to "Iniciar sesión", new_user_session_path, class: "iniciar" %>
+        <%= link_to "Iniciar sesión", new_user_session_path, class: "iniciar" %>
+        
         </div>
       </div>
     </div>
