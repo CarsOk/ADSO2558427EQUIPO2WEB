@@ -35,18 +35,13 @@
                 <p class="text-muted" style="font-size: 16px;"><%= @user.last_name_2 %></p>
                 </div>
                 <div class="col-6 mb-3">
-                  <<h6 style="font-size: 18px;">Email</h6>
+                  <h6 style="font-size: 18px;">Email</h6>
                   <p class="text-muted" style="font-size: 16px;"><%= @user.email %></p>
                 </div>
                 <div class="col-6 mb-3">
                 <h6 style="font-size: 18px;">Teléfono</h6>
                 <p class="text-muted" style="font-size: 16px;"><%= @user.telefono %></p>
               </div>              
-                <div class="d-flex justify-content-start">
-                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                  <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                </div>
               </div>
               <% if current_user.administrador? %>
               <%= link_to 'Editar', edit_user_registration_path, class: 'btn btn-secondary' %>

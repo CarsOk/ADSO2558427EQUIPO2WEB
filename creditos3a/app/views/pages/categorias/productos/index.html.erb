@@ -10,44 +10,43 @@
 </head>
 <body>
 <header>
-			<div class="container-hero">
-				<div class="container hero">
-					<div class="customer-support">
-						<i class="fa-solid fa-headset"></i>
-						<div class="content-customer-support">
-							<span class="text">Soporte al cliente</span>
-							<span class="number">123-456-7890</span>
-						</div>
-					</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container px-4 px-lg-5">
+  <a class="navbar-brand" href="/landing_page">
+    <%= image_tag "icono.png", class: 'icono-header'%>
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+  <li class="nav-item">
+  <%= link_to "Productos", pages_categorias_path, class: "nav-link"  %>
+  
+  </li>
+  <li class="nav-item">
+  <%= link_to "Contacto", new_pages_contactopqrs_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Quienes somos", pages_quienes_somos_path, class: "nav-link" %>
+    <i class="fa-icon fa-solid fa-info-circle"></i>
+  </li>
 
-					<div class="container1-logon1">
-                        <i class="fa-solid fa-credit-card"></i>
-						<h1 class="logon1"><a href="images/a.png">Creditos3A</a></h1>
-					</div>
+  <% if user_signed_in? %>
+   <li class="nav-item">
+   <%= link_to 'Mi Perfil', user_profile_path, class: "nav-link" %>
+  </li>
+  <% end %>
 
-					<div class="container-user">
-                    <div class="icono1">
-                    <img src="<%= asset_path('icono.png') %>" alt="Icono" class="imagen-icono1">
-                    </div>
-                    <a href="<%= user_session_path %>">Iniciar sesión</a>
-						<div class="content-shopping-cart">
-						</div>
-					</div>
-				</div>
-			</div>
+</ul>
 
-			<div class="nav1">
-    <nav class="nava2">
-        <i class="fa-solid fa-bars" id="menu-icon"></i>
-        <ul class="menu1" id="menu-list">
-            <li><a href="/landing_page">Inicio</a></li>
-            <li><a href="<%= pages_categorias_path %>">Categorías</a></li>
-            <li><a href="<%= pages_quienes_somos_path %>">Quienes somos</a></li>
-            <li><a href="<%= new_pages_contactopqrs_path %>">Contacto</a></li>
-            <li><a href="#">Más</a></li>
-        </ul>
-    </nav>
+    <% if user_signed_in? %>
+      <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    <% else %>
+      <%= link_to "Iniciar sesión", new_user_session_path, class: "btn btn-primary blue", id: "boton-sesion" %>
+    <% end %>
+    
+  </div>
 </div>
+</nav>
 <% if @categoria %>
 <header class="banner1">
   <%= image_tag @categoria.imagen.url, class: "card-img-top img-thumbnail", alt: @categoria.nombre %>
@@ -61,9 +60,6 @@
 
 		   
         </section>
-
-      
-
 
     
     <h4 class="titulo-llamativo">Productos</h4>
