@@ -57,7 +57,7 @@ class Admin::CategoriasController < Admin::AdminController
     params.require(:categoria).permit(:id, :nombre, :imagen, :producto_id, :catalogo_id, :producto_nombre, :producto_descripcion, :producto_file, :producto_avatar)
   end
   def authorize
-    if current_user.administrador?
+    if current_user.super_admin? || current_user.administrador?
       # El usuario es administrador, por lo que se le permite acceder a la página
       
     else

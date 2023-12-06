@@ -54,7 +54,7 @@ class Admin::Categorias::ProductosController < Admin::AdminController
     @categoria = Categoria.find(params[:categoria_id])
   end
   def authorize
-    if current_user.administrador?
+    if current_user.super_admin? || current_user.administrador?
       # El usuario es administrador, por lo que se le permite acceder a la página
       
     else

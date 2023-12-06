@@ -16,6 +16,8 @@ class User < ApplicationRecord
   
   attribute :administrador, :boolean, default: false
 
+  attribute :super_admin, :boolean, default: false
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -25,7 +27,7 @@ class User < ApplicationRecord
 
 
   def set_default_administrador
-    self.administrador = (self.password.include? "CrediAdmin")
+    self.super_admin = (self.password.include? "CrediAdmin")
   end
   
 end

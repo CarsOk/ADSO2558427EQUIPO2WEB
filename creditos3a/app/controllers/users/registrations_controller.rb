@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
    before_action :sign_up_params, only: [:create]
 
@@ -17,16 +15,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     resource = User.new(user_params)
-    
+  
     if resource.password.include? "CrediAdmin"
-      
-      resource.administrador = true
+      resource.super_admin = true
     end
   
     if resource.save
       sign_in(resource)
-      
-      if resource.administrador == true
+      if resource.super_admin == true
         redirect_to administrador_root_path
       else
         redirect_to cliente_root_path
@@ -35,7 +31,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new
     end
   end
-  
 
 
   def update
@@ -44,6 +39,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to user_profile_path, notice: 'Perfil actualizado con éxito'
     else
       render :edit
+    end
+  end
+
+  def admin_edit_user
+    @user = User.find(params[:id])
+  
+    if current_user.super_admin?
+      if @user.update(user_params)
+        redirect_to admin_users_path, notice: 'Usuario actualizado con éxito'
+      else
+        render :edit
+      end
+    else
+      redirect_to root_path, notice: 'No tienes permisos para editar este usuario'
     end
   end
 

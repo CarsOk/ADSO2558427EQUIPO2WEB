@@ -5,7 +5,7 @@ get 'dashboard/admin_users', to: 'dashboard#admin_users'
 get 'dashboard/show_user', to: 'dashboard#show_user', as: 'show_user_dashboard'
 get '/dashboard/mejores_calificados', to: 'dashboard#mejores_calificados', as: 'dashboard_mejores_calificados'
 get '/mensajes', to: 'dashboard#mensajes'
-
+patch '/admin/users/:id/edit_admin', to: 'dashboard#edit_admin_user'
 
 
   namespace :pages do
@@ -17,7 +17,7 @@ get '/mensajes', to: 'dashboard#mensajes'
   get 'index' => 'home#index'
   get 'pedidos_pdf', to: 'dashboard#export_pedidos_pdf', format: :pdf
   # Restricciones
-  constraints(lambda { |request| !request.env['warden'].user || !request.env['warden'].user.administrador? }) do
+  constraints(lambda { |request| !request.env['warden'].user || !request.env['warden'].user.administrador? || user.super_admin? }) do
     get 'categorias', to: 'categorias#denied_access'
     get 'categorias/:id', to: 'categorias#denied_access'
   end
@@ -45,7 +45,7 @@ get '/mensajes', to: 'dashboard#mensajes'
     registrations: 'users/registrations'
   }
 
-  authenticated :user, ->(user) { user.administrador? } do
+  authenticated :user, ->(user) { user.administrador? || user.super_admin? } do
     root to: 'dashboard#home', as: :administrador_root
   end
 
