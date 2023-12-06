@@ -20,6 +20,10 @@
   </div>
 
   <div class="form-group">
+  <%= f.input :cantidad, input_html: { class: 'form-control custom-input', placeholder: 'Cantidad del Producto', required: true, type: 'number' } %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :disponible, class: 'form-check-label' %>
     <%= f.input :disponible, as: :boolean, input_html: { class: 'form-check-input' } %>
   </div>

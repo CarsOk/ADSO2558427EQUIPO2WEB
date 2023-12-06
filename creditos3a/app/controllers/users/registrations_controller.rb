@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = current_user
   end
 
-  ¿
+  
   def create
     build_resource(sign_up_params)
   
