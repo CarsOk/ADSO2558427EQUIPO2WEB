@@ -1,8 +1,50 @@
-<h1>Lista de Administradores</h1>
-
+<h3>Super Adminisrador:</h3
 <div class="admin-cards">
-  <% @users.where(administrador: true).each do |user| %>
-    <div class="admin-card">
+  <% if @users.where(super_admin: true).any? %>
+    <div class="admin-card super-admin">
+      <h3><%= @users.where(super_admin: true).first.email %></h3>
+      <p><strong>Primer Nombre:</strong> <%= @users.where(super_admin: true).first.first_name %></p>
+      <p><strong>Segundo Nombre:</strong> <%= @users.where(super_admin: true).first.second_name %></p>
+      <p><strong>Primer Apellido:</strong> <%= @users.where(super_admin: true).first.last_name_1 %></p>
+      <p><strong>Segundo Apellido:</strong> <%= @users.where(super_admin: true).first.last_name_2 %></p>
+      <p><strong>Identification:</strong> <%= @users.where(super_admin: true).first.identification %></p>
+      <p><strong>Address:</strong> <%= @users.where(super_admin: true).first.address %></p>
+    </div>
+    <hr>
+  <% end %>
+  <h3>Administradores:</h3>
+
+<% @users.where(administrador: true).each do |user| %>
+  <div class="admin-card administrador">
+    <h3><%= user.email %></h3>
+    <p><strong>Primer Nombre:</strong> <%= user.first_name %></p>
+    <p><strong>Segundo Nombre:</strong> <%= user.second_name %></p>
+    <p><strong>Primer Apellido:</strong> <%= user.last_name_1 %></p>
+    <p><strong>Segundo Apellido:</strong> <%= user.last_name_2 %></p>
+    <p><strong>Identification:</strong> <%= user.identification %></p>
+    <p><strong>Address:</strong> <%= user.address %></p>
+  </div>
+  <% if current_user.super_admin? %>
+  <div class="form-check">
+    <%= form_for(user, url: url_for(controller: 'dashboard', action: 'edit_admin_user', id: user.id), method: :patch) do |f| %>
+      <%= f.check_box :administrador, checked: user.administrador?, class: "form-check-input" %>
+      <label class="form-check-label" for="administrador">Para retirar el adminsitrador deseleccione la casilla:</label><br>
+      <%= f.submit "Cambiar Rol", class: "btn btn-outline-danger",style: "width: 100px; height: 30px;", data: { confirm: "¿Estás seguro de volver a dar permisos de administrador a este usuario?" } %>
+    <% end %>
+  </div>
+<% end %>
+  
+<% end %>
+
+  <% if @users.where(administrador: false).any? %>
+  <hr>
+  <h3>Usuarios Normales;</h3>
+  <% @users.where(administrador: false).each do |user| %>
+    <% if user.super_admin? %>
+      <% next %>
+    <% end %>
+    <%= hidden_field_tag :id, user.id %>
+    <div class="admin-card normal">
       <h3><%= user.email %></h3>
       <p><strong>Primer Nombre:</strong> <%= user.first_name %></p>
       <p><strong>Segundo Nombre:</strong> <%= user.second_name %></p>
@@ -10,6 +52,16 @@
       <p><strong>Segundo Apellido:</strong> <%= user.last_name_2 %></p>
       <p><strong>Identification:</strong> <%= user.identification %></p>
       <p><strong>Address:</strong> <%= user.address %></p>
-      </div>
+    </div>
+    <% if current_user.super_admin? %>
+    <div class="form-check">
+      <%= form_for(user, url: url_for(controller: 'dashboard', action: 'edit_admin_user', id: user.id), method: :patch) do |f| %>
+        <%= f.check_box :administrador, checked: user.administrador?, class: "form-check-input" %>
+        <label class="form-check-label" for="administrador">Hacer administrador</label><br>
+        <%= f.submit "Cambiar Rol", class: "btn btn-primary", style: "width: 100px; height: 30px;", data: { confirm: "¿Estás seguro de volver a dar permisos de administrador a este usuario?" } %>
+      <% end %>
+    </div>
+<% end %>
+    <hr>
   <% end %>
-</div>
+<% end %>

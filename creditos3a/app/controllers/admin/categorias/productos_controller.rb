@@ -30,11 +30,21 @@ class Admin::Categorias::ProductosController < Admin::AdminController
 
   def update
     @producto = @categoria.productos.find(params[:id])
-    if @producto.update(producto_params)
+
+  if @producto.update(producto_params)
+    # Si la cantidad es 0, establece el estado del producto como no disponible
+    if @producto.cantidad.zero?
+      @producto.disponible = false
+      @producto.save
+
       redirect_to admin_categoria_productos_path(@categoria)
     else
-      render :edit
+      # Redirige a la página de edición del producto
+      redirect_to admin_categoria_productos_path(@categoria)
     end
+  else
+    render :edit
+  end
   end
 
   def destroy
@@ -47,14 +57,14 @@ class Admin::Categorias::ProductosController < Admin::AdminController
   private
 
   def producto_params
-    params.require(:producto).permit(:id, :nombre, :descripcion, :precio, :avatar, :categoria_id, :disponible)
+    params.require(:producto).permit(:id, :nombre, :descripcion, :precio, :avatar, :categoria_id, :disponible, :cantidad)
   end
 
   def set_categoria
     @categoria = Categoria.find(params[:categoria_id])
   end
   def authorize
-    if current_user.administrador?
+    if current_user.super_admin? || current_user.administrador?
       # El usuario es administrador, por lo que se le permite acceder a la página
       
     else

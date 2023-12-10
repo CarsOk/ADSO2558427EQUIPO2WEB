@@ -11,6 +11,13 @@ class DashboardController < ApplicationController
     @users = User.all
   end
 
+  def descargar_manual
+    send_file(
+      "#{Rails.root}/app/views/dashboard/manual.pdf",
+      filename: "manual.pdf",
+      type: "application/pdf"
+    )
+  end
 
   def show_user
     @users_with_pedidos = User.includes(:pedidos)
@@ -34,6 +41,8 @@ class DashboardController < ApplicationController
   def mejores_calificados
     @productos = Producto.all.order(rating_average: :desc).limit(10)
   end
+  def graficos 
+  end
 
   def mensajes
     @contactospqrs = Contactopqrs.all
@@ -44,18 +53,36 @@ class DashboardController < ApplicationController
         contactopqrs.producto = Producto.find(contactopqrs.producto_id)
     end
   end
+
+  def edit_admin_user
+    @user = User.find(params[:id])
+
+    if current_user.super_admin?
+      if @user.update(user_params)
+        redirect_to dashboard_admin_users_path, notice: 'Usuario actualizado con éxito'
+      else
+        render :edit
+      end
+    else
+      redirect_to root_path, notice: 'No tienes permisos para editar este usuario'
+    end
+  end
   
   private
 
+  def user_params
+    params.require(:user).permit(:email, :first_name, :second_name, :last_name_1, :last_name_2, :identification, :address, :administrador)
+  end
+
   def authorize
-    if current_user.administrador?
+    if current_user.super_admin? || current_user.administrador?
       # El usuario es administrador, por lo que se le permite acceder a la página
     else
       # El usuario no es administrador, por lo que se le redirige a la página del cliente
       redirect_to landing_page_path, alert: 'Solo los administradores pueden acceder a esta página.'
     end
   end
-  
+
 
  
 end

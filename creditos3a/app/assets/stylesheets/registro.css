@@ -3,7 +3,9 @@
     color: white;
 }
 
-
+span.error {
+    color: red;
+  }
 .titulo{
     color: #52545C;
     font-size: 25px;

@@ -2,10 +2,14 @@ class Ability
   include CanCanCan::Ability
 
   def initialize(user)
-    # Si el usuario tiene el rol de administrador
-    if user.has_role?(:administrador)
-      can :manage, all
-
+    # Si el usuario es un super administrador
+    if user.super_admin?
+      can :manage, :all
+    # Si el usuario es un administrador
+    elsif user.administrador?
+      can :manage, :admin
+      can :manage, :categoria
+      can :manage, :producto
        can :read, Pedido, user_id: user.id
     else
       # De lo contrario, el usuario solo puede ver sus propios pedidos y calificaciones

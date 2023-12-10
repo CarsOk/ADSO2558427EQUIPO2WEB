@@ -12,11 +12,12 @@
     <% @productos.each do |producto| %>
       <div class="col-md-4 mb-4">
         <div class="card border-rounded">
-          <%= image_tag producto.avatar.url, class: "card-img-top img-fluid" %>
+          <%= image_tag producto.avatar.url, class: "card-img-top" %>
           <div class="card-body">
             <h5 class="card-title"><%= producto.nombre %></h5>
             <p class="card-text"><%= producto.descripcion %></p>
             <p class="card-text"><strong>Precio: <%= number_to_currency(producto.precio) %></strong></p>
+            <p class="card-text"><strong>Cantidad: <%= producto.cantidad %></strong></p>
             <% if producto.disponible %>
             <p class="text-success">Producto Disponible</p>
             <% else %>

@@ -10,7 +10,7 @@ class Users::SessionsController < Devise::SessionsController
   end
   
   def after_sign_in_path_for(resource)
-    if resource.administrador?
+    if resource.super_admin? || resource.administrador?
       # Redirige al root de administrador si el usuario es un administrador
       dashboard_home_path
     else
