@@ -75,6 +75,8 @@ gem 'wkhtmltopdf-binary'
 
 gem 'prawn'
 
+gem 'rack-cors'
+
 #gem 'pg'
 
 
